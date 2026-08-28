@@ -14,16 +14,16 @@ export function ListingsBlock({ listings }: { listings: Listing[] }) {
         Listings on this URL
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        {site.name} does not invent company names, phone numbers, or licenses.
-        Featured and exclusive spots are paid and labeled. We are not the
-        roofing contractor on the listing.
+        {site.name} does not invent company names, phone numbers, licenses,
+        star ratings, or city prices. Dayton / Miami Valley requests stay with{" "}
+        {site.exclusiveContractor}. Paid spots, when they exist, are labeled.
       </p>
 
       {listings.length === 0 ? (
         <p className="mt-4 rounded-lg border border-dashed border-border bg-muted/50 px-4 py-6 text-base">
-          No live listings on this URL yet. Use the form. We hold the request
-          at {site.leadsEmail} and do not send it to a contractor who is not on
-          the approved payer list.
+          No live listings on this URL yet. Use the form. Dayton / Miami Valley
+          requests stay with {site.exclusiveContractor} at {site.leadsEmail}.
+          We do not sell those leads.
         </p>
       ) : (
         <ul className="mt-4 space-y-3">

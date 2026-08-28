@@ -30,17 +30,18 @@ export default function HomePage() {
             {site.name} is a lead-generation directory for roofing companies.
             We are not a contractor. We do not send a crew, and we do not
             invent company names, star ratings, or city-specific prices. Each
-            city has its own URL. Featured spots are paid and labeled.
+            city has its own URL. Paid spots, when they exist, are labeled.
           </p>
           <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-            Homeowners use the form. Companies buy a listing or exclusive leads
-            on the{" "}
+            Dayton / Miami Valley quote requests within this coverage stay with{" "}
+            {site.exclusiveContractor} at {site.leadsEmail}. We do not sell
+            those leads to other contractors. Paid listings may exist later
+            outside this ring. For now the inbox is {site.leadsEmail} only.
+            Companies outside this coverage can read the{" "}
             <Link href="/for-pros/" className="underline underline-offset-2">
               For Pros
             </Link>{" "}
-            page. Until a listing goes live on a URL, we still take the request
-            and hold it at {site.leadsEmail}. We never send a lead to a
-            contractor who is not on the approved payer list.
+            page — we do not offer exclusive or sold Dayton-area leads there.
           </p>
           <Disclosure className="mt-3 max-w-2xl" />
         </div>

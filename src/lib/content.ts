@@ -14,10 +14,10 @@ export type Faq = { question: string; answer: string };
 export function introParagraphs(city: City, service: Service): string[] {
   const comingSoon =
     city.status === "coming_soon"
-      ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form; we hold the request at ${site.leadsEmail} until an approved contractor covers this ZIP.`
+      ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form; Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`
       : null;
 
-  const directory = `${site.disclosure} If the listings block is empty, use the form anyway. We hold the request at ${site.leadsEmail}. We do not send a lead to a contractor who is not on the approved payer list.`;
+  const directory = `${site.disclosure} If the listings block is empty, use the form anyway. Requests in this coverage stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`;
 
   const serviceLine = serviceIntro(city, service);
 
@@ -50,7 +50,7 @@ function serviceIntro(city: City, service: Service): string {
 
 export function hubIntro(city: City): string[] {
   return [
-    `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for listings (when we have them) and a quote form. Featured spots are paid and labeled.`,
+    `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`,
     city.setting,
     `${city.housing} ${city.roofs} ${city.storms}`,
     city.localNote,
@@ -127,11 +127,11 @@ export function faqs(city: City, service: Service): Faq[] {
   return [
     {
       question: `Is ${site.name} a ${service.name.toLowerCase()} company in ${city.name}?`,
-      answer: `No. ${site.name} is a directory and lead-routing site. We do not tear off roofs, patch ice dams, or send a truck. We are not the roofing contractor on the listing. Companies can buy a listing on this URL. Featured and exclusive spots are paid and labeled.`,
+      answer: `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the Dayton / Miami Valley coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`,
     },
     {
       question: `Why are some listings marked Featured or Exclusive?`,
-      answer: `Those are paid placements. A featured spot is a paid, labeled upgrade. An exclusive spot means a company bought category priority on this URL. Standard listings, when we have them, are not marked as paid upgrades. We do not invent companies to fill empty slots.`,
+      answer: `Those labels exist for paid placements if a future market outside this Dayton / Miami Valley ring gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton-area leads, and we do not invent companies to fill empty slots.`,
     },
     {
       question: `What does ${service.name.toLowerCase()} cost in ${city.name}?`,
@@ -144,8 +144,8 @@ export function faqs(city: City, service: Service): Faq[] {
           : `What happens after I submit the form on this ${city.name} page?`,
       answer:
         city.status === "coming_soon"
-          ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form. We hold it at ${site.leadsEmail} and route it only to an approved contractor when one covers your ZIP. You should get a phone call, not a ${site.name} crew.`
-          : `We take the request and hold it at ${site.leadsEmail}. If an approved contractor is on the payer list for your ZIP and service, we route it there. There is no approved payer list in this repo yet, so the inbox is ${site.leadsEmail} only. We never send a lead to a contractor who is not on that list. Expect a call from a local company — not from a ${site.name} roofer.`,
+          ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. You should get a phone call, not a ${site.name} crew.`
+          : `We take the request and hold it at ${site.leadsEmail}. ${city.name} is in the Dayton / Miami Valley coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer.`,
     },
     {
       question:
@@ -168,11 +168,11 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `Does ${site.name} work on roofs in ${city.name}?`,
-      answer: `No. ${site.name} publishes directory pages and holds quote requests. We are not the roofing contractor on the listing. A local company calls you only if they are on the approved payer list.`,
+      answer: `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those Dayton-area leads to other contractors.`,
     },
     {
       question: `Are featured listings ads?`,
-      answer: `Featured and exclusive spots are paid placements and are labeled on the service pages. We do not invent company names to fill a page.`,
+      answer: `Featured and exclusive labels are for paid placements if a market outside this Dayton / Miami Valley ring is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`,
     },
     {
       question: `Where is the quote form?`,
@@ -180,7 +180,7 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `How do contractors get on this ${city.name} page?`,
-      answer: `See the For Pros page. Companies can buy a standard listing, a labeled featured spot, or exclusive leads for a city and service. There is no credit-card form on this site. Until a listing is live, we still take the request and hold it at ${site.leadsEmail}.`,
+      answer: `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside this ring. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`,
     },
   ];
 }
