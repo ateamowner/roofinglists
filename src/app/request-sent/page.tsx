@@ -12,13 +12,13 @@ export default function RequestSentPage() {
   return (
     <article className="mx-auto w-full max-w-xl px-4 py-16 sm:px-6">
       <h1 className="font-heading text-3xl font-semibold tracking-tight">
-        Request sent. We hold it and route it only to an approved contractor.
+        Request sent. Dayton-area requests stay with {site.exclusiveContractor}.
       </h1>
       <p className="mt-4 leading-7 text-muted-foreground">
         {site.name} is a directory. Your request went to {site.leadsEmail}.
-        Until a listing is live and that company is on the approved payer list,
-        we hold the request there. The call comes from a local roofing company
-        — not from a {site.name} crew.
+        Dayton / Miami Valley coverage stays with {site.exclusiveContractor}.
+        We do not sell those leads to other contractors. The call comes from
+        that shop — not from a {site.name} crew.
       </p>
       <Disclosure className="mt-4" />
       <p className="mt-6">

@@ -4,7 +4,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: `Privacy — ${site.name}`,
-  description: `How ${site.name} collects quote-form data and holds it for approved roofing companies.`,
+  description: `How ${site.name} collects quote-form data. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}.`,
 };
 
 export default function PrivacyPage() {
@@ -17,8 +17,9 @@ export default function PrivacyPage() {
       <Disclosure className="mt-4" />
       <p className="mt-4 leading-7">
         {site.name} ({site.domain}) is a directory. We collect information so
-        we can hold a quote request and, when an approved contractor is on the
-        payer list, route it. We are not that contractor.
+        we can hold a quote request. Dayton / Miami Valley requests within this
+        coverage stay with {site.exclusiveContractor}. We do not sell those
+        leads to other contractors.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we collect</h2>
@@ -36,18 +37,16 @@ export default function PrivacyPage() {
         <a href={`mailto:${site.leadsEmail}`} className="underline">
           {site.leadsEmail}
         </a>
-        . We hold every request there. We share it only with a company that is
-        on the approved payer list for your ZIP and service, including a paid
-        listing on that URL when one exists. There is no approved payer list in
-        this repository, so the inbox is {site.leadsEmail} only. We never send
-        a lead to a contractor who is not on that list.
+        . Dayton / Miami Valley requests stay with {site.exclusiveContractor}{" "}
+        at that inbox. We do not sell those leads. Paid listings may exist
+        later outside this ring. For now the inbox is {site.leadsEmail} only.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">SMS</h2>
       <p className="mt-3 leading-7">
-        SMS consent is optional. If you check it, the company that receives
-        your request may text you about that job. Consent is not a condition of
-        submitting the form.
+        SMS consent is optional. If you check it, {site.exclusiveContractor} may
+        text you about that job. Consent is not a condition of submitting the
+        form.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we do not do</h2>
@@ -55,7 +54,7 @@ export default function PrivacyPage() {
         <li>We do not take card numbers on this site.</li>
         <li>We do not sell a public people-search list of form submitters.</li>
         <li>We do not publish your request on the city page.</li>
-        <li>We do not send your request to a contractor who is not an approved payer.</li>
+        <li>We do not sell Dayton / Miami Valley quote requests to other contractors.</li>
       </ul>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">Contact</h2>

@@ -152,8 +152,9 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
         Request a callback
       </h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        No credit card. We hold this at {site.leadsEmail} and route it only to
-        an approved contractor.
+        No credit card. Dayton / Miami Valley requests stay with{" "}
+        {site.exclusiveContractor} at {site.leadsEmail}. We do not sell those
+        leads.
       </p>
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "sm:grid-cols-2"}`}>
