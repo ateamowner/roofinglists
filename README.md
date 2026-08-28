@@ -40,6 +40,8 @@ This repository publishes its own Pages site from `main` via `.github/workflows/
 
 Required repo settings (once): **Settings → Pages → Source = GitHub Actions**. Custom domain: `roofinglists.com`. `CNAME` is committed as `roofinglists.com` (repo root and `public/CNAME`).
 
+Pages source was set to GitHub Actions on 2026-08-28. Custom domain roofinglists.com is set in CNAME and should be saved in repo Pages settings.
+
 This workflow does **not** change [treelist.ai](https://treelist.ai) DNS or the TreeList repo.
 
 ## Porkbun DNS (roofinglists.com only — do not apply)
