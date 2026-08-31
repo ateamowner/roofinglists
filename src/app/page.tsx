@@ -13,6 +13,7 @@ import {
 export const metadata: Metadata = {
   title: `${site.name} — roofing quote directory`,
   description: site.description,
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

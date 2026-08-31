@@ -37,6 +37,13 @@ export function faqPageSchema(faqs: Faq[]) {
   };
 }
 
+function trailingSlashUrl(path: string): string {
+  const origin = site.url.replace(/\/+$/, "");
+  if (path === "" || path === "/") return `${origin}/`;
+  const withSlash = path.endsWith("/") ? path : `${path}/`;
+  return `${origin}${withSlash.startsWith("/") ? withSlash : `/${withSlash}`}`;
+}
+
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -45,7 +52,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `${site.url}${item.path}`,
+      item: trailingSlashUrl(item.path),
     })),
   };
 }
