@@ -5,6 +5,7 @@ import { liveCitySlugs, servicePath, site } from "@/config/site";
 export const metadata: Metadata = {
   title: `For roofing companies — ${site.name}`,
   description: `How ${site.name} treats Dayton / Miami Valley coverage and what may be available later outside this ring. No exclusive Dayton-area leads. No credit card on this page.`,
+  alternates: { canonical: "/for-pros/" },
 };
 
 export default function ForProsPage() {
