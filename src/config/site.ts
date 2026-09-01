@@ -15,12 +15,12 @@ export const site = {
   formRedirect: "https://roofinglists.com/request-sent/",
   tagline: "A directory of roofing companies. Not the contractor on the listing.",
   year: 2026,
-  /** Reserved contractor for Dayton / Miami Valley coverage in this repo. */
+  /** Reserved contractor for Dayton, Columbus, and Cincinnati in-house coverage. */
   exclusiveContractor: "A Team Contracting",
   description:
-    "RoofingLists is a lead-generation directory for roofing. Dayton / Miami Valley quote requests within this coverage stay with A Team Contracting. We do not invent company names, phones, licenses, star ratings, or city-specific prices.",
+    "RoofingLists is a lead-generation directory for roofing. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not invent company names, phones, licenses, star ratings, or city-specific prices.",
   disclosure:
-    "RoofingLists is a directory. Dayton / Miami Valley quote requests within this coverage stay with A Team Contracting. We do not sell those leads to other contractors. Paid spots, when they exist, are labeled.",
+    "RoofingLists is a directory. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not sell those leads to other contractors. Cincinnati is also in-house — not a contractor-pay market. Paid spots, when they exist, are labeled.",
   theme: {
     background: "#f4efe8",
     foreground: "#1c1916",
@@ -42,7 +42,7 @@ export type ListingTier = "standard" | "featured" | "exclusive";
 
 export type CityStatus = "live" | "coming_soon";
 
-/** Dayton ring is the in-house exclusive. Columbus is live but outside that radius. */
+/** Dayton ring and Columbus are both in-house A Team leads. Columbus is not a contractor-pay SKU. */
 export type CityRegion = "dayton" | "columbus";
 
 export type City = {
@@ -53,7 +53,7 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
-  /** Defaults to dayton (in-house exclusive). Set columbus for hold-only pages. */
+  /** Defaults to dayton (in-house). Set columbus for Central Ohio pages — also in-house. */
   region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
@@ -748,7 +748,7 @@ export const cityRegionHeadings: Record<
   columbus: {
     heading: "Columbus / Franklin County",
     intro:
-      "Live Central Ohio hub. Nearby links only point at cities that already exist on this site — Columbus has no in-repo neighbor yet. Requests are held at the form inbox; there is no exclusive buy path.",
+      "Live Central Ohio hub. Nearby links only point at cities that already exist on this site — Columbus has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
   },
 };
 
@@ -758,6 +758,18 @@ export function cityRegion(city: City): CityRegion {
 
 export function isDaytonExclusive(city: City): boolean {
   return cityRegion(city) === "dayton";
+}
+
+/** Dayton ring and Columbus stay with A Team. Not contractor-pay roofinglists markets. */
+export function isInHouseLead(city: City): boolean {
+  const region = cityRegion(city);
+  return region === "dayton" || region === "columbus";
+}
+
+export function inHouseCoverageLabel(city: City): string {
+  return isDaytonExclusive(city)
+    ? "Dayton / Miami Valley"
+    : `${city.name} / Franklin County`;
 }
 
 export function regionLabel(city: City): string {
@@ -773,28 +785,19 @@ export function citiesInRegion(region: CityRegion): City[] {
 }
 
 export function listingsHoldNote(city: City): string {
-  if (isDaytonExclusive(city)) {
-    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
-  }
-  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no Featured or exclusive buy path on this URL.`;
+  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
 }
 
 export function listingsEmptyNote(city: City): string {
-  if (isDaytonExclusive(city)) {
-    return `No live listings on this URL yet. Use the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
-  }
-  return `No live listings on this URL yet. Use the form. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no approved paying contractor and no exclusive buy path.`;
+  return `No live listings on this URL yet. Use the form. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
 }
 
-/** Sidebar copy on the quote form. Homepage (no city) mentions both rings. */
+/** Sidebar copy on the quote form. Homepage (no city) names both live in-house markets. */
 export function formLeadNote(city?: City): string {
-  if (city && !isDaytonExclusive(city)) {
-    return `No credit card. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no exclusive or Featured buy path on this page.`;
-  }
   if (city) {
-    return `No credit card. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+    return `No credit card. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
   }
-  return `No credit card. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads. Requests from cities outside that ring are held at the same inbox.`;
+  return `No credit card. Dayton / Miami Valley and Columbus / Franklin County requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
 }
 
 export const liveCitySlugs = cities

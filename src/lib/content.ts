@@ -2,6 +2,7 @@ import {
   costGuide,
   getNearbyCities,
   getParentCity,
+  inHouseCoverageLabel,
   isDaytonExclusive,
   lockedH1,
   regionLabel,
@@ -13,11 +14,8 @@ import { uniqueLocalCopy } from "@/lib/local-copy";
 
 export type Faq = { question: string; answer: string };
 
-function directoryLine(city: City): string {
-  if (isDaytonExclusive(city)) {
-    return `${site.disclosure} If the listings block is empty, use the form anyway. Requests in this coverage stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`;
-  }
-  return `${site.name} is a directory. ${city.name} / Franklin County is outside the Dayton / Miami Valley exclusive. If the listings block is empty, use the form anyway. We hold the request at ${site.leadsEmail} until an approved paying contractor exists — there is none today. There is no Featured or exclusive buy path on this URL.`;
+function directoryLine(): string {
+  return `${site.disclosure} If the listings block is empty, use the form anyway. Requests in this coverage stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`;
 }
 
 export function introParagraphs(city: City, service: Service): string[] {
@@ -26,7 +24,7 @@ export function introParagraphs(city: City, service: Service): string[] {
       ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form; Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`
       : null;
 
-  const directory = directoryLine(city);
+  const directory = directoryLine();
   const serviceLine = serviceIntro(city, service);
 
   if (comingSoon) {
@@ -74,18 +72,14 @@ export function serviceCardBlurb(city: City, service: Service): string {
 }
 
 export function hubIntro(city: City): string[] {
-  const lead = isDaytonExclusive(city)
-    ? `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`
-    : `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} / Franklin County requests are held at ${site.leadsEmail} — there is no approved paying contractor and no exclusive buy path. Paid spots, when they exist, are labeled.`;
+  const lead = `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
 
   return [
     lead,
     city.setting,
     `${city.housing} ${city.roofs} ${city.storms}`,
     city.localNote,
-    isDaytonExclusive(city)
-      ? site.disclosure
-      : `${site.name} is a directory. Dayton / Miami Valley quote requests stay with ${site.exclusiveContractor}. ${city.name} is outside that ring. We hold ${city.name} requests at ${site.leadsEmail}. Paid spots, when they exist, are labeled.`,
+    site.disclosure,
   ];
 }
 
@@ -162,13 +156,11 @@ export function faqs(city: City, service: Service): Faq[] {
       question: `Is ${site.name} a ${service.name.toLowerCase()} company in ${city.name}?`,
       answer: isDaytonExclusive(city)
         ? `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the Dayton / Miami Valley coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`
-        : `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} / Franklin County is outside the Dayton / Miami Valley exclusive. Quote requests on this URL are held at ${site.leadsEmail} until an approved paying contractor exists. There is none today. We do not invent contractors to fill the page.`,
+        : `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} / Franklin County quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`,
     },
     {
       question: `Why are some listings marked Featured or Exclusive?`,
-      answer: isDaytonExclusive(city)
-        ? `Those labels exist for paid placements if a future market outside this Dayton / Miami Valley ring gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton-area leads, and we do not invent companies to fill empty slots.`
-        : `Those labels exist for paid placements if a future market outside the Dayton / Miami Valley ring gets an approved buyer. They are not for sale on ${city.name} pages today — there is no Featured or exclusive Stripe SKU for Columbus. We do not invent companies to fill empty slots.`,
+      answer: `Those labels exist for paid placements if a future market outside Dayton, Columbus, and Cincinnati gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton, Columbus, or Cincinnati leads, and we do not invent companies to fill empty slots.`,
     },
     {
       question: `What does ${service.name.toLowerCase()} cost in ${city.name}?`,
@@ -182,9 +174,7 @@ export function faqs(city: City, service: Service): Faq[] {
       answer:
         city.status === "coming_soon"
           ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. You should get a phone call, not a ${site.name} crew.`
-          : isDaytonExclusive(city)
-            ? `We take the request and hold it at ${site.leadsEmail}. ${city.name} is in the Dayton / Miami Valley coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer.`
-            : `We take the request and hold it at ${site.leadsEmail}. ${city.name} is outside the Dayton exclusive, so it is not sold as an in-house Dayton job and it is not sold to another contractor. There is no approved paying ${city.name} contractor. The inbox is ${site.leadsEmail} only.`,
+          : `We take the request and hold it at ${site.leadsEmail}. ${city.name} is in the ${inHouseCoverageLabel(city)} coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer.`,
     },
     {
       question:
@@ -207,15 +197,11 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `Does ${site.name} work on roofs in ${city.name}?`,
-      answer: isDaytonExclusive(city)
-        ? `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those Dayton-area leads to other contractors.`
-        : `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} / Franklin County quote requests are held at ${site.leadsEmail}. We do not sell those leads, and we do not treat ${city.name} as the Dayton exclusive.`,
+      answer: `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those ${inHouseCoverageLabel(city)} leads to other contractors.`,
     },
     {
       question: `Are featured listings ads?`,
-      answer: isDaytonExclusive(city)
-        ? `Featured and exclusive labels are for paid placements if a market outside this Dayton / Miami Valley ring is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`
-        : `Featured and exclusive labels are for paid placements if a market outside the Dayton / Miami Valley ring gets an approved buyer. They are not offered as sold ${city.name} leads, and there is no Stripe exclusive SKU for Columbus. We do not invent company names to fill a page.`,
+      answer: `Featured and exclusive labels are for paid placements if a market outside Dayton, Columbus, and Cincinnati is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`,
     },
     {
       question: `Where is the quote form?`,
@@ -223,9 +209,7 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `How do contractors get on this ${city.name} page?`,
-      answer: isDaytonExclusive(city)
-        ? `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside this ring. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`
-        : `They do not buy ${city.name} leads today. See For Pros. There is no approved paying contractor and no exclusive Stripe SKU for Columbus. We hold requests at ${site.leadsEmail}. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}. There is no credit-card form on this site.`,
+      answer: `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley, Columbus, and Cincinnati requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`,
     },
   ];
 }

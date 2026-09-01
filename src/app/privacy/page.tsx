@@ -4,7 +4,7 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: `Privacy — ${site.name}`,
-  description: `How ${site.name} collects quote-form data. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}.`,
+  description: `How ${site.name} collects quote-form data. Dayton / Miami Valley and Columbus / Franklin County requests stay with ${site.exclusiveContractor}.`,
 };
 
 export default function PrivacyPage() {
@@ -17,9 +17,10 @@ export default function PrivacyPage() {
       <Disclosure className="mt-4" />
       <p className="mt-4 leading-7">
         {site.name} ({site.domain}) is a directory. We collect information so
-        we can hold a quote request. Dayton / Miami Valley requests within this
-        coverage stay with {site.exclusiveContractor}. We do not sell those
-        leads to other contractors.
+        we can hold a quote request. Dayton / Miami Valley and Columbus /
+        Franklin County requests stay with {site.exclusiveContractor}. We do
+        not sell those leads to other contractors. Cincinnati is also
+        in-house.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we collect</h2>
@@ -37,10 +38,10 @@ export default function PrivacyPage() {
         <a href={`mailto:${site.leadsEmail}`} className="underline">
           {site.leadsEmail}
         </a>
-        . Dayton / Miami Valley requests stay with {site.exclusiveContractor}{" "}
-        at that inbox. We do not sell those leads. Requests from cities
-        outside that ring, including Columbus, are held at the same inbox.
-        Paid listings may exist later outside this ring. For now the inbox is{" "}
+        . Dayton / Miami Valley and Columbus / Franklin County requests stay
+        with {site.exclusiveContractor} at that inbox. We do not sell those
+        leads. Cincinnati is also in-house. Paid listings may exist later
+        outside Dayton, Columbus, and Cincinnati. For now the inbox is{" "}
         {site.leadsEmail} only.
       </p>
 
@@ -56,7 +57,7 @@ export default function PrivacyPage() {
         <li>We do not take card numbers on this site.</li>
         <li>We do not sell a public people-search list of form submitters.</li>
         <li>We do not publish your request on the city page.</li>
-        <li>We do not sell Dayton / Miami Valley quote requests to other contractors.</li>
+        <li>We do not sell Dayton, Columbus, or Cincinnati quote requests to other contractors.</li>
       </ul>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">Contact</h2>

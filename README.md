@@ -6,7 +6,7 @@ The published site is a **static export** on GitHub Pages. There is no Node serv
 
 Working brand name: **RoofingLists**. Domain: [roofinglists.com](https://roofinglists.com). Rename brand, cities, and services in `src/config/site.ts`. Unique local copy lives in `src/lib/local-copy.ts`.
 
-Dayton / Miami Valley quote requests within this coverage stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton-area leads on For Pros. Columbus / Franklin County is outside that ring — hold those requests at the same inbox. There is no approved paying Columbus contractor and no exclusive Stripe SKU. Paid listings may exist later outside this ring. For now the inbox is `owner@` only. There is no approved payer list in this repo.
+Dayton / Miami Valley and Columbus / Franklin County quote requests stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton, Columbus, or Cincinnati leads on For Pros. Cincinnati is also in-house — not a contractor-pay market — and this repo does not add Cincinnati city pages. Paid listings may exist later outside Dayton, Columbus, and Cincinnati. For now the inbox is `owner@` only. There is no approved payer list in this repo.
 
 Pattern: [ateamowner/treelist](https://github.com/ateamowner/treelist) (static Next export, city routes, FAQ JSON-LD, Formsubmit, Actions Pages). Pages workflow matches [ateamowner/solarlists](https://github.com/ateamowner/solarlists) (`upload-pages-artifact` + `deploy-pages`, `pages:write`, `id-token:write`). This repo does not change [treelist.ai](https://treelist.ai) DNS.
 
@@ -116,9 +116,9 @@ Each object:
 | `tier` | `standard` \| `featured` \| `exclusive` |
 | `profile_url` | Optional URL, or `""` |
 
-`featured` and `exclusive` render a **paid placement** label for a future market outside this Dayton ring. Do not add exclusive or sold Dayton-area leads. See `data/listings.example.json` for shape only — do not ship the example as a live listing. Rebuild after editing so static pages pick up the file.
+`featured` and `exclusive` render a **paid placement** label for a future market outside Dayton, Columbus, and Cincinnati. Do not add exclusive or sold Dayton, Columbus, or Cincinnati leads. See `data/listings.example.json` for shape only — do not ship the example as a live listing. Rebuild after editing so static pages pick up the file.
 
-Do not route a Dayton / Miami Valley lead to anyone except A Team Contracting (`owner@ateamcontractings.com`).
+Do not route a Dayton, Columbus, or Cincinnati lead to anyone except A Team Contracting (`owner@ateamcontractings.com`).
 
 ## Cost guide
 
