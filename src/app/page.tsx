@@ -3,11 +3,13 @@ import Link from "next/link";
 import { Disclosure } from "@/components/disclosure";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import {
-  cities,
-  liveCitySlugs,
+  citiesInRegion,
+  cityRegionHeadings,
+  cityRegionOrder,
   servicePath,
   services,
   site,
+  type City,
 } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -17,8 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const live = cities.filter((city) => liveCitySlugs.includes(city.slug));
-
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
       <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
@@ -36,9 +36,11 @@ export default function HomePage() {
           <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
             Dayton / Miami Valley quote requests within this coverage stay with{" "}
             {site.exclusiveContractor} at {site.leadsEmail}. We do not sell
-            those leads to other contractors. Paid listings may exist later
-            outside this ring. For now the inbox is {site.leadsEmail} only.
-            Companies outside this coverage can read the{" "}
+            those leads to other contractors. Columbus / Franklin County is
+            outside that ring — requests there are held at the same inbox until
+            an approved paying contractor exists. There is none today, and
+            there is no exclusive Stripe SKU for Columbus. Companies outside
+            the Dayton ring can read the{" "}
             <Link href="/for-pros/" className="underline underline-offset-2">
               For Pros
             </Link>{" "}
@@ -49,47 +51,31 @@ export default function HomePage() {
         <QuoteFormLoader />
       </section>
 
-      <section id="cities" className="mt-14">
-        <h2 className="font-heading text-2xl font-semibold">
-          Dayton-area cities
-        </h2>
-        <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-          Live markets. Each hub links roof repair, replacement, storm damage,
-          and inspection. Internal links are real pages so nothing 404s.
-        </p>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {live.map((city) => (
-            <li
-              key={city.slug}
-              className="flex flex-col rounded-lg border border-border bg-card p-5"
+      <div id="cities">
+        {cityRegionOrder.map((region) => {
+          const live = citiesInRegion(region);
+          const copy = cityRegionHeadings[region];
+          return (
+            <section
+              key={region}
+              id={region === "dayton" ? "cities-dayton" : `${region}-cities`}
+              className="mt-14"
             >
-              <h3 className="font-heading text-xl font-semibold">
-                {city.name}, {city.stateAbbr}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
-                {city.setting}
+              <h2 className="font-heading text-2xl font-semibold">
+                {copy.heading}
+              </h2>
+              <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+                {copy.intro}
               </p>
-              <ul className="mt-4 space-y-2 text-sm">
-                {services.map((service) => (
-                  <li key={service.slug}>
-                    <Link
-                      href={servicePath(city, service)}
-                      className="font-medium underline underline-offset-2"
-                    >
-                      Best {service.name} in {city.name} — {site.year}
-                    </Link>
-                  </li>
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {live.map((city) => (
+                  <CityCard key={city.slug} city={city} />
                 ))}
               </ul>
-              <p className="mt-3">
-                <Link href={`/${city.slug}/`} className="text-sm hover:underline">
-                  All {city.name} services
-                </Link>
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+            </section>
+          );
+        })}
+      </div>
 
       <section className="mt-14">
         <h2 className="font-heading text-2xl font-semibold">
@@ -126,5 +112,35 @@ export default function HomePage() {
         </ul>
       </section>
     </div>
+  );
+}
+
+function CityCard({ city }: { city: City }) {
+  return (
+    <li className="flex flex-col rounded-lg border border-border bg-card p-5">
+      <h3 className="font-heading text-xl font-semibold">
+        {city.name}, {city.stateAbbr}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+        {city.setting}
+      </p>
+      <ul className="mt-4 space-y-2 text-sm">
+        {services.map((service) => (
+          <li key={service.slug}>
+            <Link
+              href={servicePath(city, service)}
+              className="font-medium underline underline-offset-2"
+            >
+              Best {service.name} in {city.name} — {site.year}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3">
+        <Link href={`/${city.slug}/`} className="text-sm hover:underline">
+          All {city.name} services
+        </Link>
+      </p>
+    </li>
   );
 }

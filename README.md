@@ -6,7 +6,7 @@ The published site is a **static export** on GitHub Pages. There is no Node serv
 
 Working brand name: **RoofingLists**. Domain: [roofinglists.com](https://roofinglists.com). Rename brand, cities, and services in `src/config/site.ts`. Unique local copy lives in `src/lib/local-copy.ts`.
 
-Dayton / Miami Valley quote requests within this coverage stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton-area leads on For Pros. Paid listings may exist later outside this ring. For now the inbox is `owner@` only. There is no approved payer list in this repo.
+Dayton / Miami Valley quote requests within this coverage stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton-area leads on For Pros. Columbus / Franklin County is outside that ring — hold those requests at the same inbox. There is no approved paying Columbus contractor and no exclusive Stripe SKU. Paid listings may exist later outside this ring. For now the inbox is `owner@` only. There is no approved payer list in this repo.
 
 Pattern: [ateamowner/treelist](https://github.com/ateamowner/treelist) (static Next export, city routes, FAQ JSON-LD, Formsubmit, Actions Pages). Pages workflow matches [ateamowner/solarlists](https://github.com/ateamowner/solarlists) (`upload-pages-artifact` + `deploy-pages`, `pages:write`, `id-token:write`). This repo does not change [treelist.ai](https://treelist.ai) DNS.
 
@@ -95,7 +95,7 @@ First Formsubmit delivery requires confirming `owner@ateamcontractings.com` when
 - `/privacy/`
 - `/for-pros/`
 - `/request-sent/`
-- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`
+- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`, `/columbus-oh/`
 - City × service: `roof-repair`, `roof-replacement`, `storm-damage`, `roof-inspection` under each city (locked H1: `Best {Service} in {City} — 2026`)
 
 ## Add a listing

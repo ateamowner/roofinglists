@@ -216,6 +216,15 @@ const copy: Record<string, string> = {
     "River-adjacent ice and I-75-corridor wind are the Franklin pair. North planes on older downtown roofs hold freeze–thaw. After a storm, photograph each facet. Access in a freeze is part of the story, not a surcharge.",
   "franklin-oh:roof-inspection":
     "Walk the mill-town covering separately from later edge architectural shingles. Ice-season attic moisture and chimney flashing on older stock come first. We do not invent a Warren County rating.",
+
+  "columbus-oh:roof-repair":
+    "Columbus repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a Clintonville bungalow or German Village two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight lots and street trees change staging. AEP Ohio on the bill is not a Columbus repair price. We do not publish a Franklin County dollar figure.",
+  "columbus-oh:roof-replacement":
+    "A Columbus reroof has to name the covering you already have: common asphalt on mid-century streets, slate or mixed leftovers in German Village and older Clintonville, and decks that have seen decades of Central Ohio freeze–thaw. Tear-off vs overlay belongs in the written scope. Newer suburban edges are a different geometry. National ranges are the only dollars on this page.",
+  "columbus-oh:storm-damage":
+    "After a Central Ohio wind or ice event, Columbus owners usually need photos of lifted shingles, broken slate, and wet attic spots before anyone talks replacement. Older city housing hides leaks behind plaster. Street-tree shade in Clintonville hides damage a drive-by misses. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "columbus-oh:roof-inspection":
+    "A Columbus inspection should walk asphalt vs slate, flashing at chimneys common on older German Village and Clintonville stock, and attic moisture after freeze–thaw season. Street-tree shade and alley access are notes, not prices. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
 };
 
 export function uniqueLocalCopy(city: City, service: Service): string {
