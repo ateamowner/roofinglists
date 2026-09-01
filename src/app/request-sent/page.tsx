@@ -17,8 +17,10 @@ export default function RequestSentPage() {
       <p className="mt-4 leading-7 text-muted-foreground">
         {site.name} is a directory. Your request went to {site.leadsEmail}.
         Dayton / Miami Valley coverage stays with {site.exclusiveContractor}.
-        We do not sell those leads to other contractors. The call comes from
-        that shop — not from a {site.name} crew.
+        We do not sell those leads to other contractors. Requests from cities
+        outside that ring, including Columbus, are held at the same inbox until
+        an approved paying contractor exists. The call — when there is one —
+        comes from that shop, not from a {site.name} crew.
       </p>
       <Disclosure className="mt-4" />
       <p className="mt-6">

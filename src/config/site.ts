@@ -42,6 +42,9 @@ export type ListingTier = "standard" | "featured" | "exclusive";
 
 export type CityStatus = "live" | "coming_soon";
 
+/** Dayton ring is the in-house exclusive. Columbus is live but outside that radius. */
+export type CityRegion = "dayton" | "columbus";
+
 export type City = {
   slug: string;
   name: string;
@@ -50,6 +53,8 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
+  /** Defaults to dayton (in-house exclusive). Set columbus for hold-only pages. */
+  region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
   roofs: string;
@@ -708,7 +713,89 @@ export const cities: City[] = [
     localNote:
       "A Franklin mill-town two-story is not a Springboro subdivision reroof, even though both sit in Warren County on I-75.",
   },
+  {
+    slug: "columbus-oh",
+    name: "Columbus",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [],
+    setting:
+      "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Mostly asphalt shingles; older Clintonville and German Village blocks can still carry slate or a mixed covering that is not a three-tab patch.",
+    housing:
+      "Victorian, Craftsman, and early 20th-century stock on tighter lots than later Hilliard or Grove City subdivisions.",
+    storms:
+      "Central Ohio freeze–thaw and ice wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze.",
+    localNote:
+      "A Clintonville bungalow or German Village two-story is a different shade and access problem than a later suburban ranch, even when both sit on AEP Ohio. We do not invent a Columbus-only dollar figure.",
+  },
 ];
+
+export const cityRegionOrder: CityRegion[] = ["dayton", "columbus"];
+
+export const cityRegionHeadings: Record<
+  CityRegion,
+  { heading: string; intro: string }
+> = {
+  dayton: {
+    heading: "Dayton-area cities",
+    intro:
+      "Live Miami Valley markets. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests in this ring stay with A Team Contracting.",
+  },
+  columbus: {
+    heading: "Columbus / Franklin County",
+    intro:
+      "Live Central Ohio hub. Nearby links only point at cities that already exist on this site — Columbus has no in-repo neighbor yet. Requests are held at the form inbox; there is no exclusive buy path.",
+  },
+};
+
+export function cityRegion(city: City): CityRegion {
+  return city.region ?? "dayton";
+}
+
+export function isDaytonExclusive(city: City): boolean {
+  return cityRegion(city) === "dayton";
+}
+
+export function regionLabel(city: City): string {
+  return cityRegion(city) === "columbus"
+    ? "Franklin County / Columbus"
+    : "Miami Valley";
+}
+
+export function citiesInRegion(region: CityRegion): City[] {
+  return cities.filter(
+    (city) => city.status === "live" && cityRegion(city) === region
+  );
+}
+
+export function listingsHoldNote(city: City): string {
+  if (isDaytonExclusive(city)) {
+    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. Dayton / Miami Valley requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
+  }
+  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no Featured or exclusive buy path on this URL.`;
+}
+
+export function listingsEmptyNote(city: City): string {
+  if (isDaytonExclusive(city)) {
+    return `No live listings on this URL yet. Use the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+  }
+  return `No live listings on this URL yet. Use the form. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no approved paying contractor and no exclusive buy path.`;
+}
+
+/** Sidebar copy on the quote form. Homepage (no city) mentions both rings. */
+export function formLeadNote(city?: City): string {
+  if (city && !isDaytonExclusive(city)) {
+    return `No credit card. ${city.name} / Franklin County requests are held at ${site.leadsEmail}. There is no exclusive or Featured buy path on this page.`;
+  }
+  if (city) {
+    return `No credit card. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+  }
+  return `No credit card. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads. Requests from cities outside that ring are held at the same inbox.`;
+}
 
 export const liveCitySlugs = cities
   .filter((city) => city.status === "live")

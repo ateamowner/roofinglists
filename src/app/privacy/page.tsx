@@ -38,8 +38,10 @@ export default function PrivacyPage() {
           {site.leadsEmail}
         </a>
         . Dayton / Miami Valley requests stay with {site.exclusiveContractor}{" "}
-        at that inbox. We do not sell those leads. Paid listings may exist
-        later outside this ring. For now the inbox is {site.leadsEmail} only.
+        at that inbox. We do not sell those leads. Requests from cities
+        outside that ring, including Columbus, are held at the same inbox.
+        Paid listings may exist later outside this ring. For now the inbox is{" "}
+        {site.leadsEmail} only.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">SMS</h2>

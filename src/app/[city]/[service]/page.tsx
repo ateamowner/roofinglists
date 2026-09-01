@@ -130,7 +130,7 @@ export default async function ServicePage({
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
           <FaqList faqs={questions} />
-          <ListingsBlock listings={listings} />
+          <ListingsBlock listings={listings} city={city} />
           <RelatedServiceLinks city={city} current={service} />
           <NearbyCityLinks city={city} service={service} />
         </div>
