@@ -12,15 +12,15 @@ export default function RequestSentPage() {
   return (
     <article className="mx-auto w-full max-w-xl px-4 py-16 sm:px-6">
       <h1 className="font-heading text-3xl font-semibold tracking-tight">
-        Request sent. Dayton-area requests stay with {site.exclusiveContractor}.
+        Request sent. Dayton and Columbus requests stay with{" "}
+        {site.exclusiveContractor}.
       </h1>
       <p className="mt-4 leading-7 text-muted-foreground">
         {site.name} is a directory. Your request went to {site.leadsEmail}.
-        Dayton / Miami Valley coverage stays with {site.exclusiveContractor}.
-        We do not sell those leads to other contractors. Requests from cities
-        outside that ring, including Columbus, are held at the same inbox until
-        an approved paying contractor exists. The call — when there is one —
-        comes from that shop, not from a {site.name} crew.
+        Dayton / Miami Valley and Columbus / Franklin County coverage stays
+        with {site.exclusiveContractor}. We do not sell those leads to other
+        contractors. Cincinnati is also in-house. The call comes from that
+        shop, not from a {site.name} crew.
       </p>
       <Disclosure className="mt-4" />
       <p className="mt-6">

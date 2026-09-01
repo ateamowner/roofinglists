@@ -8,7 +8,7 @@ import {
 
 export const metadata: Metadata = {
   title: `For roofing companies — ${site.name}`,
-  description: `How ${site.name} treats Dayton / Miami Valley coverage and Columbus hold-only pages. No exclusive Dayton-area leads. No Columbus exclusive SKU. No credit card on this page.`,
+  description: `How ${site.name} treats Dayton / Miami Valley and Columbus coverage. No exclusive or sold Dayton, Columbus, or Cincinnati leads. No credit card on this page.`,
   alternates: { canonical: "/for-pros/" },
 };
 
@@ -26,12 +26,12 @@ export default function ForProsPage() {
         callback. We are not a fake contractor homepage. {site.disclosure}
       </p>
       <p className="mt-3 leading-7 text-muted-foreground">
-        The Dayton / Miami Valley ring stays with {site.exclusiveContractor} at{" "}
-        {site.leadsEmail}. We do not sell those leads to other contractors, and
-        we do not offer exclusive or sold Dayton-area leads on this page.
-        Columbus / Franklin County is live and outside that radius. Those
-        requests are held at the same inbox. There is no approved paying
-        Columbus contractor and no exclusive Stripe SKU.
+        Dayton / Miami Valley and Columbus / Franklin County stay with{" "}
+        {site.exclusiveContractor} at {site.leadsEmail}. We do not sell those
+        leads to other contractors, and we do not offer exclusive or sold
+        Dayton, Columbus, or Cincinnati leads on this page. Cincinnati is also
+        in-house — not a contractor-pay market and not an Exclusive SKU. This
+        site does not publish Cincinnati city pages.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
@@ -45,20 +45,31 @@ export default function ForProsPage() {
         city × service URLs.
       </p>
       <p className="mt-3 leading-7">
-        Paid listings may exist later <em>outside</em> this ring. That is not
-        for sale here today. There is no approved payer list in this repo, so
-        the inbox is {site.leadsEmail} only.
+        Paid listings may exist later <em>outside</em> Dayton, Columbus, and
+        Cincinnati. That is not for sale here today. There is no approved
+        payer list in this repo, so the inbox is {site.leadsEmail} only.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
         Columbus / Franklin County
       </h2>
       <p className="mt-3 leading-7">
-        Columbus is outside the 25-mile Dayton exclusive. Dayton-ring roofing
-        stays in-house. Columbus leads still hold at {site.leadsEmail} until
-        there is an approved paying contractor — there is none. We do not add
-        a Featured or exclusive buy path for Columbus, and we do not invent
-        contractors to fill the page.
+        Columbus is a live Central Ohio hub. It is not a 25-mile Dayton city
+        and it is not a contractor-pay roofinglists market. Columbus quote
+        requests stay with {site.exclusiveContractor} at {site.leadsEmail},
+        the same as Dayton. We do not sell those leads. We do not offer
+        Exclusive or sold Columbus, and we do not invent contractors to fill
+        the page.
+      </p>
+
+      <h2 className="mt-10 font-heading text-2xl font-semibold">
+        Cincinnati
+      </h2>
+      <p className="mt-3 leading-7">
+        Cincinnati is also in-house with {site.exclusiveContractor}. It is
+        not a contractor-pay market and not an Exclusive or Featured SKU. We
+        do not publish Cincinnati city pages on this site. Do not email
+        asking to buy Cincinnati inbound quotes.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
@@ -74,11 +85,19 @@ export default function ForProsPage() {
           </p>
         </li>
         <li className="rounded-lg border border-border bg-card p-4">
-          <p className="font-semibold">Columbus exclusive or Featured SKU</p>
+          <p className="font-semibold">Exclusive or sold Columbus leads</p>
           <p className="mt-1 text-sm leading-6 text-muted-foreground">
-            Not offered. Columbus is out of the Dayton radius but still has no
-            paying buyer. There is no new Stripe exclusive SKU and no Featured
-            checkout on this page.
+            Not offered. Columbus / Franklin County requests stay with{" "}
+            {site.exclusiveContractor} at {site.leadsEmail}. There is no
+            Featured or exclusive Stripe SKU for Columbus.
+          </p>
+        </li>
+        <li className="rounded-lg border border-border bg-card p-4">
+          <p className="font-semibold">Exclusive or sold Cincinnati leads</p>
+          <p className="mt-1 text-sm leading-6 text-muted-foreground">
+            Not offered. Cincinnati is in-house with {site.exclusiveContractor}.
+            There is no Featured or exclusive Stripe SKU and no Cincinnati
+            city page in this repo.
           </p>
         </li>
         <li className="rounded-lg border border-border bg-card p-4">
@@ -87,8 +106,8 @@ export default function ForProsPage() {
             We do not invent company names, phones, licenses, star ratings, or
             city-specific prices to fill a page. Standard, featured, and
             exclusive placement labels exist in the templates for a future
-            market outside this ring — they are not a Dayton lead auction and
-            not a Columbus exclusive sale.
+            market outside Dayton, Columbus, and Cincinnati — they are not a
+            lead auction for those cities.
           </p>
         </li>
       </ul>
@@ -97,23 +116,23 @@ export default function ForProsPage() {
         What may exist later
       </h2>
       <p className="mt-3 leading-7">
-        If {site.name} adds an approved paying contractor outside this Dayton /
-        Miami Valley ring, labeled paid listings (standard or featured) may be
-        available there. Exclusive sold leads will still not apply to the
-        Dayton cities listed on this page. Columbus has no approved buyer
-        today. There is no credit-card field on {site.name}.
+        If {site.name} adds an approved paying contractor outside Dayton,
+        Columbus, and Cincinnati, labeled paid listings (standard or featured)
+        may be available there. Exclusive sold leads will still not apply to
+        Dayton, Columbus, or Cincinnati. There is no credit-card field on{" "}
+        {site.name}.
       </p>
       <p className="mt-3 leading-7">
         The form collects name, phone, email, ZIP, service, timing, optional
         roof type and age, optional message, SMS consent, and required privacy
         consent. Hidden fields carry page URL, city, state, and service. Every
-        request — Dayton exclusive or Columbus hold — posts to {site.leadsEmail}.
+        request — Dayton, Columbus, or otherwise — posts to {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>
       <p className="mt-3 leading-7">
-        Questions about a future market outside this ring — not about buying
-        Dayton-area leads — go to{" "}
+        Questions about a future market outside Dayton, Columbus, and
+        Cincinnati — not about buying those inbound quotes — go to{" "}
         <a href={`mailto:${site.email}`} className="underline">
           {site.email}
         </a>
@@ -137,7 +156,7 @@ export default function ForProsPage() {
       </ul>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Live URLs outside that exclusive (hold only)
+        Live Columbus URLs (in-house with {site.exclusiveContractor})
       </h2>
       <ul className="mt-3 space-y-2">
         {columbusCities.map((city) => (

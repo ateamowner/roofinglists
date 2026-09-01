@@ -34,17 +34,16 @@ export default function HomePage() {
             city has its own URL. Paid spots, when they exist, are labeled.
           </p>
           <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">
-            Dayton / Miami Valley quote requests within this coverage stay with{" "}
-            {site.exclusiveContractor} at {site.leadsEmail}. We do not sell
-            those leads to other contractors. Columbus / Franklin County is
-            outside that ring — requests there are held at the same inbox until
-            an approved paying contractor exists. There is none today, and
-            there is no exclusive Stripe SKU for Columbus. Companies outside
-            the Dayton ring can read the{" "}
+            Dayton / Miami Valley and Columbus / Franklin County quote requests
+            stay with {site.exclusiveContractor} at {site.leadsEmail}. We do
+            not sell those leads to other contractors. Cincinnati is also
+            in-house — not a contractor-pay market and not an Exclusive SKU.
+            Companies can read the{" "}
             <Link href="/for-pros/" className="underline underline-offset-2">
               For Pros
             </Link>{" "}
-            page — we do not offer exclusive or sold Dayton-area leads there.
+            page — we do not offer exclusive or sold Dayton, Columbus, or
+            Cincinnati leads there.
           </p>
           <Disclosure className="mt-3 max-w-2xl" />
         </div>
