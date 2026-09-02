@@ -34,6 +34,17 @@ jobs:
           test -d out/dayton-oh
           test -d out/dayton-oh/roof-repair
           test "$(tr -d '[:space:]' < out/CNAME)" = "roofinglists.com"
+          KEY_FILE=$(find public -maxdepth 1 -regextype posix-egrep -regex '.*/[0-9a-f]{32}\.txt' | head -1)
+          test -n "$KEY_FILE"
+          KEY=$(basename "$KEY_FILE" .txt)
+          test -f "out/${KEY}.txt"
+          test "$(tr -d '[:space:]' < "out/${KEY}.txt")" = "$KEY"
+      - name: Collect sitemap locs for IndexNow
+        run: node scripts/indexnow-ping.mjs --sitemap out/sitemap.xml --write indexnow-urls.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-urls
+          path: indexnow-urls.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -48,3 +59,17 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: indexnow-urls
+      - name: Ping IndexNow with sitemap locs
+        run: node scripts/indexnow-ping.mjs --urls indexnow-urls.json

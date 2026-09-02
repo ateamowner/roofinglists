@@ -131,4 +131,20 @@ Labeled as national ranges, not a Dayton survey.
 ## SEO
 
 - `sitemap.xml` and `robots.txt` are generated from the city/service config.
+- Sitemap `<loc>` values keep a trailing slash, including the homepage (`https://roofinglists.com/`). Do not revert to no-slash locs.
+- `robots.txt` lists `Sitemap: https://roofinglists.com/sitemap.xml` (the slash-canonical sitemap). It allows money pages (homepage, city hubs, service pages, `/for-pros/`). Only `/request-sent/` is disallowed.
 - Every city and city × service page includes JSON-LD: `LocalBusiness` for RoofingLists the publisher (not a vendor), `FAQPage` matching the visible FAQs, and `BreadcrumbList`.
+
+### IndexNow (Bing / Yandex / others)
+
+The IndexNow key is public by design. There is no Bing API secret and no required env var.
+
+- Key file (plain text, key only): [`public/e8bdbb3d64ec892b1d03f808bda65687.txt`](public/e8bdbb3d64ec892b1d03f808bda65687.txt)
+- Live URL: [https://roofinglists.com/e8bdbb3d64ec892b1d03f808bda65687.txt](https://roofinglists.com/e8bdbb3d64ec892b1d03f808bda65687.txt)
+- After each GitHub Pages deploy, `.github/workflows/pages.yml` POSTs this site’s sitemap locs to `https://api.indexnow.org/indexnow` (`scripts/indexnow-ping.mjs`).
+
+### Webmaster verification
+
+Anthony must add **roofinglists.com** in [Bing Webmaster Tools](https://www.bing.com/webmasters) and paste the real `msvalidate.01` code into `src/app/layout.tsx` (`verification.other["msvalidate.01"]`). Do not invent a code.
+
+A Google HTML verification file already exists at `/googled3ae2edf58b5b2f8.html`. If Search Console instead asks for a meta tag, paste the real `google-site-verification` value in the same metadata slot. Do not invent a code.
