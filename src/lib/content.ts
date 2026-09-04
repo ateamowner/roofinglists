@@ -1,4 +1,5 @@
 import {
+  cityRegion,
   costGuide,
   getNearbyCities,
   getParentCity,
@@ -63,7 +64,9 @@ export function serviceCardBlurb(city: City, service: Service): string {
     case "roof-replacement":
       return "A full reroof: tear-off or overlay, underlayment, flashing, and a written scope for the planes that come off.";
     case "storm-damage":
-      return "Wind, hail, or ice after a Central Ohio storm — document first, then decide repair vs replacement.";
+      return cityRegion(city) === "cincinnati"
+        ? "Wind, hail, or ice after a Southwest Ohio storm — document first, then decide repair vs replacement."
+        : "Wind, hail, or ice after a Central Ohio storm — document first, then decide repair vs replacement.";
     case "roof-inspection":
       return "A walk of the deck, flashing, and attic before a sale, an insurance claim, or winter ice season.";
     default:
@@ -103,9 +106,12 @@ export function howToChoose(
       },
       {
         title: "Ice, wind, and access",
-        body: isDaytonExclusive(city)
-          ? `${city.storms} ${city.housing} Local access (tight Dayton lots, hillside Miamisburg, low-pitch Huber ranches) changes the job. Ask how they stage in a freeze.`
-          : `${city.storms} ${city.housing} Local access (tight German Village lots, Clintonville shade, later suburban planes) changes the job. Ask how they stage in a freeze.`,
+        body:
+          cityRegion(city) === "dayton"
+            ? `${city.storms} ${city.housing} Local access (tight Dayton lots, hillside Miamisburg, low-pitch Huber ranches) changes the job. Ask how they stage in a freeze.`
+            : cityRegion(city) === "cincinnati"
+              ? `${city.storms} ${city.housing} Local access (Ohio River hillsides, Price Hill and Hyde Park lots, later suburban planes) changes the job. Ask how they stage in a freeze.`
+              : `${city.storms} ${city.housing} Local access (tight German Village lots, Clintonville shade, later suburban planes) changes the job. Ask how they stage in a freeze.`,
       },
       {
         title: "Written scope",
@@ -154,9 +160,7 @@ export function faqs(city: City, service: Service): Faq[] {
   return [
     {
       question: `Is ${site.name} a ${service.name.toLowerCase()} company in ${city.name}?`,
-      answer: isDaytonExclusive(city)
-        ? `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the Dayton / Miami Valley coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`
-        : `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} / Franklin County quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`,
+      answer: `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the ${inHouseCoverageLabel(city)} coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`,
     },
     {
       question: `Why are some listings marked Featured or Exclusive?`,

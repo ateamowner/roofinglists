@@ -18,7 +18,7 @@ export const site = {
   /** Reserved contractor for Dayton, Columbus, and Cincinnati in-house coverage. */
   exclusiveContractor: "A Team Contracting",
   description:
-    "RoofingLists is a lead-generation directory for roofing. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not invent company names, phones, licenses, star ratings, or city-specific prices.",
+    "RoofingLists is a lead-generation directory for roofing. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting. We do not invent company names, phones, licenses, star ratings, or city-specific prices.",
   disclosure:
     "RoofingLists is a directory. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not sell those leads to other contractors. Cincinnati is also in-house — not a contractor-pay market. Paid spots, when they exist, are labeled.",
   theme: {
@@ -42,8 +42,8 @@ export type ListingTier = "standard" | "featured" | "exclusive";
 
 export type CityStatus = "live" | "coming_soon";
 
-/** Dayton ring and Columbus are both in-house A Team leads. Columbus is not a contractor-pay SKU. */
-export type CityRegion = "dayton" | "columbus";
+/** Dayton ring, Columbus, and Cincinnati are in-house A Team leads. None of those regions is a contractor-pay SKU. */
+export type CityRegion = "dayton" | "columbus" | "cincinnati";
 
 export type City = {
   slug: string;
@@ -53,7 +53,7 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
-  /** Defaults to dayton (in-house). Set columbus for Central Ohio pages — also in-house. */
+  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs — also in-house. */
   region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
@@ -732,9 +732,32 @@ export const cities: City[] = [
     localNote:
       "A Clintonville bungalow or German Village two-story is a different shade and access problem than a later suburban ranch, even when both sit on AEP Ohio. We do not invent a Columbus-only dollar figure.",
   },
+  {
+    slug: "cincinnati-oh",
+    name: "Cincinnati",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "cincinnati",
+    nearbySlugs: [],
+    setting:
+      "Cincinnati sits on Ohio River hills in Hamilton County, with older city lots, street trees, and a mix of Italianates, bungalows, and hillside two-stories from Over-the-Rhine to Price Hill and Hyde Park plus later suburban edges. Duke Energy Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Steeper hillside pitches and aging asphalt; some historic blocks still carry slate or tile that need a different crew than a standard three-tab tear-off.",
+    housing:
+      "Hillside Italianates, brick two-stories, and mid-century houses on tighter lots than later Mason or West Chester subdivisions.",
+    storms:
+      "Ohio River freeze–thaw and ice wear flashing and shingles; north slopes hold ice, and hillside access in a freeze changes how a crew stages. Ice dams show up on older attics with weak ventilation.",
+    localNote:
+      "A hillside Price Hill or Hyde Park two-story is a different shade and access problem than a later suburban ranch, even when both sit on Duke Energy Ohio. We do not invent a Cincinnati-only dollar figure.",
+  },
 ];
 
-export const cityRegionOrder: CityRegion[] = ["dayton", "columbus"];
+export const cityRegionOrder: CityRegion[] = [
+  "dayton",
+  "columbus",
+  "cincinnati",
+];
 
 export const cityRegionHeadings: Record<
   CityRegion,
@@ -750,6 +773,11 @@ export const cityRegionHeadings: Record<
     intro:
       "Live Central Ohio hub. Nearby links only point at cities that already exist on this site — Columbus has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
   },
+  cincinnati: {
+    heading: "Cincinnati / Hamilton County",
+    intro:
+      "Live Southwest Ohio hub. Nearby links only point at cities that already exist on this site — Cincinnati has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
+  },
 };
 
 export function cityRegion(city: City): CityRegion {
@@ -760,22 +788,26 @@ export function isDaytonExclusive(city: City): boolean {
   return cityRegion(city) === "dayton";
 }
 
-/** Dayton ring and Columbus stay with A Team. Not contractor-pay roofinglists markets. */
+/** Dayton ring, Columbus, and Cincinnati stay with A Team. Not contractor-pay roofinglists markets. */
 export function isInHouseLead(city: City): boolean {
   const region = cityRegion(city);
-  return region === "dayton" || region === "columbus";
+  return (
+    region === "dayton" || region === "columbus" || region === "cincinnati"
+  );
 }
 
 export function inHouseCoverageLabel(city: City): string {
-  return isDaytonExclusive(city)
-    ? "Dayton / Miami Valley"
-    : `${city.name} / Franklin County`;
+  const region = cityRegion(city);
+  if (region === "dayton") return "Dayton / Miami Valley";
+  if (region === "columbus") return `${city.name} / Franklin County`;
+  return `${city.name} / Hamilton County`;
 }
 
 export function regionLabel(city: City): string {
-  return cityRegion(city) === "columbus"
-    ? "Franklin County / Columbus"
-    : "Miami Valley";
+  const region = cityRegion(city);
+  if (region === "columbus") return "Franklin County / Columbus";
+  if (region === "cincinnati") return "Hamilton County / Cincinnati";
+  return "Miami Valley";
 }
 
 export function citiesInRegion(region: CityRegion): City[] {
@@ -797,7 +829,7 @@ export function formLeadNote(city?: City): string {
   if (city) {
     return `No credit card. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
   }
-  return `No credit card. Dayton / Miami Valley and Columbus / Franklin County requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+  return `No credit card. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
 }
 
 export const liveCitySlugs = cities

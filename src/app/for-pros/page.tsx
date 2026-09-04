@@ -8,13 +8,14 @@ import {
 
 export const metadata: Metadata = {
   title: `For roofing companies — ${site.name}`,
-  description: `How ${site.name} treats Dayton / Miami Valley and Columbus coverage. No exclusive or sold Dayton, Columbus, or Cincinnati leads. No credit card on this page.`,
+  description: `How ${site.name} treats Dayton / Miami Valley, Columbus, and Cincinnati coverage. No exclusive or sold Dayton, Columbus, or Cincinnati leads. No credit card on this page.`,
   alternates: { canonical: "/for-pros/" },
 };
 
 export default function ForProsPage() {
   const daytonCities = citiesInRegion("dayton");
   const columbusCities = citiesInRegion("columbus");
+  const cincinnatiCities = citiesInRegion("cincinnati");
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -26,12 +27,13 @@ export default function ForProsPage() {
         callback. We are not a fake contractor homepage. {site.disclosure}
       </p>
       <p className="mt-3 leading-7 text-muted-foreground">
-        Dayton / Miami Valley and Columbus / Franklin County stay with{" "}
-        {site.exclusiveContractor} at {site.leadsEmail}. We do not sell those
-        leads to other contractors, and we do not offer exclusive or sold
-        Dayton, Columbus, or Cincinnati leads on this page. Cincinnati is also
-        in-house — not a contractor-pay market and not an Exclusive SKU. This
-        site does not publish Cincinnati city pages.
+        Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
+        Hamilton County stay with {site.exclusiveContractor} at{" "}
+        {site.leadsEmail}. We do not sell those leads to other contractors,
+        and we do not offer exclusive or sold Dayton, Columbus, or Cincinnati
+        leads on this page. Cincinnati is also in-house — not a
+        contractor-pay market and not an Exclusive SKU. Those leads stay at{" "}
+        {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
@@ -63,13 +65,15 @@ export default function ForProsPage() {
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Cincinnati
+        Cincinnati / Hamilton County
       </h2>
       <p className="mt-3 leading-7">
-        Cincinnati is also in-house with {site.exclusiveContractor}. It is
-        not a contractor-pay market and not an Exclusive or Featured SKU. We
-        do not publish Cincinnati city pages on this site. Do not email
-        asking to buy Cincinnati inbound quotes.
+        Cincinnati is a live Southwest Ohio hub. It is not a contractor-pay
+        roofinglists market and not an Exclusive or Featured SKU. Cincinnati
+        quote requests stay with {site.exclusiveContractor} at{" "}
+        {site.leadsEmail}, the same as Dayton and Columbus. We do not sell
+        those leads. We do not invent contractors to fill the page. Do not
+        email asking to buy Cincinnati inbound quotes.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
@@ -95,9 +99,9 @@ export default function ForProsPage() {
         <li className="rounded-lg border border-border bg-card p-4">
           <p className="font-semibold">Exclusive or sold Cincinnati leads</p>
           <p className="mt-1 text-sm leading-6 text-muted-foreground">
-            Not offered. Cincinnati is in-house with {site.exclusiveContractor}.
-            There is no Featured or exclusive Stripe SKU and no Cincinnati
-            city page in this repo.
+            Not offered. Cincinnati / Hamilton County requests stay with{" "}
+            {site.exclusiveContractor} at {site.leadsEmail}. There is no
+            Featured or exclusive Stripe SKU for Cincinnati.
           </p>
         </li>
         <li className="rounded-lg border border-border bg-card p-4">
@@ -126,7 +130,8 @@ export default function ForProsPage() {
         The form collects name, phone, email, ZIP, service, timing, optional
         roof type and age, optional message, SMS consent, and required privacy
         consent. Hidden fields carry page URL, city, state, and service. Every
-        request — Dayton, Columbus, or otherwise — posts to {site.leadsEmail}.
+        request — Dayton, Columbus, Cincinnati, or otherwise — posts to{" "}
+        {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>
@@ -160,6 +165,22 @@ export default function ForProsPage() {
       </h2>
       <ul className="mt-3 space-y-2">
         {columbusCities.map((city) => (
+          <li key={city.slug}>
+            <Link
+              href={servicePath(city, "roof-repair")}
+              className="underline underline-offset-2"
+            >
+              {servicePath(city, "roof-repair")}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-10 font-heading text-2xl font-semibold">
+        Live Cincinnati URLs (in-house with {site.exclusiveContractor})
+      </h2>
+      <ul className="mt-3 space-y-2">
+        {cincinnatiCities.map((city) => (
           <li key={city.slug}>
             <Link
               href={servicePath(city, "roof-repair")}
