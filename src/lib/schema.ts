@@ -7,7 +7,7 @@ export function publisherLocalBusiness(city: City) {
     "@type": "LocalBusiness",
     name: site.legalName,
     alternateName: site.name,
-    description: `${site.name} is a directory that publishes city pages for roofing. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with ${site.exclusiveContractor}. ${site.name} is not a roofing contractor and does not perform field work.`,
+    description: `${site.name} is a directory that publishes city pages for roofing. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}. ${site.name} is not a roofing contractor and does not perform field work.`,
     url: site.url,
     email: site.email,
     areaServed: {

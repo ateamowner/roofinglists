@@ -6,7 +6,7 @@ The published site is a **static export** on GitHub Pages. There is no Node serv
 
 Working brand name: **RoofingLists**. Domain: [roofinglists.com](https://roofinglists.com). Rename brand, cities, and services in `src/config/site.ts`. Unique local copy lives in `src/lib/local-copy.ts`.
 
-Dayton / Miami Valley and Columbus / Franklin County quote requests stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton, Columbus, or Cincinnati leads on For Pros. Cincinnati is also in-house — not a contractor-pay market — and this repo does not add Cincinnati city pages. Paid listings may exist later outside Dayton, Columbus, and Cincinnati. For now the inbox is `owner@` only. There is no approved payer list in this repo.
+Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with **A Team Contracting** at `owner@ateamcontractings.com`. Do not sell those leads to other contractors. Do not offer exclusive or sold Dayton, Columbus, or Cincinnati leads on For Pros. Cincinnati is in-house — not a contractor-pay market. Paid listings may exist later outside Dayton, Columbus, and Cincinnati. For now the inbox is `owner@` only. There is no approved payer list in this repo.
 
 Pattern: [ateamowner/treelist](https://github.com/ateamowner/treelist) (static Next export, city routes, FAQ JSON-LD, Formsubmit, Actions Pages). Pages workflow matches [ateamowner/solarlists](https://github.com/ateamowner/solarlists) (`upload-pages-artifact` + `deploy-pages`, `pages:write`, `id-token:write`). This repo does not change [treelist.ai](https://treelist.ai) DNS.
 
@@ -28,7 +28,7 @@ npm start
 
 `npm start` serves the `out/` folder with `serve`. The live site does not run `next start`.
 
-After `npm run build`, `out/` must contain `CNAME` (`roofinglists.com`), `.nojekyll`, `dayton-oh/`, and city × service folders such as `dayton-oh/roof-repair/`, `oakwood-oh/roof-repair/`, `troy-oh/roof-repair/`, and `springboro-oh/roof-repair/`.
+After `npm run build`, `out/` must contain `CNAME` (`roofinglists.com`), `.nojekyll`, `dayton-oh/`, `columbus-oh/`, `cincinnati-oh/`, and city × service folders such as `dayton-oh/roof-repair/`, `columbus-oh/roof-repair/`, and `cincinnati-oh/roof-repair/`.
 
 ## GitHub Pages
 
@@ -95,7 +95,7 @@ First Formsubmit delivery requires confirming `owner@ateamcontractings.com` when
 - `/privacy/`
 - `/for-pros/`
 - `/request-sent/`
-- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`, `/columbus-oh/`
+- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`, `/columbus-oh/`, `/cincinnati-oh/`
 - City × service: `roof-repair`, `roof-replacement`, `storm-damage`, `roof-inspection` under each city (locked H1: `Best {Service} in {City} — 2026`)
 
 ## Add a listing

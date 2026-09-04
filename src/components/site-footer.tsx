@@ -11,9 +11,10 @@ export function SiteFooter() {
         <div>
           <p className="font-heading text-lg font-semibold">{site.name}</p>
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-            {site.tagline} Dayton / Miami Valley and Columbus / Franklin
-            County requests stay with {site.exclusiveContractor}. We do not
-            invent companies or city-specific prices.
+            {site.tagline} Dayton / Miami Valley, Columbus / Franklin County,
+            and Cincinnati / Hamilton County requests stay with{" "}
+            {site.exclusiveContractor}. We do not invent companies or
+            city-specific prices.
           </p>
           <Disclosure className="mt-3" />
         </div>

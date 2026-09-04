@@ -225,6 +225,15 @@ const copy: Record<string, string> = {
     "After a Central Ohio wind or ice event, Columbus owners usually need photos of lifted shingles, broken slate, and wet attic spots before anyone talks replacement. Older city housing hides leaks behind plaster. Street-tree shade in Clintonville hides damage a drive-by misses. Document first. RoofingLists is a directory, not the crew on your roof.",
   "columbus-oh:roof-inspection":
     "A Columbus inspection should walk asphalt vs slate, flashing at chimneys common on older German Village and Clintonville stock, and attic moisture after freeze–thaw season. Street-tree shade and alley access are notes, not prices. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
+
+  "cincinnati-oh:roof-repair":
+    "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
+  "cincinnati-oh:roof-replacement":
+    "A Cincinnati reroof has to name the covering you already have: common asphalt on mid-century streets, slate or mixed leftovers on hillside Italianates and older Hyde Park blocks, and decks that have seen decades of Ohio River freeze–thaw. Tear-off vs overlay belongs in the written scope. Steeper hillside planes are a different staging problem than a later suburban ranch. National ranges are the only dollars on this page.",
+  "cincinnati-oh:storm-damage":
+    "After a Southwest Ohio wind or ice event, Cincinnati owners usually need photos of lifted shingles, broken slate, and wet attic spots before anyone talks replacement. Older hillside housing hides leaks behind plaster. Street-tree shade in Hyde Park and Over-the-Rhine hides damage a drive-by misses. North slopes hold ice; access in a freeze is part of the story. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "cincinnati-oh:roof-inspection":
+    "A Cincinnati inspection should walk asphalt vs slate, flashing at chimneys common on older hillside and Over-the-Rhine stock, and attic moisture after freeze–thaw season. Hillside access and street-tree shade are notes, not prices. Ask for what they saw in writing. We do not invent a Hamilton County inspection fee.",
 };
 
 export function uniqueLocalCopy(city: City, service: Service): string {
