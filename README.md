@@ -133,8 +133,8 @@ Labeled as national ranges, not a Dayton survey.
 - `sitemap.xml` and `robots.txt` are generated from the city/service config.
 - Sitemap `<loc>` values keep a trailing slash, including the homepage (`https://roofinglists.com/`). Do not revert to no-slash locs.
 - `robots.txt` lists `Sitemap: https://roofinglists.com/sitemap.xml` (the slash-canonical sitemap). It allows money pages (homepage, city hubs, service pages, `/for-pros/`). Only `/request-sent/` is disallowed.
-- The homepage includes JSON-LD: `Organization`, `WebSite`, and `FAQPage` matching the visible homepage FAQs. No invented reviews or ratings.
-- Every city and city × service page includes JSON-LD: `LocalBusiness` for RoofingLists the publisher (not a vendor), `FAQPage` matching the visible FAQs, and `BreadcrumbList`.
+- The homepage includes JSON-LD: `WebSite`, `Organization` (`@id` `https://roofinglists.com/#organization`), and `FAQPage` matching the five visible homepage FAQs. No SearchAction, phone, address, or invented reviews/ratings.
+- Every city and city × service page includes JSON-LD: `Organization` for RoofingLists the publisher (not a contractor / not `LocalBusiness`), `FAQPage` matching the visible FAQs, and `BreadcrumbList`.
 
 ### IndexNow (Bing / Yandex / others)
 

@@ -1,14 +1,20 @@
 import { lockedH1, site, type City, type Service } from "@/config/site";
 import type { Faq } from "@/lib/content";
 
+export function organizationId() {
+  return `${site.url.replace(/\/+$/, "")}/#organization`;
+}
+
+/** City/hub publisher. Organization, not LocalBusiness — this directory is not a contractor. */
 export function publisherLocalBusiness(city: City) {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
+    "@id": organizationId(),
     name: site.legalName,
     alternateName: site.name,
     description: `${site.name} is a directory that publishes city pages for roofing. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}. ${site.name} is not a roofing contractor and does not perform field work.`,
-    url: site.url,
+    url: trailingSlashUrl("/"),
     email: site.email,
     areaServed: {
       "@type": "City",
@@ -37,35 +43,30 @@ export function faqPageSchema(faqs: Faq[]) {
   };
 }
 
-/** Homepage-only publisher graph. No reviews, ratings, or invented phone/address. */
+/** Homepage only. Directory publisher — no phone, address, reviews, or AggregateRating. */
 export function organizationSchema() {
-  const url = trailingSlashUrl("/");
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: site.legalName,
-    alternateName: site.name,
-    url,
-    email: site.email,
-    description: site.description,
-    knowsAbout: "Roofing directory",
+    "@id": "https://roofinglists.com/#organization",
+    name: "RoofingLists",
+    url: "https://roofinglists.com/",
+    email: "owner@ateamcontractings.com",
+    description:
+      "Lead-generation directory. Paid placements labeled. Not a contractor.",
   };
 }
 
-/** Homepage-only WebSite node. No SearchAction — this site has no site search. */
+/** Homepage only. No SearchAction — this site has no site search. */
 export function webSiteSchema() {
-  const url = trailingSlashUrl("/");
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: site.name,
-    url,
+    url: trailingSlashUrl("/"),
     description: site.description,
-    inLanguage: "en-US",
     publisher: {
-      "@type": "Organization",
-      name: site.legalName,
-      url,
+      "@id": organizationId(),
     },
   };
 }

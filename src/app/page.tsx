@@ -34,7 +34,11 @@ export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
       <JsonLd
-        data={[organizationSchema(), webSiteSchema(), faqPageSchema(questions)]}
+        data={[
+          webSiteSchema(),
+          organizationSchema(),
+          faqPageSchema(questions),
+        ]}
       />
       <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
         <div>

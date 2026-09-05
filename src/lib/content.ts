@@ -193,28 +193,29 @@ export function faqs(city: City, service: Service): Faq[] {
   ];
 }
 
-/** Homepage FAQs only. Same facts as the visible homepage / For Pros copy. */
+/** Homepage FAQ — visible copy and FAQPage JSON-LD must stay in lockstep. */
 export function homeFaqs(): Faq[] {
   return [
     {
-      question: `Is ${site.name} a roofing company?`,
-      answer: `No. ${site.name} is a lead-generation directory for roofing companies. We are not a contractor. We do not send a crew, and we do not invent company names, star ratings, or city-specific prices. ${site.disclosure}`,
+      question: "Is RoofingLists a roofing company?",
+      answer: `No. RoofingLists is a lead-generation directory. We do not send a crew. Featured — paid placement spots are paid and labeled. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}. Those markets are in-house — not contractor-pay.`,
     },
     {
-      question: `Who receives Dayton, Columbus, and Cincinnati quote requests?`,
-      answer: `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads to other contractors. Cincinnati is also in-house — not a contractor-pay market and not an Exclusive SKU.`,
+      question: "Why are some listings marked Featured?",
+      answer: `Featured — paid placement is a labeled paid upgrade so homeowners can tell it is an ad. It is not exclusive and has no lead-count guarantee. Featured is not for sale on Dayton, Columbus, or Cincinnati pages — those requests stay with ${site.exclusiveContractor}.`,
     },
     {
-      question: `Do you publish star ratings or city-specific prices?`,
-      answer: `No. ${site.name} does not invent company names, phones, licenses, star ratings, or city-specific prices. The only dollar ranges we cite are national: roof replacement about $9,607 on average, and roof repair typically $395–$1,966 (${costGuide.sourceName}).`,
+      question: "What happens after I submit the form?",
+      answer: `We take the request and hold it at ${site.leadsEmail}. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}. We do not sell those leads. Expect a call from ${site.exclusiveContractor} — not from a RoofingLists roofer. There is no credit card on the form.`,
     },
     {
-      question: `What happens after I submit the form?`,
-      answer: `We take the request and hold it at ${site.leadsEmail}. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}. We do not sell those leads. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer. There is no credit card on the form.`,
+      question: "Do you invent star ratings or city-specific prices?",
+      answer:
+        "No. We do not invent company names, star ratings, or city-specific prices. Cost guides cite national published ranges only.",
     },
     {
-      question: `How do contractors get listed on ${site.name}?`,
-      answer: `They do not buy Dayton, Columbus, or Cincinnati leads. See For Pros. Those requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. Featured — paid placement is $99/month for an approved contractor outside Dayton, Columbus, and Cincinnati. The inbox is ${site.leadsEmail} only.`,
+      question: "Which cities do you cover?",
+      answer: `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County — each city has its own URL. Quote requests in those markets stay with ${site.exclusiveContractor}. Open a city page from the homepage list for that market’s form.`,
     },
   ];
 }
