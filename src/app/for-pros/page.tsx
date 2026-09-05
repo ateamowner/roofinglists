@@ -120,18 +120,23 @@ export default function ForProsPage() {
         What may exist later
       </h2>
       <p className="mt-3 leading-7">
-        If {site.name} adds an approved paying contractor outside Dayton,
-        Columbus, and Cincinnati, labeled paid listings (standard or featured)
-        may be available there. Exclusive sold leads will still not apply to
-        Dayton, Columbus, or Cincinnati. There is no credit-card field on{" "}
-        {site.name}.
+        Featured — paid placement is $99/month for an approved contractor
+        outside Dayton, Columbus, and Cincinnati. It is labeled{" "}
+        <strong>Featured — paid placement</strong>. Exclusive sold leads will
+        still not apply to Dayton, Columbus, or Cincinnati. There is no
+        credit-card field on the homeowner form. Email{" "}
+        <a href={`mailto:${site.email}`} className="underline">
+          {site.email}
+        </a>{" "}
+        for Featured in another market. We do not invent listings to fill a
+        page.
       </p>
       <p className="mt-3 leading-7">
-        The form collects name, phone, email, ZIP, service, timing, optional
-        roof type and age, optional message, SMS consent, and required privacy
-        consent. Hidden fields carry page URL, city, state, and service. Every
-        request — Dayton, Columbus, Cincinnati, or otherwise — posts to{" "}
-        {site.leadsEmail}.
+        The form collects required phone, email, ZIP, service, timing, SMS
+        consent, and privacy consent. Optional name, message, roof type, and
+        roof age sit behind More details. Hidden fields carry page URL, city,
+        state, and service. Every request — Dayton, Columbus, Cincinnati, or
+        otherwise — posts to {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>

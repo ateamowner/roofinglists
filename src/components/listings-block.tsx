@@ -1,4 +1,11 @@
-import { listingsEmptyNote, listingsHoldNote, type City } from "@/config/site";
+import Link from "next/link";
+import {
+  isInHouseLead,
+  listingsEmptyNote,
+  listingsHoldNote,
+  site,
+  type City,
+} from "@/config/site";
 import type { Listing } from "@/types/listing";
 
 const TIER_LABEL: Record<Listing["tier"], string> = {
@@ -19,14 +26,40 @@ export function ListingsBlock({
       <h2 className="font-heading text-xl font-semibold sm:text-2xl">
         Listings on this URL
       </h2>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm leading-[26px] text-muted-foreground">
         {listingsHoldNote(city)}
       </p>
 
       {listings.length === 0 ? (
-        <p className="mt-4 rounded-lg border border-dashed border-border bg-muted/50 px-4 py-6 text-base">
-          {listingsEmptyNote(city)}
-        </p>
+        <div className="mt-4 rounded-[16px] border border-dashed border-border bg-card p-5 shadow-sm">
+          <p className="text-base leading-[26px]">{listingsEmptyNote(city)}</p>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <a
+              href="#quote"
+              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
+            >
+              Get a quote
+            </a>
+            <Link
+              href="/for-pros/"
+              className="inline-flex h-11 items-center justify-center rounded-lg border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              Get Featured — $99/month
+            </Link>
+          </div>
+          {isInHouseLead(city) ? (
+            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
+              {city.name} roofing is in-house with {site.exclusiveContractor} at{" "}
+              {site.leadsEmail}. It is not a contractor-pay Exclusive SKU.
+              Featured — $99/month is for other markets.
+            </p>
+          ) : (
+            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
+              Featured spots, when they exist, are labeled{" "}
+              <span className="font-semibold">Featured — paid placement</span>.
+            </p>
+          )}
+        </div>
       ) : (
         <ul className="mt-4 space-y-3">
           {listings.map((listing) => (
