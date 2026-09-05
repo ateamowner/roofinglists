@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   title: `${site.name} — roofing quote directory`,
   description: site.description,
   alternates: { canonical: "/" },
+  openGraph: {
+    description: site.description,
+  },
+  twitter: {
+    description: site.description,
+  },
 };
 
 export default function HomePage() {
