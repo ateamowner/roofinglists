@@ -78,16 +78,16 @@ export default async function CityHubPage({
       />
 
       <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
-        <div>
-          <p className="text-sm font-medium text-primary">
+        <div id="hero">
+          <p className="text-[13px] font-medium leading-[18px] text-primary">
             {city.state}
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
-          <h1 className="mt-2 font-heading text-[clamp(1.75rem,6.2vw,2.5rem)] font-semibold leading-[1.25] tracking-tight md:text-[40px] md:leading-[48px]">
+          <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             Roofing in {city.name}, {city.stateAbbr}
           </h1>
           {city.status === "coming_soon" ? (
-            <p className="mt-4 text-base leading-7">
+            <p className="mt-4 text-base leading-[26px]">
               The {city.name} hub is coming soon. {site.name} opened this URL so
               nearby-city links stay valid. You can still request a quote.{" "}
               {parent ? (
@@ -102,7 +102,7 @@ export default async function CityHubPage({
             </p>
           ) : (
             intro.map((paragraph) => (
-              <p key={paragraph} className="mt-4 text-base leading-7">
+              <p key={paragraph} className="mt-4 text-base leading-[26px]">
                 {paragraph}
               </p>
             ))

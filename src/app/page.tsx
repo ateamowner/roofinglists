@@ -24,14 +24,14 @@ export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
       <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
-        <div>
+        <div id="hero">
           <p className="text-[13px] font-medium leading-[18px] text-primary">
             {site.tagline}
           </p>
-          <h1 className="mt-2 font-heading text-[clamp(1.75rem,6.2vw,2.5rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
+          <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             Find roofing by city. Request a quote. Skip the fake shop page.
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-[26px] md:text-lg md:leading-8">
+          <p className="mt-4 max-w-2xl text-base leading-[26px]">
             {site.name} is a lead-generation directory for roofing companies.
             We are not a contractor. We do not send a crew, and we do not
             invent company names, star ratings, or city-specific prices. Each
@@ -67,7 +67,7 @@ export default function HomePage() {
               <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                 {copy.intro}
               </p>
-              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {live.map((city) => (
                   <CityCard key={city.slug} city={city} />
                 ))}
