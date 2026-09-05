@@ -37,6 +37,39 @@ export function faqPageSchema(faqs: Faq[]) {
   };
 }
 
+/** Homepage-only publisher graph. No reviews, ratings, or invented phone/address. */
+export function organizationSchema() {
+  const url = trailingSlashUrl("/");
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.legalName,
+    alternateName: site.name,
+    url,
+    email: site.email,
+    description: site.description,
+    knowsAbout: "Roofing directory",
+  };
+}
+
+/** Homepage-only WebSite node. No SearchAction — this site has no site search. */
+export function webSiteSchema() {
+  const url = trailingSlashUrl("/");
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url,
+    description: site.description,
+    inLanguage: "en-US",
+    publisher: {
+      "@type": "Organization",
+      name: site.legalName,
+      url,
+    },
+  };
+}
+
 function trailingSlashUrl(path: string): string {
   const origin = site.url.replace(/\/+$/, "");
   if (path === "" || path === "/") return `${origin}/`;
