@@ -197,16 +197,20 @@ export function faqs(city: City, service: Service): Faq[] {
 export function homeFaqs(): Faq[] {
   return [
     {
-      question: "Is RoofingLists a roofing company?",
-      answer: `No. RoofingLists is a lead-generation directory. We do not send a crew. Featured — paid placement spots are paid and labeled. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}. Those markets are in-house — not contractor-pay.`,
+      question: "Is RoofingLists a roofing contractor?",
+      answer:
+        "No. RoofingLists is a lead-generation directory. We do not send a crew. Paid spots, when present, are labeled.",
     },
     {
-      question: "Why are some listings marked Featured?",
-      answer: `Featured — paid placement is a labeled paid upgrade so homeowners can tell it is an ad. It is not exclusive and has no lead-count guarantee. Featured is not for sale on Dayton, Columbus, or Cincinnati pages — those requests stay with ${site.exclusiveContractor}.`,
+      question:
+        "Do you sell Dayton, Columbus, or Cincinnati leads to other contractors?",
+      answer:
+        "No. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting at owner@ateamcontractings.com. We do not sell those leads.",
     },
     {
       question: "What happens after I submit the form?",
-      answer: `We take the request and hold it at ${site.leadsEmail}. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}. We do not sell those leads. Expect a call from ${site.exclusiveContractor} — not from a RoofingLists roofer. There is no credit card on the form.`,
+      answer:
+        "For in-house markets (Dayton, Columbus, Cincinnati rings), the request stays with A Team Contracting. Elsewhere, we hold or route per the approved list. We do not invent companies for empty listings.",
     },
     {
       question: "Do you invent star ratings or city-specific prices?",
@@ -215,7 +219,8 @@ export function homeFaqs(): Faq[] {
     },
     {
       question: "Which cities do you cover?",
-      answer: `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County — each city has its own URL. Quote requests in those markets stay with ${site.exclusiveContractor}. Open a city page from the homepage list for that market’s form.`,
+      answer:
+        "Dayton-area cities, Columbus, and Cincinnati hubs each have real URLs. Use the homepage city list — we do not duplicate cities that are not live.",
     },
   ];
 }

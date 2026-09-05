@@ -53,7 +53,7 @@ export function organizationSchema() {
     url: "https://roofinglists.com/",
     email: "owner@ateamcontractings.com",
     description:
-      "Lead-generation directory. Paid placements labeled. Not a contractor.",
+      "Lead-generation directory for roofing. Dayton / Columbus / Cincinnati quote requests stay with A Team Contracting and are not sold. Paid placements, when present, are labeled. Not a roofing contractor.",
   };
 }
 
