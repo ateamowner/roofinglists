@@ -104,19 +104,19 @@ export default async function ServicePage({
       />
 
       <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
-        <header className="md:col-start-1">
-          <p className="text-sm font-medium text-primary">
+        <header id="hero" className="md:col-start-1">
+          <p className="text-[13px] font-medium leading-[18px] text-primary">
             {city.name}, {city.stateAbbr}
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
-          <h1 className="mt-2 font-heading text-[clamp(1.75rem,6.2vw,2.5rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
+          <h1 className="mt-2 font-heading text-[32px] font-semibold leading-10 tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             {heading}
           </h1>
-          <p className="mt-3 rounded-md border border-border bg-muted/60 px-3 py-2 text-sm">
+          <p className="mt-3 rounded-md border border-border bg-muted/60 px-3 py-2 text-base leading-[26px]">
             {site.disclosure}
           </p>
           {intro.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-base leading-7">
+            <p key={paragraph} className="mt-4 text-base leading-[26px]">
               {paragraph}
             </p>
           ))}
