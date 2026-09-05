@@ -77,13 +77,13 @@ export default async function CityHubPage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
         <div>
           <p className="text-sm font-medium text-primary">
             {city.state}
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
-          <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="mt-2 font-heading text-[clamp(1.75rem,6.2vw,2.5rem)] font-semibold leading-[1.25] tracking-tight md:text-[40px] md:leading-[48px]">
             Roofing in {city.name}, {city.stateAbbr}
           </h1>
           {city.status === "coming_soon" ? (
@@ -133,7 +133,7 @@ export default async function CityHubPage({
           <FaqList faqs={questions} />
           <NearbyCityLinks city={city} service={roofRepair} />
         </div>
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+        <aside className="md:sticky md:top-24 md:self-start">
           {roofRepair ? (
             <QuoteFormLoader city={city} service={roofRepair} />
           ) : null}

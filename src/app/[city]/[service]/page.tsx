@@ -103,13 +103,13 @@ export default async function ServicePage({
         ]}
       />
 
-      <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:grid-rows-[auto_1fr]">
-        <header className="lg:col-start-1">
+      <div className="mt-4 grid gap-8 md:grid-cols-[minmax(0,1fr)_22rem] md:grid-rows-[auto_1fr]">
+        <header className="md:col-start-1">
           <p className="text-sm font-medium text-primary">
             {city.name}, {city.stateAbbr}
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
-          <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          <h1 className="mt-2 font-heading text-[clamp(1.75rem,6.2vw,2.5rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             {heading}
           </h1>
           <p className="mt-3 rounded-md border border-border bg-muted/60 px-3 py-2 text-sm">
@@ -122,11 +122,11 @@ export default async function ServicePage({
           ))}
         </header>
 
-        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-24">
+        <aside className="md:col-start-2 md:row-span-2 md:self-start md:sticky md:top-24">
           <QuoteFormLoader city={city} service={service} />
         </aside>
 
-        <div className="lg:col-start-1">
+        <div className="md:col-start-1">
           {listings.length === 0 ? (
             <ListingsBlock listings={listings} city={city} />
           ) : null}

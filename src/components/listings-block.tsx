@@ -26,40 +26,37 @@ export function ListingsBlock({
       <h2 className="font-heading text-xl font-semibold sm:text-2xl">
         Listings on this URL
       </h2>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm leading-[26px] text-muted-foreground">
         {listingsHoldNote(city)}
       </p>
 
       {listings.length === 0 ? (
         <div className="mt-4 rounded-[16px] border border-dashed border-border bg-card p-5 shadow-sm">
-          <p className="text-base leading-7">{listingsEmptyNote(city)}</p>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            The quote form on this page is the next step. We do not invent a
-            contractor to fill the gap.
-          </p>
+          <p className="text-base leading-[26px]">{listingsEmptyNote(city)}</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <a
               href="#quote"
-              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
             >
               Get a quote
             </a>
             <Link
               href="/for-pros/"
-              className="inline-flex h-11 items-center justify-center rounded-lg border border-primary px-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex h-11 items-center justify-center rounded-lg border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
             >
-              For Pros
+              Get Featured — $99/month
             </Link>
           </div>
           {isInHouseLead(city) ? (
-            <p className="mt-3 text-xs leading-5 text-muted-foreground">
-              {city.name} roofing is in-house with {site.exclusiveContractor}.
-              It is not a contractor-pay Exclusive SKU.
+            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
+              {city.name} roofing is in-house with {site.exclusiveContractor} at{" "}
+              {site.leadsEmail}. It is not a contractor-pay Exclusive SKU.
+              Featured — $99/month is for other markets.
             </p>
           ) : (
-            <p className="mt-3 text-xs leading-5 text-muted-foreground">
-              Featured spots, when they exist outside in-house markets, are
-              paid and labeled.
+            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
+              Featured spots, when they exist, are labeled{" "}
+              <span className="font-semibold">Featured — paid placement</span>.
             </p>
           )}
         </div>

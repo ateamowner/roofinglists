@@ -820,8 +820,8 @@ export function listingsHoldNote(city: City): string {
   return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
 }
 
-export function listingsEmptyNote(city: City): string {
-  return `No live listings on this URL yet. Use the form. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+export function listingsEmptyNote(_city: City): string {
+  return "No live listings on this URL yet. Use the form — we take the request and hold it. We do not invent companies.";
 }
 
 /** Sidebar copy on the quote form. Homepage (no city) names both live in-house markets. */

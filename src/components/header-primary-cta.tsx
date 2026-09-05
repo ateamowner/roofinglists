@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 const buttonClassName =
-  "inline-flex h-10 items-center rounded-md bg-primary px-3 text-primary-foreground hover:bg-primary/90";
+  "inline-flex h-10 items-center rounded-md bg-primary px-3 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90";
 
 const pagesWithoutForm = new Set(["for-pros", "privacy", "request-sent"]);
 
