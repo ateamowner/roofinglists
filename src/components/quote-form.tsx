@@ -349,6 +349,7 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
       <input type="hidden" name="utm_campaign" defaultValue="" />
 
       <button
+        id="quote-submit"
         type="submit"
         className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-lg bg-primary text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
       >
