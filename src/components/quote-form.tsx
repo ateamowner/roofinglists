@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  formLeadNote,
   formRoofAges,
   formRoofTypes,
   formServiceTypes,
@@ -149,9 +148,6 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
       <p className="mt-1 text-[13px] leading-[18px] text-muted-foreground">
         No credit card.
       </p>
-      <p className="mt-1 text-[13px] leading-[18px] text-muted-foreground">
-        {formLeadNote(city).replace(/^No credit card\.\s*/, "")}
-      </p>
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
         <Field label="Phone" htmlFor="phone">
@@ -234,7 +230,7 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
           More details
         </summary>
         <div className={`mt-3 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
-          <Field label="First name" htmlFor="first_name">
+          <Field label="Name" htmlFor="first_name">
             <input
               id="first_name"
               name="first_name"
@@ -303,12 +299,11 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
           type="checkbox"
           name="sms_consent"
           value="true"
-          required
           className="mt-1 size-4 accent-primary"
           checked={draft.sms_consent}
           onChange={(event) => update("sms_consent", event.target.checked)}
         />
-        <span>You may text me about this request at the number I provided. Required.</span>
+        <span>You may text me about this request at the number I provided.</span>
       </label>
       <label className="mt-2 flex items-start gap-2 text-[13px] leading-[18px]">
         <input

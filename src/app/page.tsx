@@ -28,7 +28,7 @@ export default function HomePage() {
           <p className="text-[13px] font-medium leading-[18px] text-primary">
             {site.tagline}
           </p>
-          <h1 className="mt-2 font-heading text-[32px] font-semibold leading-10 tracking-tight text-balance md:text-[40px] md:leading-[48px]">
+          <h1 className="mt-2 font-heading text-[clamp(1.75rem,7.2vw,2rem)] font-semibold leading-10 tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             Find roofing by city. Request a quote. Skip the fake shop page.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-[26px]">
@@ -67,7 +67,7 @@ export default function HomePage() {
               <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                 {copy.intro}
               </p>
-              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {live.map((city) => (
                   <CityCard key={city.slug} city={city} />
                 ))}

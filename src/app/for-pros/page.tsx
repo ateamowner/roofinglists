@@ -132,11 +132,11 @@ export default function ForProsPage() {
         page.
       </p>
       <p className="mt-3 leading-7">
-        The form collects required phone, email, ZIP, service, timing, SMS
-        consent, and privacy consent. Optional name, message, roof type, and
-        roof age sit behind More details. Hidden fields carry page URL, city,
-        state, and service. Every request — Dayton, Columbus, Cincinnati, or
-        otherwise — posts to {site.leadsEmail}.
+        The form collects required phone, email, ZIP, service, timing, and
+        privacy consent. SMS consent is optional and visible. Optional name,
+        message, roof type, and roof age sit behind More details. Hidden fields
+        carry page URL, city, state, and service. Every request — Dayton,
+        Columbus, Cincinnati, or otherwise — posts to {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>

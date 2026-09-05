@@ -83,7 +83,7 @@ export default async function CityHubPage({
             {city.state}
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
-          <h1 className="mt-2 font-heading text-[32px] font-semibold leading-10 tracking-tight md:text-[40px] md:leading-[48px]">
+          <h1 className="mt-2 font-heading text-[clamp(1.75rem,7.2vw,2rem)] font-semibold leading-10 tracking-tight md:text-[40px] md:leading-[48px]">
             Roofing in {city.name}, {city.stateAbbr}
           </h1>
           {city.status === "coming_soon" ? (
