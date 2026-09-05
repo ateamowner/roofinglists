@@ -133,13 +133,7 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
         window.setTimeout(() => {
           const form = formRef.current;
           if (!form) return;
-          for (const name of [
-            "first_name",
-            "last_name",
-            "phone",
-            "email",
-            "zip",
-          ] as const) {
+          for (const name of ["phone", "email", "zip"] as const) {
             const field = form.elements.namedItem(name);
             if (field instanceof HTMLInputElement && field.value) {
               update(name, field.value);
@@ -147,7 +141,7 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
           }
         }, 50);
       }}
-      className="rounded-lg border border-border bg-card p-5 shadow-sm"
+      className="scroll-mt-24 rounded-[16px] border border-border bg-card p-5 shadow-[0_8px_24px_rgba(28,25,22,0.12)]"
     >
       <h2 className="font-heading text-lg font-semibold sm:text-xl">
         Request a callback
@@ -157,28 +151,6 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
       </p>
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "sm:grid-cols-2"}`}>
-        <Field label="First name" htmlFor="first_name">
-          <input
-            id="first_name"
-            name="first_name"
-            required
-            autoComplete="given-name"
-            className={fieldClassName}
-            value={draft.first_name}
-            onChange={(event) => onTextChange("first_name", event.target.value)}
-          />
-        </Field>
-        <Field label="Last name" htmlFor="last_name">
-          <input
-            id="last_name"
-            name="last_name"
-            required
-            autoComplete="family-name"
-            className={fieldClassName}
-            value={draft.last_name}
-            onChange={(event) => onTextChange("last_name", event.target.value)}
-          />
-        </Field>
         <Field label="Phone" htmlFor="phone">
           <input
             id="phone"
@@ -232,7 +204,11 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
             ))}
           </select>
         </Field>
-        <Field label="Timing" htmlFor="timing">
+        <Field
+          label="Timing"
+          htmlFor="timing"
+          className={compact ? "" : "sm:col-span-2"}
+        >
           <select
             id="timing"
             name="timing"
@@ -248,62 +224,89 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
             ))}
           </select>
         </Field>
-        <Field label="Roof type (optional)" htmlFor="roof_type">
-          <select
-            id="roof_type"
-            name="roof_type"
-            className={fieldClassName}
-            value={draft.roof_type}
-            onChange={(event) => update("roof_type", event.target.value)}
-          >
-            {formRoofTypes.map((item) => (
-              <option key={item.value || "empty-type"} value={item.value}>
-                {item.label}
-              </option>
-            ))}
-          </select>
-        </Field>
-        <Field label="Roof age (optional)" htmlFor="roof_age">
-          <select
-            id="roof_age"
-            name="roof_age"
-            className={fieldClassName}
-            value={draft.roof_age}
-            onChange={(event) => update("roof_age", event.target.value)}
-          >
-            {formRoofAges.map((item) => (
-              <option key={item.value || "empty-age"} value={item.value}>
-                {item.label}
-              </option>
-            ))}
-          </select>
-        </Field>
       </div>
 
-      <Field label="Message (optional)" htmlFor="message" className="mt-3">
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          className="min-h-24 w-full rounded-lg border border-input bg-card px-2.5 py-2 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm"
-          placeholder="Leak location, last storm, asphalt vs slate, or access notes."
-          value={draft.message}
-          onChange={(event) => onTextChange("message", event.target.value)}
-        />
-      </Field>
+      <details className="mt-4 rounded-lg border border-dashed border-border bg-muted/40 px-3 py-2">
+        <summary className="cursor-pointer text-sm font-medium">
+          More details
+        </summary>
+        <div className={`mt-3 grid gap-3 ${compact ? "" : "sm:grid-cols-2"}`}>
+          <Field label="First name (optional)" htmlFor="first_name">
+            <input
+              id="first_name"
+              name="first_name"
+              autoComplete="given-name"
+              className={fieldClassName}
+              value={draft.first_name}
+              onChange={(event) => onTextChange("first_name", event.target.value)}
+            />
+          </Field>
+          <Field label="Last name (optional)" htmlFor="last_name">
+            <input
+              id="last_name"
+              name="last_name"
+              autoComplete="family-name"
+              className={fieldClassName}
+              value={draft.last_name}
+              onChange={(event) => onTextChange("last_name", event.target.value)}
+            />
+          </Field>
+          <Field label="Roof type (optional)" htmlFor="roof_type">
+            <select
+              id="roof_type"
+              name="roof_type"
+              className={fieldClassName}
+              value={draft.roof_type}
+              onChange={(event) => update("roof_type", event.target.value)}
+            >
+              {formRoofTypes.map((item) => (
+                <option key={item.value || "empty-type"} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Roof age (optional)" htmlFor="roof_age">
+            <select
+              id="roof_age"
+              name="roof_age"
+              className={fieldClassName}
+              value={draft.roof_age}
+              onChange={(event) => update("roof_age", event.target.value)}
+            >
+              {formRoofAges.map((item) => (
+                <option key={item.value || "empty-age"} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </Field>
+        </div>
+        <Field label="Message (optional)" htmlFor="message" className="mt-3">
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            className="min-h-24 w-full rounded-lg border border-input bg-card px-2.5 py-2 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm"
+            placeholder="Leak location, last storm, asphalt vs slate, or access notes."
+            value={draft.message}
+            onChange={(event) => onTextChange("message", event.target.value)}
+          />
+        </Field>
+        <label className="mt-3 flex items-start gap-2 text-sm">
+          <input
+            type="checkbox"
+            name="sms_consent"
+            value="true"
+            className="mt-1 size-4 accent-primary"
+            checked={draft.sms_consent}
+            onChange={(event) => update("sms_consent", event.target.checked)}
+          />
+          <span>You may text me about this request at the number I provided.</span>
+        </label>
+      </details>
 
       <label className="mt-4 flex items-start gap-2 text-sm">
-        <input
-          type="checkbox"
-          name="sms_consent"
-          value="true"
-          className="mt-1 size-4 accent-primary"
-          checked={draft.sms_consent}
-          onChange={(event) => update("sms_consent", event.target.checked)}
-        />
-        <span>You may text me about this request at the number I provided.</span>
-      </label>
-      <label className="mt-2 flex items-start gap-2 text-sm">
         <input
           type="checkbox"
           name="privacy_consent"

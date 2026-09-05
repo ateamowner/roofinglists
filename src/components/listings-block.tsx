@@ -1,4 +1,11 @@
-import { listingsEmptyNote, listingsHoldNote, type City } from "@/config/site";
+import Link from "next/link";
+import {
+  isInHouseLead,
+  listingsEmptyNote,
+  listingsHoldNote,
+  site,
+  type City,
+} from "@/config/site";
 import type { Listing } from "@/types/listing";
 
 const TIER_LABEL: Record<Listing["tier"], string> = {
@@ -24,9 +31,38 @@ export function ListingsBlock({
       </p>
 
       {listings.length === 0 ? (
-        <p className="mt-4 rounded-lg border border-dashed border-border bg-muted/50 px-4 py-6 text-base">
-          {listingsEmptyNote(city)}
-        </p>
+        <div className="mt-4 rounded-[16px] border border-dashed border-border bg-card p-5 shadow-sm">
+          <p className="text-base leading-7">{listingsEmptyNote(city)}</p>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            The quote form on this page is the next step. We do not invent a
+            contractor to fill the gap.
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <a
+              href="#quote"
+              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Get a quote
+            </a>
+            <Link
+              href="/for-pros/"
+              className="inline-flex h-11 items-center justify-center rounded-lg border border-primary px-4 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              For Pros
+            </Link>
+          </div>
+          {isInHouseLead(city) ? (
+            <p className="mt-3 text-xs leading-5 text-muted-foreground">
+              {city.name} roofing is in-house with {site.exclusiveContractor}.
+              It is not a contractor-pay Exclusive SKU.
+            </p>
+          ) : (
+            <p className="mt-3 text-xs leading-5 text-muted-foreground">
+              Featured spots, when they exist outside in-house markets, are
+              paid and labeled.
+            </p>
+          )}
+        </div>
       ) : (
         <ul className="mt-4 space-y-3">
           {listings.map((listing) => (

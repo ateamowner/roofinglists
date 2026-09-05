@@ -133,7 +133,7 @@ export default async function CityHubPage({
           <FaqList faqs={questions} />
           <NearbyCityLinks city={city} service={roofRepair} />
         </div>
-        <aside className="lg:sticky lg:top-6 lg:self-start">
+        <aside className="lg:sticky lg:top-24 lg:self-start">
           {roofRepair ? (
             <QuoteFormLoader city={city} service={roofRepair} />
           ) : null}

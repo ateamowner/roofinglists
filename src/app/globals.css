@@ -53,5 +53,6 @@
   }
   html {
     @apply font-sans;
+    scroll-padding-top: 6rem;
   }
 }

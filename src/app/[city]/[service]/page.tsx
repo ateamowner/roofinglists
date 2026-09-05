@@ -122,15 +122,20 @@ export default async function ServicePage({
           ))}
         </header>
 
-        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-6">
+        <aside className="lg:col-start-2 lg:row-span-2 lg:self-start lg:sticky lg:top-24">
           <QuoteFormLoader city={city} service={service} />
         </aside>
 
         <div className="lg:col-start-1">
+          {listings.length === 0 ? (
+            <ListingsBlock listings={listings} city={city} />
+          ) : null}
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
           <FaqList faqs={questions} />
-          <ListingsBlock listings={listings} city={city} />
+          {listings.length > 0 ? (
+            <ListingsBlock listings={listings} city={city} />
+          ) : null}
           <RelatedServiceLinks city={city} current={service} />
           <NearbyCityLinks city={city} service={service} />
         </div>

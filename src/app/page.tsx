@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Disclosure } from "@/components/disclosure";
+import { ForProsBand } from "@/components/for-pros-band";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
+import { TrustStrip } from "@/components/trust-strip";
 import {
   citiesInRegion,
   cityRegionHeadings,
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-      <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <section className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div>
           <p className="text-sm font-medium text-primary">{site.tagline}</p>
           <h1 className="mt-2 font-heading text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
@@ -39,19 +41,15 @@ export default function HomePage() {
             {site.exclusiveContractor} at {site.leadsEmail}. We do not sell
             those leads to other contractors. Cincinnati is also in-house —
             not a contractor-pay market and not an Exclusive SKU.
-            Companies can read the{" "}
-            <Link href="/for-pros/" className="underline underline-offset-2">
-              For Pros
-            </Link>{" "}
-            page — we do not offer exclusive or sold Dayton, Columbus, or
-            Cincinnati leads there.
           </p>
           <Disclosure className="mt-3 max-w-2xl" />
         </div>
         <QuoteFormLoader />
       </section>
 
-      <div id="cities">
+      <TrustStrip className="mt-8 rounded-[16px] border border-border bg-card px-4 py-3 text-center sm:px-6" />
+
+      <div id="cities" className="scroll-mt-24">
         {cityRegionOrder.map((region) => {
           const live = citiesInRegion(region);
           const copy = cityRegionHeadings[region];
@@ -75,6 +73,10 @@ export default function HomePage() {
             </section>
           );
         })}
+      </div>
+
+      <div className="mt-14">
+        <ForProsBand />
       </div>
 
       <section className="mt-14">
