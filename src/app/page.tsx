@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Disclosure } from "@/components/disclosure";
+import { FaqList } from "@/components/faq-list";
 import { ForProsBand } from "@/components/for-pros-band";
+import { JsonLd } from "@/components/json-ld";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { TrustStrip } from "@/components/trust-strip";
 import {
@@ -13,6 +15,12 @@ import {
   site,
   type City,
 } from "@/config/site";
+import { homeFaqs } from "@/lib/content";
+import {
+  faqPageSchema,
+  organizationSchema,
+  webSiteSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `${site.name} — roofing quote directory`,
@@ -21,8 +29,13 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const questions = homeFaqs();
+
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[organizationSchema(), webSiteSchema(), faqPageSchema(questions)]}
+      />
       <section className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_22rem]">
         <div id="hero">
           <p className="text-[13px] font-medium leading-[18px] text-primary">
@@ -115,6 +128,8 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      <FaqList faqs={questions} />
     </div>
   );
 }
