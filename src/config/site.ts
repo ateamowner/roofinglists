@@ -18,7 +18,7 @@ export const site = {
   /** Reserved contractor for Dayton, Columbus, and Cincinnati in-house coverage. */
   exclusiveContractor: "A Team Contracting",
   description:
-    "RoofingLists is a lead-generation directory for roofing. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting. We do not invent company names, phones, licenses, star ratings, or city-specific prices.",
+    "Roofing lead directory for Dayton, Columbus & Cincinnati. Quote requests stay with A Team where noted. Paid spots labeled. Not a contractor.",
   disclosure:
     "RoofingLists is a directory. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not sell those leads to other contractors. Cincinnati is also in-house — not a contractor-pay market. Paid spots, when they exist, are labeled.",
   theme: {
