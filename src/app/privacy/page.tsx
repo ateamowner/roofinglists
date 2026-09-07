@@ -5,6 +5,7 @@ import { site } from "@/config/site";
 export const metadata: Metadata = {
   title: `Privacy — ${site.name}`,
   description: `How ${site.name} collects quote-form data. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}.`,
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {
