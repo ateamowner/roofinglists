@@ -720,7 +720,7 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: [],
+    nearbySlugs: ["dublin-oh"],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -731,6 +731,25 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze.",
     localNote:
       "A Clintonville bungalow or German Village two-story is a different shade and access problem than a later suburban ranch, even when both sit on AEP Ohio. We do not invent a Columbus-only dollar figure.",
+  },
+  {
+    slug: "dublin-oh",
+    name: "Dublin",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: ["columbus-oh"],
+    setting:
+      "Dublin is a northwest Columbus suburb in Franklin County, with Union and Delaware edges, along the Scioto River around Muirfield Village, Historic Dublin, and Bridge Park. Later subdivisions and I-270 / US-33 office-park streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Mostly architectural shingles on 1980s–2010s houses; Historic Dublin along the river has older pitches, but slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Later colonials, two-stories, and Muirfield-area stock on wider lots than inner-city Columbus, plus newer Bridge Park and office-park-adjacent roofs on the I-270 edge.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; open northwest lots and office-park edges catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "A Muirfield or Bridge Park-adjacent roof is a different shade and access problem than a German Village two-story, even when both sit on AEP Ohio. We do not invent a Dublin-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
@@ -771,7 +790,7 @@ export const cityRegionHeadings: Record<
   columbus: {
     heading: "Columbus / Franklin County",
     intro:
-      "Live Central Ohio hub. Nearby links only point at cities that already exist on this site — Columbus has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
+      "Live Central Ohio markets. Each hub links roof repair, replacement, storm damage, and inspection. Nearby links only point at cities that already exist on this site. Quote requests stay with A Team Contracting. We do not sell those leads.",
   },
   cincinnati: {
     heading: "Cincinnati / Hamilton County",
