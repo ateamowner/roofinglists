@@ -226,6 +226,15 @@ const copy: Record<string, string> = {
   "columbus-oh:roof-inspection":
     "A Columbus inspection should walk asphalt vs slate, flashing at chimneys common on older German Village and Clintonville stock, and attic moisture after freeze–thaw season. Street-tree shade and alley access are notes, not prices. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
 
+  "dublin-oh:roof-repair":
+    "Dublin repairs are more often architectural-shingle flashing and ice at the eaves on later northwest-suburb planes than historic slate. A leak on a Muirfield colonial or Bridge Park-adjacent roof is not a German Village valley patch. AEP Ohio on the bill is not a Dublin repair price. We do not publish a Franklin County dollar figure.",
+  "dublin-oh:roof-replacement":
+    "A Dublin reroof is frequently later architectural shingle on a 1980s–2010s colonial or Muirfield-area two-story — not a German Village slate leftover. Historic Dublin river-street pitches are a tighter, older walk. Name tear-off vs overlay and any HOA color rule. National ranges are the only dollars on this page.",
+  "dublin-oh:storm-damage":
+    "After a Central Ohio wind or ice event, Dublin owners usually need photos of lifted architectural tabs and wet attic spots. Open northwest lots and I-270 office-park edges catch more wind than Clintonville shade. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "dublin-oh:roof-inspection":
+    "A Dublin inspection should walk later architectural shingles, ridge vents, and ice-season attic moisture — plus any HOA-visible Muirfield or Bridge Park-adjacent plane. This is not a German Village slate walk. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
