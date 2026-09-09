@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/json-ld";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import {
   cities,
+  cityPath,
   getCity,
   getParentCity,
   getService,
@@ -43,7 +44,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/${city.slug}/` },
+    alternates: { canonical: cityPath(city) },
   };
 }
 
@@ -73,7 +74,7 @@ export default async function CityHubPage({
       <Breadcrumbs
         items={[
           { href: "/", label: "Home" },
-          { href: `/${city.slug}`, label: `${city.name}, ${city.stateAbbr}` },
+          { href: cityPath(city), label: `${city.name}, ${city.stateAbbr}` },
         ]}
       />
 
@@ -93,7 +94,7 @@ export default async function CityHubPage({
               {parent ? (
                 <>
                   The live market page is{" "}
-                  <Link href={`/${parent.slug}/`} className="underline underline-offset-2">
+                  <Link href={cityPath(parent)} className="underline underline-offset-2">
                     {parent.name}
                   </Link>
                   .

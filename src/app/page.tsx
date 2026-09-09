@@ -8,6 +8,7 @@ import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { TrustStrip } from "@/components/trust-strip";
 import {
   citiesInRegion,
+  cityPath,
   cityRegionHeadings,
   cityRegionOrder,
   servicePath,
@@ -158,7 +159,7 @@ function CityCard({ city }: { city: City }) {
         </Link>
       </p>
       <p className="mt-2">
-        <Link href={`/${city.slug}/`} className="text-sm hover:underline">
+        <Link href={cityPath(city)} className="text-sm hover:underline">
           All {city.name} services
         </Link>
       </p>
