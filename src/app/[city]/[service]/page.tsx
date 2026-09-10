@@ -13,6 +13,7 @@ import {
   getCity,
   getService,
   lockedH1,
+  pageDisclosure,
   pageTitle,
   services,
   site,
@@ -113,7 +114,7 @@ export default async function ServicePage({
             {heading}
           </h1>
           <p className="mt-3 rounded-md border border-border bg-muted/60 px-3 py-2 text-base leading-[26px]">
-            {site.disclosure}
+            {pageDisclosure(city)}
           </p>
           {intro.map((paragraph) => (
             <p key={paragraph} className="mt-4 text-base leading-[26px]">

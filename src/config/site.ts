@@ -20,7 +20,7 @@ export const site = {
   description:
     "Roofing lead directory for Dayton, Columbus & Cincinnati. Quote requests stay with A Team where noted. Paid spots labeled. Not a contractor.",
   disclosure:
-    "RoofingLists is a directory. Dayton / Miami Valley and Columbus / Franklin County quote requests stay with A Team Contracting. We do not sell those leads to other contractors. Cincinnati is also in-house — not a contractor-pay market. Paid spots, when they exist, are labeled.",
+    "RoofingLists is a directory. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting. Paid spots, when they exist, are labeled.",
   theme: {
     background: "#f4efe8",
     foreground: "#1c1916",
@@ -42,8 +42,8 @@ export type ListingTier = "standard" | "featured" | "exclusive";
 
 export type CityStatus = "live" | "coming_soon";
 
-/** Dayton ring, Columbus, and Cincinnati are in-house A Team leads. None of those regions is a contractor-pay SKU. */
-export type CityRegion = "dayton" | "columbus" | "cincinnati";
+/** Dayton ring, Columbus, and Cincinnati are in-house A Team leads. `national` is outside those rings. */
+export type CityRegion = "dayton" | "columbus" | "cincinnati" | "national";
 
 export type City = {
   slug: string;
@@ -53,7 +53,7 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
-  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs — also in-house. */
+  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs — also in-house. Set national for markets outside those rings. */
   region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
@@ -770,12 +770,32 @@ export const cities: City[] = [
     localNote:
       "A hillside Price Hill or Hyde Park two-story is a different shade and access problem than a later suburban ranch, even when both sit on Duke Energy Ohio. We do not invent a Cincinnati-only dollar figure.",
   },
+  {
+    slug: "madison-wi",
+    name: "Madison",
+    state: "Wisconsin",
+    stateAbbr: "WI",
+    status: "live",
+    region: "national",
+    nearbySlugs: [],
+    setting:
+      "Madison sits on an isthmus between Lake Mendota and Lake Monona in Dane County, with older city lots, street trees, and a mix of bungalows and two-stories from the near-east / Willy Street side plus later west-side and Fitchburg-edge subdivisions. Madison Gas and Electric (MG&E) is the usual electric utility on the bill.",
+    roofs:
+      "Mostly asphalt shingles; older near-east and isthmus blocks can still carry a mixed or aged covering that is not a three-tab patch. Later west-side houses are more often architectural shingle.",
+    housing:
+      "Near-east bungalows and two-stories on tighter lots than later west-side or Fitchburg-edge subdivisions.",
+    storms:
+      "Southern Wisconsin freeze–thaw and ice wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze. Open west-side lots catch more wind than a tree-lined Willy Street block.",
+    localNote:
+      "A near-east / Willy Street two-story is a different shade and access problem than a later west-side or Fitchburg-edge ranch, even when both sit on MG&E. We do not invent a Madison-only dollar figure.",
+  },
 ];
 
 export const cityRegionOrder: CityRegion[] = [
   "dayton",
   "columbus",
   "cincinnati",
+  "national",
 ];
 
 export const cityRegionHeadings: Record<
@@ -797,6 +817,11 @@ export const cityRegionHeadings: Record<
     intro:
       "Live Southwest Ohio hub. Nearby links only point at cities that already exist on this site — Cincinnati has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
   },
+  national: {
+    heading: "Other markets",
+    intro:
+      "Live markets outside the Dayton, Columbus, and Cincinnati in-house rings. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests are held at the directory inbox for now.",
+  },
 };
 
 export function cityRegion(city: City): CityRegion {
@@ -807,7 +832,7 @@ export function isDaytonExclusive(city: City): boolean {
   return cityRegion(city) === "dayton";
 }
 
-/** Dayton ring, Columbus, and Cincinnati stay with A Team. Not contractor-pay roofinglists markets. */
+/** Only Dayton ring, Columbus, and Cincinnati stay with A Team. National markets are not exclusive. */
 export function isInHouseLead(city: City): boolean {
   const region = cityRegion(city);
   return (
@@ -819,13 +844,15 @@ export function inHouseCoverageLabel(city: City): string {
   const region = cityRegion(city);
   if (region === "dayton") return "Dayton / Miami Valley";
   if (region === "columbus") return `${city.name} / Franklin County`;
-  return `${city.name} / Hamilton County`;
+  if (region === "cincinnati") return `${city.name} / Hamilton County`;
+  return `${city.name} / Dane County`;
 }
 
 export function regionLabel(city: City): string {
   const region = cityRegion(city);
   if (region === "columbus") return "Franklin County / Columbus";
   if (region === "cincinnati") return "Hamilton County / Cincinnati";
+  if (region === "national") return "Dane County / Madison";
   return "Miami Valley";
 }
 
@@ -836,17 +863,31 @@ export function citiesInRegion(region: CityRegion): City[] {
 }
 
 export function listingsHoldNote(city: City): string {
-  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
+  if (isInHouseLead(city)) {
+    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
+  }
+  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} quote requests are held at ${site.leadsEmail} for now. Paid spots, when they exist, are labeled.`;
 }
 
 export function listingsEmptyNote(_city: City): string {
   return "No live listings on this URL yet. Use the form — we take the request and hold it. We do not invent companies.";
 }
 
-/** Sidebar copy on the quote form. Homepage (no city) names both live in-house markets. */
+/** City-page disclosure. In-house cities keep exclusive language; national markets do not. */
+export function pageDisclosure(city: City): string {
+  if (isInHouseLead(city)) {
+    return `${site.name} is a directory. ${inHouseCoverageLabel(city)} quote requests stay with ${site.exclusiveContractor}. We do not sell those leads to other contractors. Paid spots, when they exist, are labeled.`;
+  }
+  return `${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests are held at ${site.leadsEmail} for now. Paid spots, when they exist, are labeled.`;
+}
+
+/** Sidebar copy on the quote form. Homepage (no city) names the OH in-house rings. */
 export function formLeadNote(city?: City): string {
   if (city) {
-    return `No credit card. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+    if (isInHouseLead(city)) {
+      return `No credit card. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+    }
+    return `No credit card. ${city.name} requests are held at ${site.leadsEmail} for now.`;
   }
   return `No credit card. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
 }

@@ -5,7 +5,9 @@ import {
   getParentCity,
   inHouseCoverageLabel,
   isDaytonExclusive,
+  isInHouseLead,
   lockedH1,
+  pageDisclosure,
   regionLabel,
   site,
   type City,
@@ -15,8 +17,11 @@ import { uniqueLocalCopy } from "@/lib/local-copy";
 
 export type Faq = { question: string; answer: string };
 
-function directoryLine(): string {
-  return `${site.disclosure} If the listings block is empty, use the form anyway. Requests in this coverage stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`;
+function directoryLine(city: City): string {
+  if (isInHouseLead(city)) {
+    return `${pageDisclosure(city)} If the listings block is empty, use the form anyway. Requests in this coverage stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`;
+  }
+  return `${pageDisclosure(city)} If the listings block is empty, use the form anyway.`;
 }
 
 export function introParagraphs(city: City, service: Service): string[] {
@@ -25,7 +30,7 @@ export function introParagraphs(city: City, service: Service): string[] {
       ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form; Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`
       : null;
 
-  const directory = directoryLine();
+  const directory = directoryLine(city);
   const serviceLine = serviceIntro(city, service);
 
   if (comingSoon) {
@@ -64,9 +69,13 @@ export function serviceCardBlurb(city: City, service: Service): string {
     case "roof-replacement":
       return "A full reroof: tear-off or overlay, underlayment, flashing, and a written scope for the planes that come off.";
     case "storm-damage":
-      return cityRegion(city) === "cincinnati"
-        ? "Wind, hail, or ice after a Southwest Ohio storm — document first, then decide repair vs replacement."
-        : "Wind, hail, or ice after a Central Ohio storm — document first, then decide repair vs replacement.";
+      if (cityRegion(city) === "cincinnati") {
+        return "Wind, hail, or ice after a Southwest Ohio storm — document first, then decide repair vs replacement.";
+      }
+      if (cityRegion(city) === "national") {
+        return "Wind, hail, or ice after a southern Wisconsin storm — document first, then decide repair vs replacement.";
+      }
+      return "Wind, hail, or ice after a Central Ohio storm — document first, then decide repair vs replacement.";
     case "roof-inspection":
       return "A walk of the deck, flashing, and attic before a sale, an insurance claim, or winter ice season.";
     default:
@@ -75,14 +84,16 @@ export function serviceCardBlurb(city: City, service: Service): string {
 }
 
 export function hubIntro(city: City): string[] {
-  const lead = `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
+  const lead = isInHouseLead(city)
+    ? `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`
+    : `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name} — a directory, not a contractor website. Open a service page for the quote form. ${city.name} quote requests are held at ${site.leadsEmail} for now. Paid spots, when they exist, are labeled.`;
 
   return [
     lead,
     city.setting,
     `${city.housing} ${city.roofs} ${city.storms}`,
     city.localNote,
-    site.disclosure,
+    pageDisclosure(city),
   ];
 }
 
@@ -111,7 +122,9 @@ export function howToChoose(
             ? `${city.storms} ${city.housing} Local access (tight Dayton lots, hillside Miamisburg, low-pitch Huber ranches) changes the job. Ask how they stage in a freeze.`
             : cityRegion(city) === "cincinnati"
               ? `${city.storms} ${city.housing} Local access (Ohio River hillsides, Price Hill and Hyde Park lots, later suburban planes) changes the job. Ask how they stage in a freeze.`
-              : `${city.storms} ${city.housing} Local access (tight German Village lots, Clintonville shade, later suburban planes) changes the job. Ask how they stage in a freeze.`,
+              : cityRegion(city) === "national"
+                ? `${city.storms} ${city.housing} Local access (isthmus lots, near-east / Willy Street shade, later west-side and Fitchburg-edge planes) changes the job. Ask how they stage in a freeze.`
+                : `${city.storms} ${city.housing} Local access (tight German Village lots, Clintonville shade, later suburban planes) changes the job. Ask how they stage in a freeze.`,
       },
       {
         title: "Written scope",
@@ -160,11 +173,15 @@ export function faqs(city: City, service: Service): Faq[] {
   return [
     {
       question: `Is ${site.name} a ${service.name.toLowerCase()} company in ${city.name}?`,
-      answer: `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the ${inHouseCoverageLabel(city)} coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`,
+      answer: isInHouseLead(city)
+        ? `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the ${inHouseCoverageLabel(city)} coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`
+        : `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. Quote requests on this URL are held at ${site.leadsEmail} for now. We do not invent contractors to fill the page.`,
     },
     {
       question: `Why are some listings marked Featured or Exclusive?`,
-      answer: `Those labels exist for paid placements if a future market outside Dayton, Columbus, and Cincinnati gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton, Columbus, or Cincinnati leads, and we do not invent companies to fill empty slots.`,
+      answer: isInHouseLead(city)
+        ? `Those labels exist for paid placements if a future market outside Dayton, Columbus, and Cincinnati gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton, Columbus, or Cincinnati leads, and we do not invent companies to fill empty slots.`
+        : `Those labels exist for paid placements if a future contractor-pay listing is added. They are not a live contractor-pay SKU on this ${city.name} page today. We do not invent companies to fill empty slots.`,
     },
     {
       question: `What does ${service.name.toLowerCase()} cost in ${city.name}?`,
@@ -178,7 +195,9 @@ export function faqs(city: City, service: Service): Faq[] {
       answer:
         city.status === "coming_soon"
           ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. You should get a phone call, not a ${site.name} crew.`
-          : `We take the request and hold it at ${site.leadsEmail}. ${city.name} is in the ${inHouseCoverageLabel(city)} coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer.`,
+          : isInHouseLead(city)
+            ? `We take the request and hold it at ${site.leadsEmail}. ${city.name} is in the ${inHouseCoverageLabel(city)} coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor} — not from a ${site.name} roofer.`
+            : `We take the request and hold it at ${site.leadsEmail}. The inbox is ${site.leadsEmail} only for now.`,
     },
     {
       question:
@@ -227,11 +246,15 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `Does ${site.name} work on roofs in ${city.name}?`,
-      answer: `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those ${inHouseCoverageLabel(city)} leads to other contractors.`,
+      answer: isInHouseLead(city)
+        ? `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those ${inHouseCoverageLabel(city)} leads to other contractors.`
+        : `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests are held at ${site.leadsEmail} for now.`,
     },
     {
       question: `Are featured listings ads?`,
-      answer: `Featured and exclusive labels are for paid placements if a market outside Dayton, Columbus, and Cincinnati is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`,
+      answer: isInHouseLead(city)
+        ? `Featured and exclusive labels are for paid placements if a market outside Dayton, Columbus, and Cincinnati is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`
+        : `Featured and exclusive labels exist for paid placements if a contractor-pay listing is added later. They are not a live contractor-pay SKU on this ${city.name} page today. We do not invent company names to fill a page.`,
     },
     {
       question: `Where is the quote form?`,
@@ -239,7 +262,9 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `How do contractors get on this ${city.name} page?`,
-      answer: `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley, Columbus, and Cincinnati requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`,
+      answer: isInHouseLead(city)
+        ? `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley, Columbus, and Cincinnati requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`
+        : `See For Pros. ${city.name} is outside the Dayton, Columbus, and Cincinnati in-house rings. Sold leads may exist later. There is no contractor-pay SKU on this page today. The form still holds requests at ${site.leadsEmail}.`,
     },
   ];
 }

@@ -19,8 +19,9 @@ export default function RequestSentPage() {
         {site.name} is a directory. Your request went to {site.leadsEmail}.
         Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
         Hamilton County coverage stays with {site.exclusiveContractor}. We do
-        not sell those leads to other contractors. The call comes from that
-        shop, not from a {site.name} crew.
+        not sell those Ohio leads to other contractors. Other live-market
+        requests are held at the same inbox for now. The call does not come
+        from a {site.name} crew.
       </p>
       <Disclosure className="mt-4" />
       <p className="mt-6">

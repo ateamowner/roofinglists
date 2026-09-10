@@ -16,6 +16,7 @@ export default function ForProsPage() {
   const daytonCities = citiesInRegion("dayton");
   const columbusCities = citiesInRegion("columbus");
   const cincinnatiCities = citiesInRegion("cincinnati");
+  const nationalCities = citiesInRegion("national");
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6">
@@ -136,7 +137,7 @@ export default function ForProsPage() {
         privacy consent. SMS consent is optional and visible. Optional name,
         message, roof type, and roof age sit behind More details. Hidden fields
         carry page URL, city, state, and service. Every request — Dayton,
-        Columbus, Cincinnati, or otherwise — posts to {site.leadsEmail}.
+        Columbus, Cincinnati, Madison, or otherwise — posts to {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>
@@ -186,6 +187,29 @@ export default function ForProsPage() {
       </h2>
       <ul className="mt-3 space-y-2">
         {cincinnatiCities.map((city) => (
+          <li key={city.slug}>
+            <Link
+              href={servicePath(city, "roof-repair")}
+              className="underline underline-offset-2"
+            >
+              {servicePath(city, "roof-repair")}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-10 font-heading text-2xl font-semibold">
+        Other live markets
+      </h2>
+      <p className="mt-3 leading-7">
+        Madison, Wisconsin is a live market outside the Dayton, Columbus, and
+        Cincinnati in-house rings. Homeowner forms on those URLs still post to{" "}
+        {site.leadsEmail} and are held there for now. Sold leads may exist
+        later. There is no Featured or exclusive contractor-pay SKU for Madison
+        on this page today.
+      </p>
+      <ul className="mt-3 space-y-2">
+        {nationalCities.map((city) => (
           <li key={city.slug}>
             <Link
               href={servicePath(city, "roof-repair")}

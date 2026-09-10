@@ -243,6 +243,15 @@ const copy: Record<string, string> = {
     "After a Southwest Ohio wind or ice event, Cincinnati owners usually need photos of lifted shingles, broken slate, and wet attic spots before anyone talks replacement. Older hillside housing hides leaks behind plaster. Street-tree shade in Hyde Park and Over-the-Rhine hides damage a drive-by misses. North slopes hold ice; access in a freeze is part of the story. Document first. RoofingLists is a directory, not the crew on your roof.",
   "cincinnati-oh:roof-inspection":
     "A Cincinnati inspection should walk asphalt vs slate, flashing at chimneys common on older hillside and Over-the-Rhine stock, and attic moisture after freeze–thaw season. Hillside access and street-tree shade are notes, not prices. Ask for what they saw in writing. We do not invent a Hamilton County inspection fee.",
+
+  "madison-wi:roof-repair":
+    "Madison repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a near-east / Willy Street bungalow or isthmus two-story. Historic leftover covering is not a three-tab patch. Tight isthmus lots and street trees change staging. MG&E on the bill is not a Madison repair price. We do not publish a Dane County dollar figure.",
+  "madison-wi:roof-replacement":
+    "A Madison reroof has to name the covering you already have: common asphalt on later west-side streets, mixed or aged leftovers on near-east and isthmus blocks, and decks that have seen decades of southern Wisconsin freeze–thaw. Tear-off vs overlay belongs in the written scope. A Fitchburg-edge subdivision plane is a different geometry than a Willy Street two-story. National ranges are the only dollars on this page.",
+  "madison-wi:storm-damage":
+    "After a southern Wisconsin wind or ice event, Madison owners usually need photos of lifted shingles, ice-dam stains, and wet attic spots before anyone talks replacement. Older near-east housing hides leaks behind plaster. Street-tree shade on Willy Street hides damage a drive-by misses. Open west-side lots catch more wind than the isthmus. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "madison-wi:roof-inspection":
+    "A Madison inspection should walk remaining asphalt life, flashing at chimneys common on older near-east and isthmus stock, and attic moisture after ice-dam season. Isthmus access and street-tree shade are notes, not prices. This is not a later west-side ranch walk. Ask for what they saw in writing. We do not invent a Dane County inspection fee.",
 };
 
 export function uniqueLocalCopy(city: City, service: Service): string {
