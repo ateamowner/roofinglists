@@ -107,7 +107,7 @@ export default async function CityHubPage({
               </p>
             ))
           )}
-          <Disclosure className="mt-4" />
+          <Disclosure city={city} className="mt-4" />
 
           <h2 className="mt-8 font-heading text-xl font-semibold">
             Services in {city.name}

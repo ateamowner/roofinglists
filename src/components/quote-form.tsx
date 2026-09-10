@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
+  formLeadNote,
   formRoofAges,
   formRoofTypes,
   formServiceTypes,
@@ -146,7 +147,7 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
         Request a callback
       </h2>
       <p className="mt-1 text-[13px] leading-[18px] text-muted-foreground">
-        No credit card.
+        {formLeadNote(city)}
       </p>
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
