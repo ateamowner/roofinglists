@@ -153,8 +153,16 @@ export function QuoteForm({ city, service, listingId, compact }: QuoteFormProps)
       </p>
       <FormProgress
         contactDone={Boolean(draft.phone.trim() && draft.zip.trim())}
-        jobDone={Boolean(draft.service_type && draft.timing)}
-        confirmDone={draft.privacy_consent}
+        jobDone={Boolean(
+          draft.phone.trim() &&
+            draft.zip.trim() &&
+            draft.service_type &&
+            draft.timing
+        )}
+        confirmDone={
+          Boolean(draft.phone.trim() && draft.zip.trim()) &&
+          draft.privacy_consent
+        }
       />
 
       <div className={`mt-4 grid gap-3 ${compact ? "" : "md:grid-cols-2"}`}>
