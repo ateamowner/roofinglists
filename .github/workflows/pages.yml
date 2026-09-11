@@ -35,6 +35,8 @@ jobs:
           test -d out/dayton-oh/roof-repair
           test -d out/madison-wi
           test -d out/madison-wi/roof-repair
+          test -d out/syracuse-ny
+          test -d out/syracuse-ny/roof-repair
           test "$(tr -d '[:space:]' < out/CNAME)" = "roofinglists.com"
           KEY_FILE=$(find public -maxdepth 1 -regextype posix-egrep -regex '.*/[0-9a-f]{32}\.txt' | head -1)
           test -n "$KEY_FILE"

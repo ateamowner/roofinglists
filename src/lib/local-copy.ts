@@ -252,6 +252,15 @@ const copy: Record<string, string> = {
     "After a southern Wisconsin wind or ice event, Madison owners usually need photos of lifted shingles, ice-dam stains, and wet attic spots before anyone talks replacement. Older near-east housing hides leaks behind plaster. Street-tree shade on Willy Street hides damage a drive-by misses. Open west-side lots catch more wind than the isthmus. Document first. RoofingLists is a directory, not the crew on your roof.",
   "madison-wi:roof-inspection":
     "A Madison inspection should walk remaining asphalt life, flashing at chimneys common on older near-east and isthmus stock, and attic moisture after ice-dam season. Isthmus access and street-tree shade are notes, not prices. This is not a later west-side ranch walk. Ask for what they saw in writing. We do not invent a Dane County inspection fee.",
+
+  "syracuse-ny:roof-repair":
+    "Syracuse repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on an Eastwood bungalow or Strathmore two-story. Historic leftover covering is not a three-tab patch. Tight older lots and street trees change staging. Lake-effect snow loads ice at eaves. National Grid on the bill is not a Syracuse repair price. We do not publish an Onondaga County dollar figure.",
+  "syracuse-ny:roof-replacement":
+    "A Syracuse reroof has to name the covering you already have: common asphalt on later suburban streets, mixed or aged leftovers on Eastwood and Strathmore blocks, and decks that have seen decades of lake-effect snow and freeze–thaw. Tear-off vs overlay belongs in the written scope. A later suburban plane is a different geometry than an Eastwood or Strathmore two-story. National ranges are the only dollars on this page.",
+  "syracuse-ny:storm-damage":
+    "After a Central New York wind, ice, or lake-effect snow event, Syracuse owners usually need photos of lifted shingles, ice-dam stains, and wet attic spots before anyone talks replacement. Older Eastwood and Strathmore housing hides leaks behind plaster. Street-tree shade hides damage a drive-by misses. Open later-suburban lots catch more wind than the older city blocks. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "syracuse-ny:roof-inspection":
+    "A Syracuse inspection should walk remaining asphalt life, flashing at chimneys common on older Eastwood and Strathmore stock, and attic moisture after ice-dam and lake-effect season. Older-lot access and street-tree shade are notes, not prices. This is not a later suburban ranch walk. Ask for what they saw in writing. We do not invent an Onondaga County inspection fee.",
 };
 
 export function uniqueLocalCopy(city: City, service: Service): string {
