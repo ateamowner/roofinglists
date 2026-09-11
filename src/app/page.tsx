@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { CityCardGrid } from "@/components/city-card-grid";
 import { Disclosure } from "@/components/disclosure";
 import { FaqList } from "@/components/faq-list";
 import { ForProsBand } from "@/components/for-pros-band";
@@ -8,12 +8,11 @@ import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { TrustStrip } from "@/components/trust-strip";
 import {
   citiesInRegion,
+  cityPath,
   cityRegionHeadings,
   cityRegionOrder,
-  servicePath,
   services,
   site,
-  type City,
 } from "@/config/site";
 import { homeFaqs } from "@/lib/content";
 import {
@@ -48,15 +47,14 @@ export default function HomePage() {
             {site.tagline}
           </p>
           <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
-            Find roofing by city. Request a quote. Skip the fake shop page.
+            Roof issue? Get a callback — not a fake shop page.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-[26px]">
-            {site.name} is a lead-generation directory for roofing companies.
-            We are not a contractor. We do not send a crew, and we do not
-            invent company names, star ratings, or city-specific prices. Each
-            city has its own URL. Paid spots, when they exist, are labeled.
+            {site.name} is a directory, not a contractor. Paid spots, when they
+            exist, are labeled.
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-[26px] text-muted-foreground">
+          <TrustStrip className="mt-4" />
+          <p className="mt-5 max-w-2xl text-base leading-[26px] text-muted-foreground">
             Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati
             / Hamilton County quote requests stay with{" "}
             {site.exclusiveContractor} at {site.leadsEmail}. We do not sell
@@ -68,33 +66,22 @@ export default function HomePage() {
         <QuoteFormLoader />
       </section>
 
-      <TrustStrip className="mt-8 rounded-[16px] border border-border bg-card px-4 py-3 text-center sm:px-6" />
-
-      <div id="cities" className="scroll-mt-24">
-        {cityRegionOrder.map((region) => {
-          const live = citiesInRegion(region);
+      <CityCardGrid
+        regions={cityRegionOrder.map((region) => {
           const copy = cityRegionHeadings[region];
-          return (
-            <section
-              key={region}
-              id={region === "dayton" ? "cities-dayton" : `${region}-cities`}
-              className="mt-14"
-            >
-              <h2 className="font-heading text-2xl font-semibold">
-                {copy.heading}
-              </h2>
-              <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-                {copy.intro}
-              </p>
-              <ul className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {live.map((city) => (
-                  <CityCard key={city.slug} city={city} />
-                ))}
-              </ul>
-            </section>
-          );
+          return {
+            region,
+            heading: copy.heading,
+            intro: copy.intro,
+            cities: citiesInRegion(region).map((city) => ({
+              slug: city.slug,
+              name: city.name,
+              stateAbbr: city.stateAbbr,
+              href: `${cityPath(city)}/`,
+            })),
+          };
         })}
-      </div>
+      />
 
       <div className="mt-14">
         <ForProsBand />
@@ -137,31 +124,5 @@ export default function HomePage() {
 
       <FaqList faqs={questions} />
     </div>
-  );
-}
-
-function CityCard({ city }: { city: City }) {
-  return (
-    <li className="flex flex-col rounded-lg border border-border bg-card p-5">
-      <h3 className="font-heading text-xl font-semibold">
-        {city.name}, {city.stateAbbr}
-      </h3>
-      <p className="mt-2 flex-1 text-sm leading-[26px] text-muted-foreground">
-        {city.setting.split(/(?<=\.)\s/)[0]}
-      </p>
-      <p className="mt-4">
-        <Link
-          href={servicePath(city, "roof-repair")}
-          className="font-medium underline underline-offset-2"
-        >
-          Best Roof Repair in {city.name} — {site.year}
-        </Link>
-      </p>
-      <p className="mt-2">
-        <Link href={`/${city.slug}/`} className="text-sm hover:underline">
-          All {city.name} services
-        </Link>
-      </p>
-    </li>
   );
 }

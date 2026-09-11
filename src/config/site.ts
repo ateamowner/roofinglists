@@ -31,7 +31,7 @@ export const site = {
     mutedForeground: "#4a4338",
     accent: "#e8c9a0",
     accentForeground: "#3d2a12",
-    border: "#c9bba8",
+    border: "#E0D6C8",
     featured: "#8a4b12",
     ring: "#5c2a1a",
     exclusive: "#3d1f14",
@@ -870,7 +870,11 @@ export function listingsHoldNote(city: City): string {
 }
 
 export function listingsEmptyNote(_city: City): string {
-  return "No live listings on this URL yet. Use the form — we take the request and hold it. We do not invent companies.";
+  return "No public list here yet — your request still gets held for a match.";
+}
+
+export function listingsEmptyFollowUp(): string {
+  return "Usually follow up within one business day";
 }
 
 /** City-page disclosure. In-house cities keep exclusive language; national markets do not. */

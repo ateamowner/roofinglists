@@ -1,17 +1,19 @@
-export function TrustStrip({ className = "" }: { className?: string }) {
-  const items = ["No credit card", "Paid spots labeled", "Local city pages"];
+export const trustChips = [
+  "No credit card",
+  "Paid spots labeled",
+  "We hold your request",
+] as const;
 
+export function TrustStrip({ className = "" }: { className?: string }) {
   return (
     <ul
-      className={`flex flex-wrap items-center justify-center gap-x-0 gap-y-1 text-[13px] font-medium leading-[18px] tracking-wide text-muted-foreground ${className}`}
+      className={`flex flex-wrap items-center gap-2 text-[13px] font-medium leading-[18px] ${className}`}
     >
-      {items.map((item, index) => (
-        <li key={item} className="flex items-center">
-          {index > 0 ? (
-            <span aria-hidden="true" className="px-2 text-border">
-              ·
-            </span>
-          ) : null}
+      {trustChips.map((item) => (
+        <li
+          key={item}
+          className="rounded-full border border-border bg-card px-3 py-1.5 text-foreground shadow-[0_12px_32px_rgba(19,32,43,0.10)]"
+        >
           {item}
         </li>
       ))}
