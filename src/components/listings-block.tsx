@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   isInHouseLead,
+  listingsEmptyFollowUp,
   listingsEmptyNote,
   listingsHoldNote,
   site,
@@ -31,18 +32,23 @@ export function ListingsBlock({
       </p>
 
       {listings.length === 0 ? (
-        <div className="mt-4 rounded-[16px] border border-dashed border-border bg-card p-5 shadow-sm">
-          <p className="text-base leading-[26px]">{listingsEmptyNote(city)}</p>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-4 rounded-[14px] border border-dashed border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
+          <p className="font-heading text-lg font-semibold leading-[26px]">
+            {listingsEmptyNote(city)}
+          </p>
+          <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
+            {listingsEmptyFollowUp()}
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="#quote"
-              className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
+              className="inline-flex h-11 items-center justify-center rounded-[14px] bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
             >
-              Get a quote
+              Request a callback
             </a>
             <Link
               href="/for-pros/"
-              className="inline-flex h-11 items-center justify-center rounded-lg border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
+              className="inline-flex h-11 items-center justify-center rounded-[14px] border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Get Featured — $99/month
             </Link>
