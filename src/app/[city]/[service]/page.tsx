@@ -8,12 +8,12 @@ import { NearbyCityLinks, RelatedServiceLinks } from "@/components/internal-link
 import { JsonLd } from "@/components/json-ld";
 import { ListingsBlock } from "@/components/listings-block";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
+import { TrustStrip } from "@/components/trust-strip";
 import {
   cities,
   getCity,
   getService,
   lockedH1,
-  pageDisclosure,
   pageTitle,
   services,
   site,
@@ -113,9 +113,7 @@ export default async function ServicePage({
           <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             {heading}
           </h1>
-          <p className="mt-3 rounded-md border border-border bg-muted/60 px-3 py-2 text-base leading-[26px]">
-            {pageDisclosure(city)}
-          </p>
+          <TrustStrip className="mt-4" />
           {intro.map((paragraph) => (
             <p key={paragraph} className="mt-4 text-base leading-[26px]">
               {paragraph}

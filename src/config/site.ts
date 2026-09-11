@@ -21,6 +21,12 @@ export const site = {
     "Roofing lead directory for Dayton, Columbus & Cincinnati. Quote requests stay with A Team where noted. Paid spots labeled. Not a contractor.",
   disclosure:
     "RoofingLists is a directory. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting. Paid spots, when they exist, are labeled.",
+  /** Locked homepage + city-page trust chips. Do not invent variants. */
+  trustStrip: [
+    "No credit card",
+    "Paid spots labeled",
+    "We hold your request",
+  ] as const,
   theme: {
     background: "#f4efe8",
     foreground: "#1c1916",

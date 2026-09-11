@@ -7,6 +7,7 @@ import { FaqList } from "@/components/faq-list";
 import { NearbyCityLinks } from "@/components/internal-links";
 import { JsonLd } from "@/components/json-ld";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
+import { TrustStrip } from "@/components/trust-strip";
 import {
   cities,
   getCity,
@@ -86,6 +87,7 @@ export default async function CityHubPage({
           <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
             Roofing in {city.name}, {city.stateAbbr}
           </h1>
+          <TrustStrip className="mt-4" />
           {city.status === "coming_soon" ? (
             <p className="mt-4 text-base leading-[26px]">
               The {city.name} hub is coming soon. {site.name} opened this URL so
