@@ -795,6 +795,25 @@ export const cities: City[] = [
     localNote:
       "A near-east / Willy Street two-story is a different shade and access problem than a later west-side or Fitchburg-edge ranch, even when both sit on MG&E. We do not invent a Madison-only dollar figure.",
   },
+  {
+    slug: "syracuse-ny",
+    name: "Syracuse",
+    state: "New York",
+    stateAbbr: "NY",
+    status: "live",
+    region: "national",
+    nearbySlugs: [],
+    setting:
+      "Syracuse sits in Onondaga County in Central New York, with older city lots, street trees, and a mix of bungalows and two-stories from Eastwood and Strathmore plus later suburban edges. National Grid is the usual electric utility on the bill.",
+    roofs:
+      "Mostly asphalt shingles; older Eastwood and Strathmore blocks can still carry a mixed or aged covering that is not a three-tab patch. Later suburban houses are more often architectural shingle.",
+    housing:
+      "Eastwood and Strathmore bungalows and two-stories on tighter lots than later suburban subdivisions.",
+    storms:
+      "Lake-effect snow and Central New York freeze–thaw wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze. Open later-suburban lots catch more wind than a tree-lined Eastwood or Strathmore block.",
+    localNote:
+      "An Eastwood or Strathmore two-story is a different shade and access problem than a later suburban ranch, even when both sit on National Grid. We do not invent a Syracuse-only dollar figure.",
+  },
 ];
 
 export const cityRegionOrder: CityRegion[] = [
@@ -851,6 +870,7 @@ export function inHouseCoverageLabel(city: City): string {
   if (region === "dayton") return "Dayton / Miami Valley";
   if (region === "columbus") return `${city.name} / Franklin County`;
   if (region === "cincinnati") return `${city.name} / Hamilton County`;
+  if (city.slug === "syracuse-ny") return `${city.name} / Onondaga County`;
   return `${city.name} / Dane County`;
 }
 
@@ -858,7 +878,10 @@ export function regionLabel(city: City): string {
   const region = cityRegion(city);
   if (region === "columbus") return "Franklin County / Columbus";
   if (region === "cincinnati") return "Hamilton County / Cincinnati";
-  if (region === "national") return "Dane County / Madison";
+  if (region === "national") {
+    if (city.slug === "syracuse-ny") return "Onondaga County / Syracuse";
+    return "Dane County / Madison";
+  }
   return "Miami Valley";
 }
 

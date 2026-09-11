@@ -73,6 +73,9 @@ export function serviceCardBlurb(city: City, service: Service): string {
         return "Wind, hail, or ice after a Southwest Ohio storm — document first, then decide repair vs replacement.";
       }
       if (cityRegion(city) === "national") {
+        if (city.slug === "syracuse-ny") {
+          return "Wind, hail, or ice after a Central New York storm — document first, then decide repair vs replacement.";
+        }
         return "Wind, hail, or ice after a southern Wisconsin storm — document first, then decide repair vs replacement.";
       }
       return "Wind, hail, or ice after a Central Ohio storm — document first, then decide repair vs replacement.";
@@ -123,7 +126,9 @@ export function howToChoose(
             : cityRegion(city) === "cincinnati"
               ? `${city.storms} ${city.housing} Local access (Ohio River hillsides, Price Hill and Hyde Park lots, later suburban planes) changes the job. Ask how they stage in a freeze.`
               : cityRegion(city) === "national"
-                ? `${city.storms} ${city.housing} Local access (isthmus lots, near-east / Willy Street shade, later west-side and Fitchburg-edge planes) changes the job. Ask how they stage in a freeze.`
+                ? city.slug === "syracuse-ny"
+                  ? `${city.storms} ${city.housing} Local access (Eastwood and Strathmore lots, later suburban planes) changes the job. Ask how they stage in a freeze.`
+                  : `${city.storms} ${city.housing} Local access (isthmus lots, near-east / Willy Street shade, later west-side and Fitchburg-edge planes) changes the job. Ask how they stage in a freeze.`
                 : `${city.storms} ${city.housing} Local access (tight German Village lots, Clintonville shade, later suburban planes) changes the job. Ask how they stage in a freeze.`,
       },
       {

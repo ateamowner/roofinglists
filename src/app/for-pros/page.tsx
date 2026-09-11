@@ -202,11 +202,11 @@ export default function ForProsPage() {
         Other live markets
       </h2>
       <p className="mt-3 leading-7">
-        Madison, Wisconsin is a live market outside the Dayton, Columbus, and
-        Cincinnati in-house rings. Homeowner forms on those URLs still post to{" "}
-        {site.leadsEmail} and are held there for now. Sold leads may exist
-        later. There is no Featured or exclusive contractor-pay SKU for Madison
-        on this page today.
+        Madison, Wisconsin and Syracuse, New York are live markets outside
+        the Dayton, Columbus, and Cincinnati in-house rings. Homeowner forms
+        on those URLs still post to {site.leadsEmail} and are held there for
+        now. Sold leads may exist later. There is no Featured or exclusive
+        contractor-pay SKU for Madison or Syracuse on this page today.
       </p>
       <ul className="mt-3 space-y-2">
         {nationalCities.map((city) => (
