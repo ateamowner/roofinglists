@@ -726,7 +726,7 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["dublin-oh"],
+    nearbySlugs: ["dublin-oh", "hilliard-oh"],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -745,7 +745,7 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["columbus-oh"],
+    nearbySlugs: ["columbus-oh", "hilliard-oh"],
     setting:
       "Dublin is a northwest Columbus suburb in Franklin County, with Union and Delaware edges, along the Scioto River around Muirfield Village, Historic Dublin, and Bridge Park. Later subdivisions and I-270 / US-33 office-park streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -756,6 +756,25 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice still wear flashing; open northwest lots and office-park edges catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
       "A Muirfield or Bridge Park-adjacent roof is a different shade and access problem than a German Village two-story, even when both sit on AEP Ohio. We do not invent a Dublin-only dollar figure.",
+  },
+  {
+    slug: "hilliard-oh",
+    name: "Hilliard",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: ["columbus-oh", "dublin-oh"],
+    setting:
+      "Hilliard is a northwest Columbus suburb in Franklin County, along I-270 and Cemetery Road around Old Hilliard. Later subdivisions replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Mostly architectural shingles on later houses; Old Hilliard has older pitches and aging asphalt. Slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Later colonials, two-stories, and subdivision stock on wider lots than inner-city Columbus, plus tighter older planes in Old Hilliard off Cemetery Road.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; open I-270 and Cemetery Road-edge lots catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "An Old Hilliard or later Cemetery Road-adjacent roof is a different shade and access problem than a German Village two-story, even when both sit on AEP Ohio. We do not invent a Hilliard-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
