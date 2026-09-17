@@ -244,6 +244,15 @@ const copy: Record<string, string> = {
   "hilliard-oh:roof-inspection":
     "A Hilliard inspection should separate Old Hilliard covering from a later subdivision rectangle west of I-270. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
+  "worthington-oh:roof-repair":
+    "Worthington leak calls split between Old Worthington / High Street historic-core flashing — older pitches, tighter village lots — and later subdivision asphalt north of SR-161. Ice backing under the first courses on an Olentangy-edge colonial is not a German Village slate patch. AEP Ohio on the bill is not a Worthington repair price. We do not publish a Franklin County dollar figure.",
+  "worthington-oh:roof-replacement":
+    "A Worthington reroof has to name which street you are on: High Street village-core covering that may be aging asphalt on a tighter historic pitch, or a later I-270 / SR-161 subdivision rectangle. This is not a German Village mixed leftover. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
+  "worthington-oh:storm-damage":
+    "After a Central Ohio ice or wind week, Worthington owners need photos of lifted tabs and wet attic spots. Open I-270 and SR-161-edge lots take more wind than a tree-lined German Village alley; Old Worthington ice still sits on older High Street flashing. Olentangy-edge shade can hide a north plane. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "worthington-oh:roof-inspection":
+    "A Worthington inspection should separate Old Worthington / High Street covering from a later northern Franklin County subdivision plane off I-270 or SR-161. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
