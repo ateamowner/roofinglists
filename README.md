@@ -28,7 +28,7 @@ npm start
 
 `npm start` serves the `out/` folder with `serve`. The live site does not run `next start`.
 
-After `npm run build`, `out/` must contain `CNAME` (`roofinglists.com`), `.nojekyll`, `dayton-oh/`, `columbus-oh/`, `dublin-oh/`, `hilliard-oh/`, `cincinnati-oh/`, `madison-wi/`, `syracuse-ny/`, and city × service folders such as `dayton-oh/roof-repair/`, `columbus-oh/roof-repair/`, `dublin-oh/roof-repair/`, `hilliard-oh/roof-repair/`, `cincinnati-oh/roof-repair/`, `madison-wi/roof-repair/`, and `syracuse-ny/roof-repair/`.
+After `npm run build`, `out/` must contain `CNAME` (`roofinglists.com`), `.nojekyll`, `dayton-oh/`, `columbus-oh/`, `dublin-oh/`, `hilliard-oh/`, `worthington-oh/`, `cincinnati-oh/`, `madison-wi/`, `syracuse-ny/`, and city × service folders such as `dayton-oh/roof-repair/`, `columbus-oh/roof-repair/`, `dublin-oh/roof-repair/`, `hilliard-oh/roof-repair/`, `worthington-oh/roof-repair/`, `cincinnati-oh/roof-repair/`, `madison-wi/roof-repair/`, and `syracuse-ny/roof-repair/`.
 
 ## GitHub Pages
 
@@ -95,7 +95,7 @@ First Formsubmit delivery requires confirming `owner@ateamcontractings.com` when
 - `/privacy/`
 - `/for-pros/`
 - `/request-sent/`
-- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`, `/columbus-oh/`, `/dublin-oh/`, `/hilliard-oh/`, `/cincinnati-oh/`, `/madison-wi/`, `/syracuse-ny/`
+- City hubs: `/dayton-oh/`, `/kettering-oh/`, `/beavercreek-oh/`, `/centerville-oh/`, `/huber-heights-oh/`, `/fairborn-oh/`, `/miamisburg-oh/`, `/xenia-oh/`, `/vandalia-oh/`, `/springfield-oh/`, `/tipp-city-oh/`, `/oakwood-oh/`, `/west-carrollton-oh/`, `/trotwood-oh/`, `/englewood-oh/`, `/riverside-oh/`, `/moraine-oh/`, `/bellbrook-oh/`, `/springboro-oh/`, `/troy-oh/`, `/clayton-oh/`, `/brookville-oh/`, `/germantown-oh/`, `/franklin-oh/`, `/columbus-oh/`, `/dublin-oh/`, `/hilliard-oh/`, `/worthington-oh/`, `/cincinnati-oh/`, `/madison-wi/`, `/syracuse-ny/`
 - City × service: `roof-repair`, `roof-replacement`, `storm-damage`, `roof-inspection` under each city (locked H1: `Best {Service} in {City} — 2026`)
 
 ## Add a listing
