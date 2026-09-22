@@ -726,7 +726,12 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["dublin-oh", "hilliard-oh", "worthington-oh"],
+    nearbySlugs: [
+      "dublin-oh",
+      "hilliard-oh",
+      "worthington-oh",
+      "upper-arlington-oh",
+    ],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -745,7 +750,12 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["columbus-oh", "hilliard-oh", "worthington-oh"],
+    nearbySlugs: [
+      "columbus-oh",
+      "hilliard-oh",
+      "worthington-oh",
+      "upper-arlington-oh",
+    ],
     setting:
       "Dublin is a northwest Columbus suburb in Franklin County, with Union and Delaware edges, along the Scioto River around Muirfield Village, Historic Dublin, and Bridge Park. Later subdivisions and I-270 / US-33 office-park streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -764,7 +774,12 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["columbus-oh", "dublin-oh", "worthington-oh"],
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "worthington-oh",
+      "upper-arlington-oh",
+    ],
     setting:
       "Hilliard is a northwest Columbus suburb in Franklin County, along I-270 and Cemetery Road around Old Hilliard. Later subdivisions replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -783,7 +798,12 @@ export const cities: City[] = [
     stateAbbr: "OH",
     status: "live",
     region: "columbus",
-    nearbySlugs: ["columbus-oh", "dublin-oh", "hilliard-oh"],
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "hilliard-oh",
+      "upper-arlington-oh",
+    ],
     setting:
       "Worthington is a northern Franklin County suburb of Columbus, with Old Worthington and the High Street historic core, an Olentangy River edge, and later subdivisions along I-270 and SR-161. Later streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -794,6 +814,30 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice still wear flashing; open I-270 and SR-161-edge lots catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze. Olentangy-edge shade holds ice on north planes.",
     localNote:
       "An Old Worthington or High Street historic-core roof is a different shade and access problem than a later I-270 / SR-161 subdivision plane — and both differ from a German Village two-story — even when all sit on AEP Ohio. We do not invent a Worthington-only dollar figure.",
+  },
+  {
+    slug: "upper-arlington-oh",
+    name: "Upper Arlington",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "dublin-oh",
+      "hilliard-oh",
+      "worthington-oh",
+    ],
+    setting:
+      "Upper Arlington is a northwest Franklin County inner-ring suburb of Columbus, between downtown Columbus and later Dublin / Hilliard edges, along Lane Avenue, Tremont Road, Northwest Boulevard, and the Scioto River / Riverside Drive west side. Tree-lined mid-century streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Mostly asphalt and architectural shingles on mid-century and later houses; older Lane Avenue and Mallway-adjacent pitches carry aging asphalt. Slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Established mid-century colonials and two-stories on tree-lined lots wider than German Village alleys but tighter than later Muirfield or I-270-edge subdivision rectangles, plus some earlier stock near the Mallway and Lane Avenue corridor.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; Scioto / Riverside Drive-edge shade holds ice on north planes, and open northwest edges catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "A Lane Avenue or Mallway-adjacent mid-century roof is a different shade and access problem than a later Dublin Muirfield plane — and both differ from a German Village two-story — even when all sit on AEP Ohio. We do not invent an Upper Arlington-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
