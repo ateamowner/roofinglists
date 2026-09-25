@@ -262,6 +262,15 @@ const copy: Record<string, string> = {
   "upper-arlington-oh:roof-inspection":
     "An Upper Arlington inspection should walk mid-century asphalt life, ridge vents, and ice-season attic moisture on Lane Avenue, Tremont, and Mallway-adjacent planes — plus Scioto-edge shade notes. This is not a German Village slate walk and not a later Dublin subdivision rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
+  "westerville-oh:roof-repair":
+    "Westerville leak calls split between Uptown / State Street historic-core flashing — older pitches on the northeast Franklin–Delaware edge — and later subdivision asphalt toward Delaware County. Ice backing under the first courses on a State Street two-story is not a German Village slate patch, not a Worthington High Street / Olentangy valley, and not an Upper Arlington Lane Avenue colonial. Westerville Electric on most bills (AEP Ohio on some edges — confirm on the bill) is not a Westerville repair price. We do not publish a Franklin County dollar figure.",
+  "westerville-oh:roof-replacement":
+    "A Westerville reroof has to name which street you are on: Uptown State Street covering that may be aging asphalt on a tighter historic pitch, or a later plane toward Delaware County. This is not a German Village mixed leftover, not a Dublin Muirfield / Bridge Park rectangle, and not an Upper Arlington Mallway-adjacent mid-century walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
+  "westerville-oh:storm-damage":
+    "After a Central Ohio ice or wind week, Westerville owners need photos of lifted tabs and wet attic spots. Open lots toward Delaware County take more wind than a tree-lined German Village alley; Uptown ice still sits on older State Street flashing. This is not a Worthington Olentangy-edge shade story and not a Scioto / Riverside Drive Upper Arlington plane. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "westerville-oh:roof-inspection":
+    "A Westerville inspection should separate Uptown Westerville / State Street covering from a later subdivision plane toward Delaware County. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not a Worthington High Street inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
