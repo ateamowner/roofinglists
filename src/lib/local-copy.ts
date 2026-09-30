@@ -271,6 +271,16 @@ const copy: Record<string, string> = {
   "westerville-oh:roof-inspection":
     "A Westerville inspection should separate Uptown Westerville / State Street covering from a later subdivision plane toward Delaware County. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not a Worthington High Street inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
+
+  "gahanna-oh:roof-repair":
+    "Gahanna leak calls split between Olde Gahanna / Mill Street flashing — older pitches on the east Franklin County side near Creekside — and later subdivision asphalt along the Hamilton Road corridor toward I-270. Ice backing under the first courses on a Mill Street two-story is not a German Village slate patch, not a Westerville Uptown / State Street valley, and not a Worthington High Street / Olentangy plane. AEP Ohio on the bill is not a Gahanna repair price. We do not publish a Franklin County dollar figure.",
+  "gahanna-oh:roof-replacement":
+    "A Gahanna reroof has to name which street you are on: Olde Gahanna / Mill Street covering that may be aging asphalt on a tighter historic pitch, or a later Hamilton Road / I-270-east rectangle. This is not a German Village mixed leftover, not a Westerville Delaware County-edge plane, not a Dublin Muirfield / Bridge Park rectangle, and not an Upper Arlington Mallway-adjacent mid-century walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
+  "gahanna-oh:storm-damage":
+    "After a Central Ohio ice or wind week, Gahanna owners need photos of lifted tabs and wet attic spots. Open lots toward the I-270 east edge take more wind than a tree-lined German Village alley; Olde Gahanna / Creekside-adjacent ice still sits on older Mill Street flashing. This is not a Westerville Uptown / State Street shade story and not a Scioto / Riverside Drive Upper Arlington plane. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "gahanna-oh:roof-inspection":
+    "A Gahanna inspection should separate Olde Gahanna / Mill Street covering from a later Hamilton Road / I-270-east subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not a Westerville State Street inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":

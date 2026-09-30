@@ -732,6 +732,7 @@ export const cities: City[] = [
       "worthington-oh",
       "upper-arlington-oh",
       "westerville-oh",
+      "gahanna-oh",
     ],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
@@ -757,6 +758,7 @@ export const cities: City[] = [
       "worthington-oh",
       "upper-arlington-oh",
       "westerville-oh",
+      "gahanna-oh",
     ],
     setting:
       "Dublin is a northwest Columbus suburb in Franklin County, with Union and Delaware edges, along the Scioto River around Muirfield Village, Historic Dublin, and Bridge Park. Later subdivisions and I-270 / US-33 office-park streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
@@ -806,6 +808,7 @@ export const cities: City[] = [
       "hilliard-oh",
       "upper-arlington-oh",
       "westerville-oh",
+      "gahanna-oh",
     ],
     setting:
       "Worthington is a northern Franklin County suburb of Columbus, with Old Worthington and the High Street historic core, an Olentangy River edge, and later subdivisions along I-270 and SR-161. Later streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
@@ -831,6 +834,7 @@ export const cities: City[] = [
       "hilliard-oh",
       "worthington-oh",
       "westerville-oh",
+      "gahanna-oh",
     ],
     setting:
       "Upper Arlington is a northwest Franklin County inner-ring suburb of Columbus, between downtown Columbus and later Dublin / Hilliard edges, along Lane Avenue, Tremont Road, Northwest Boulevard, and the Scioto River / Riverside Drive west side. Tree-lined mid-century streets replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
@@ -855,6 +859,7 @@ export const cities: City[] = [
       "worthington-oh",
       "dublin-oh",
       "upper-arlington-oh",
+      "gahanna-oh",
     ],
     setting:
       "Westerville is a northeast Columbus suburb on the Franklin–Delaware County edge, with Uptown Westerville and the State Street historic core plus later housing toward Delaware County. Those streets replace the tight German Village lots and are not a Worthington High Street / Olentangy walk, an Upper Arlington Lane Avenue / Mallway / Scioto plane, or a Dublin Muirfield / Bridge Park rectangle. Westerville Electric (the city utility) is on the bill for most addresses; some edges print AEP Ohio — confirm on the bill.",
@@ -866,6 +871,31 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward Delaware County catch more wind than a tree-lined German Village alley, and Uptown / State Street shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
       "A State Street historic-core roof is a different shade and access problem than a later Delaware County-edge plane — and both differ from a German Village two-story, a Worthington High Street / Olentangy pitch, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. Westerville Electric on most bills is not a price. We do not invent a Westerville-only dollar figure.",
+  },
+  {
+    slug: "gahanna-oh",
+    name: "Gahanna",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "westerville-oh",
+      "worthington-oh",
+      "dublin-oh",
+      "upper-arlington-oh",
+    ],
+    setting:
+      "Gahanna is an east Columbus suburb in Franklin County, along the Hamilton Road corridor around Olde Gahanna, Creekside, and the I-270 east side. Those streets replace the tight German Village lots and are not a Westerville Uptown / State Street historic walk, a Worthington High Street / Olentangy plane, an Upper Arlington Lane Avenue / Mallway / Scioto rectangle, or a Dublin Muirfield / Bridge Park edge. AEP Ohio is the usual electric utility on the bill.",
+    roofs:
+      "Mostly asphalt and architectural shingles on later east-side houses; Olde Gahanna and Mill Street-adjacent pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Compact Olde Gahanna / Mill Street two-stories plus later colonials and subdivision stock along Hamilton Road and toward the I-270 east edge — wider than German Village alleys, and a different street pattern than Westerville’s State Street core, Worthington’s High Street, Upper Arlington’s Lane Avenue canopy, or Dublin’s Muirfield rectangles.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward the I-270 east edge catch more wind than a tree-lined German Village alley, and Olde Gahanna / Creekside-adjacent shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "An Olde Gahanna or Mill Street-adjacent roof is a different shade and access problem than a later Hamilton Road / I-270-edge plane — and both differ from a German Village two-story, a Westerville Uptown / State Street pitch, a Worthington High Street / Olentangy walk, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Gahanna-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
