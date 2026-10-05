@@ -733,6 +733,7 @@ export const cities: City[] = [
       "upper-arlington-oh",
       "westerville-oh",
       "gahanna-oh",
+      "grove-city-oh",
     ],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
@@ -783,6 +784,7 @@ export const cities: City[] = [
       "dublin-oh",
       "worthington-oh",
       "upper-arlington-oh",
+      "grove-city-oh",
     ],
     setting:
       "Hilliard is a northwest Columbus suburb in Franklin County, along I-270 and Cemetery Road around Old Hilliard. Later subdivisions replace the tight German Village lots. AEP Ohio is the usual electric utility on the bill.",
@@ -896,6 +898,31 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward the I-270 east edge catch more wind than a tree-lined German Village alley, and Olde Gahanna / Creekside-adjacent shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
       "An Olde Gahanna or Mill Street-adjacent roof is a different shade and access problem than a later Hamilton Road / I-270-edge plane — and both differ from a German Village two-story, a Westerville Uptown / State Street pitch, a Worthington High Street / Olentangy walk, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Gahanna-only dollar figure.",
+  },
+  {
+    slug: "grove-city-oh",
+    name: "Grove City",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "hilliard-oh",
+      "upper-arlington-oh",
+      "dublin-oh",
+      "gahanna-oh",
+    ],
+    setting:
+      "Grove City is a southwest Columbus suburb in Franklin County, along I-71 and Stringtown Road around the Broadway Town Center, the old Beulah Park grounds, and later subdivisions west toward the county line. Those streets replace the tight German Village lots and are not a Hilliard Cemetery Road / Old Hilliard walk, a Gahanna Olde Gahanna / Hamilton Road plane, or a Dublin Muirfield / Bridge Park rectangle. AEP Ohio is the usual electric utility on the bill; some edges print a co-op — confirm on the bill.",
+    roofs:
+      "Mostly asphalt and architectural shingles on later southwest-side houses; Town Center / Broadway-adjacent pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Older Broadway Town Center two-stories and ranches plus wide later colonials and subdivision stock off Stringtown Road, Hoover Road, and the Beulah Park redevelopment — wider than German Village alleys, and a different street pattern than Hilliard’s Cemetery Road, Gahanna’s Hamilton Road, or Dublin’s Muirfield rectangles.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; open later lots on the flat southwest edge and along I-71 catch more wind than a tree-lined German Village alley, and older Town Center shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "A Broadway Town Center roof is a different age and access problem than a later Stringtown Road / Beulah Park subdivision plane — and both differ from a German Village two-story, an Old Hilliard pitch, an Olde Gahanna / Mill Street walk, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Grove City-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",

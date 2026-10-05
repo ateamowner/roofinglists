@@ -281,6 +281,15 @@ const copy: Record<string, string> = {
   "gahanna-oh:roof-inspection":
     "A Gahanna inspection should separate Olde Gahanna / Mill Street covering from a later Hamilton Road / I-270-east subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not a Westerville State Street inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
+  "grove-city-oh:roof-repair":
+    "Grove City leak calls split between Broadway Town Center flashing — older pitches near the historic downtown core — and later subdivision asphalt off Stringtown Road and the Beulah Park redevelopment toward I-71. Ice backing under the first courses on a Town Center two-story is not a German Village slate patch, not an Old Hilliard valley, and not an Olde Gahanna / Hamilton Road plane. AEP Ohio on the bill is not a Grove City repair price. We do not publish a Franklin County dollar figure.",
+  "grove-city-oh:roof-replacement":
+    "A Grove City reroof has to name which street you are on: Broadway Town Center covering that may be aging asphalt on an older ranch or two-story, or a later Stringtown Road / Hoover Road / Beulah Park rectangle. This is not a German Village mixed leftover, not a Hilliard Cemetery Road plane, not a Dublin Muirfield / Bridge Park rectangle, and not a Gahanna Mill Street walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
+  "grove-city-oh:storm-damage":
+    "After a Central Ohio ice or wind week, Grove City owners need photos of lifted tabs and wet attic spots. Open later lots on the flat southwest edge and along I-71 take more wind than a tree-lined German Village alley; older Town Center shade still holds ice on Broadway-adjacent flashing. This is not an Upper Arlington Scioto / Riverside Drive plane and not a Gahanna Creekside shade story. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "grove-city-oh:roof-inspection":
+    "A Grove City inspection should separate Broadway Town Center covering from a later Stringtown Road / Beulah Park subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not an Old Hilliard inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
