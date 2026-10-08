@@ -290,6 +290,15 @@ const copy: Record<string, string> = {
   "grove-city-oh:roof-inspection":
     "A Grove City inspection should separate Broadway Town Center covering from a later Stringtown Road / Beulah Park subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not an Old Hilliard inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
+  "reynoldsburg-oh:roof-repair":
+    "Reynoldsburg leak calls split between older Main Street / Olde Reynoldsburg flashing — mid-century ranches and small two-stories along the old National Road — and later subdivision asphalt off Brice Road and toward the Licking and Fairfield County edges. Ice backing under the first courses on a Main Street ranch is not a German Village slate patch, not an Olde Gahanna / Hamilton Road valley, and not a Grove City Town Center plane. AEP Ohio on the bill is not a Reynoldsburg repair price. We do not publish a Franklin County dollar figure.",
+  "reynoldsburg-oh:roof-replacement":
+    "A Reynoldsburg reroof has to name which street you are on: an older Main Street / Olde Reynoldsburg ranch or split-level that may be aging asphalt, or a later Brice Road / county-edge subdivision rectangle. This is not a German Village mixed leftover, not a Gahanna Mill Street walk, not a Westerville State Street pitch, and not a Grove City Stringtown Road plane. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
+  "reynoldsburg-oh:storm-damage":
+    "After a Central Ohio ice or wind week, Reynoldsburg owners need photos of lifted tabs and wet attic spots. Open later lots toward the Licking and Fairfield County edges and along I-70 take more wind than a tree-lined German Village alley; older Huber Park and Main Street shade still holds ice on north-facing flashing. This is not a Gahanna Creekside shade story and not a Westerville Uptown plane. Document first. RoofingLists is a directory, not the crew on your roof.",
+  "reynoldsburg-oh:roof-inspection":
+    "A Reynoldsburg inspection should separate older Main Street / Olde Reynoldsburg covering from a later Brice Road or county-edge subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not an Olde Gahanna inspection, and not a Grove City Broadway Town Center pitch. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+
   "cincinnati-oh:roof-repair":
     "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
