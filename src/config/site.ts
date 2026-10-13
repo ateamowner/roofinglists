@@ -735,6 +735,7 @@ export const cities: City[] = [
       "gahanna-oh",
       "grove-city-oh",
       "reynoldsburg-oh",
+      "pickerington-oh",
     ],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
@@ -890,6 +891,7 @@ export const cities: City[] = [
       "dublin-oh",
       "upper-arlington-oh",
       "reynoldsburg-oh",
+      "pickerington-oh",
     ],
     setting:
       "Gahanna is an east Columbus suburb in Franklin County, along the Hamilton Road corridor around Olde Gahanna, Creekside, and the I-270 east side. Those streets replace the tight German Village lots and are not a Westerville Uptown / State Street historic walk, a Worthington High Street / Olentangy plane, an Upper Arlington Lane Avenue / Mallway / Scioto rectangle, or a Dublin Muirfield / Bridge Park edge. AEP Ohio is the usual electric utility on the bill.",
@@ -916,6 +918,7 @@ export const cities: City[] = [
       "dublin-oh",
       "gahanna-oh",
       "reynoldsburg-oh",
+      "pickerington-oh",
     ],
     setting:
       "Grove City is a southwest Columbus suburb in Franklin County, along I-71 and Stringtown Road around the Broadway Town Center, the old Beulah Park grounds, and later subdivisions west toward the county line. Those streets replace the tight German Village lots and are not a Hilliard Cemetery Road / Old Hilliard walk, a Gahanna Olde Gahanna / Hamilton Road plane, or a Dublin Muirfield / Bridge Park rectangle. AEP Ohio is the usual electric utility on the bill; some edges print a co-op — confirm on the bill.",
@@ -940,6 +943,7 @@ export const cities: City[] = [
       "gahanna-oh",
       "westerville-oh",
       "grove-city-oh",
+      "pickerington-oh",
     ],
     setting:
       "Reynoldsburg is an east Columbus suburb that sits mostly in Franklin County and runs into Licking and Fairfield counties, along East Main Street (the old National Road / US-40), Brice Road, and the I-70 corridor around Olde Reynoldsburg and Huber Park. Those streets replace the tight German Village lots and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Grove City Broadway Town Center pitch. AEP Ohio is the usual electric utility on the bill; some Licking or Fairfield County edges print a co-op — confirm on the bill.",
@@ -951,6 +955,30 @@ export const cities: City[] = [
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward the county edges and along I-70 catch more wind than a tree-lined German Village alley, and older Olde Reynoldsburg / Huber Park-adjacent shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
       "An Olde Reynoldsburg or Main Street ranch is a different age and access problem than a later Licking or Fairfield County-edge subdivision plane — and both differ from a German Village two-story, an Olde Gahanna / Mill Street walk, a Westerville State Street pitch, and a Grove City Broadway Town Center roof. AEP Ohio on the bill is not a price. We do not invent a Reynoldsburg-only dollar figure.",
+  },
+  {
+    slug: "pickerington-oh",
+    name: "Pickerington",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "reynoldsburg-oh",
+      "columbus-oh",
+      "gahanna-oh",
+      "grove-city-oh",
+    ],
+    setting:
+      "Need a roofer in Pickerington? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. Pickerington is a southeast Columbus suburb, mostly in Fairfield County with a Franklin County edge. Roofs here run from older homes around Olde Pickerington Village and Refugee Road to 1990s and later subdivisions off Diley Road, in Violet Township, and along US-33. Many bills show AEP Ohio and some Violet Township edges show South Central Power, so check your bill.",
+    roofs:
+      "Nearly all are asphalt or architectural shingle roofs, and many are now due for their first replacement.",
+    housing:
+      "Most Pickerington homes are 1990s and later colonials and two-stories off Diley Road, Refugee Road, and in Violet Township, with a smaller set of older homes around Olde Pickerington Village.",
+    storms:
+      "Winter ice is the main roof problem here: it backs up at the eaves and wears out flashing, so ask any roofer to check both.",
+    localNote:
+      "To get a Pickerington roofing quote, open the repair, replacement, storm damage, or inspection page and send the form with your street area and a photo. An older Olde Pickerington Village roof and a newer Diley Road or Violet Township roof need different scopes, so ask for the scope in writing. Your utility bill is not a price, and we do not invent a Pickerington-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
