@@ -736,7 +736,8 @@ export const cities: City[] = [
       "grove-city-oh",
       "reynoldsburg-oh",
       "pickerington-oh",
-    ],
+      "new-albany-oh",
+      ],
     setting:
       "Columbus is Ohio’s capital in Franklin County, with older city lots, street trees, and a mix of bungalows and two-stories from German Village to Clintonville plus later suburban edges. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -865,7 +866,8 @@ export const cities: City[] = [
       "upper-arlington-oh",
       "gahanna-oh",
       "reynoldsburg-oh",
-    ],
+      "new-albany-oh",
+      ],
     setting:
       "Westerville is a northeast Columbus suburb on the Franklin–Delaware County edge, with Uptown Westerville and the State Street historic core plus later housing toward Delaware County. Those streets replace the tight German Village lots and are not a Worthington High Street / Olentangy walk, an Upper Arlington Lane Avenue / Mallway / Scioto plane, or a Dublin Muirfield / Bridge Park rectangle. Westerville Electric (the city utility) is on the bill for most addresses; some edges print AEP Ohio — confirm on the bill.",
     roofs:
@@ -892,7 +894,8 @@ export const cities: City[] = [
       "upper-arlington-oh",
       "reynoldsburg-oh",
       "pickerington-oh",
-    ],
+      "new-albany-oh",
+      ],
     setting:
       "Gahanna is an east Columbus suburb in Franklin County, along the Hamilton Road corridor around Olde Gahanna, Creekside, and the I-270 east side. Those streets replace the tight German Village lots and are not a Westerville Uptown / State Street historic walk, a Worthington High Street / Olentangy plane, an Upper Arlington Lane Avenue / Mallway / Scioto rectangle, or a Dublin Muirfield / Bridge Park edge. AEP Ohio is the usual electric utility on the bill.",
     roofs:
@@ -944,7 +947,8 @@ export const cities: City[] = [
       "westerville-oh",
       "grove-city-oh",
       "pickerington-oh",
-    ],
+      "new-albany-oh",
+      ],
     setting:
       "Reynoldsburg is an east Columbus suburb that sits mostly in Franklin County and runs into Licking and Fairfield counties, along East Main Street (the old National Road / US-40), Brice Road, and the I-70 corridor around Olde Reynoldsburg and Huber Park. Those streets replace the tight German Village lots and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Grove City Broadway Town Center pitch. AEP Ohio is the usual electric utility on the bill; some Licking or Fairfield County edges print a co-op — confirm on the bill.",
     roofs:
@@ -979,6 +983,31 @@ export const cities: City[] = [
       "Winter ice is the main roof problem here: it backs up at the eaves and wears out flashing, so ask any roofer to check both.",
     localNote:
       "To get a Pickerington roofing quote, open the repair, replacement, storm damage, or inspection page and send the form with your street area and a photo. An older Olde Pickerington Village roof and a newer Diley Road or Violet Township roof need different scopes, so ask for the scope in writing. Your utility bill is not a price, and we do not invent a Pickerington-only dollar figure.",
+  },
+
+  {
+    slug: "new-albany-oh",
+    name: "New Albany",
+    state: "Ohio",
+    stateAbbr: "OH",
+    status: "live",
+    region: "columbus",
+    nearbySlugs: [
+      "columbus-oh",
+      "gahanna-oh",
+      "westerville-oh",
+      "reynoldsburg-oh",
+    ],
+    setting:
+      "Need a roofer in New Albany? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. New Albany is a northeast Columbus suburb on the Franklin–Licking County edge, built around the Village Center / Market Street core and later planned neighborhoods off Route 161, Morse Road, Beech Road, and Central College Road. Those streets replace German Village alleys and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Reynoldsburg Main Street / Brice Road pitch. AEP Ohio is the usual electric utility on the bill; some Licking County edges print a co-op — confirm on the bill.",
+    roofs:
+      "Mostly architectural and asphalt shingles on larger planned-community two-stories and colonials; Village Center–adjacent stock can carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
+    housing:
+      "Larger 1990s-and-later colonials and two-stories in The New Albany Company planned neighborhoods plus Village Center / Market Street–adjacent homes — wider lots than German Village, and a different street pattern than Gahanna’s Hamilton Road, Westerville’s State Street core, or Reynoldsburg’s Main Street / Brice Road stock.",
+    storms:
+      "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward Route 161 and the Licking County edge catch more wind than a tree-lined German Village alley, and shaded north planes near the Village Center hold ice longer. Ice dams show up where attic ventilation is weak after a hard freeze.",
+    localNote:
+      "To get a New Albany roofing quote, open the repair, replacement, storm damage, or inspection page and send the form with your street area and a photo. A Village Center–adjacent roof and a later Morse Road / Beech Road / Central College Road plane need different scopes, so ask for the scope in writing. Your utility bill is not a price, and we do not invent a New Albany-only dollar figure.",
   },
   {
     slug: "cincinnati-oh",
