@@ -85,7 +85,7 @@ export default async function CityHubPage({
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
           <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
-            Roofing in {city.name}, {city.stateAbbr}
+            {`Roofing in ${city.name}, ${city.stateAbbr}`}
           </h1>
           <TrustStrip className="mt-4" />
           {city.status === "coming_soon" ? (
@@ -112,7 +112,7 @@ export default async function CityHubPage({
           <Disclosure city={city} className="mt-4" />
 
           <h2 className="mt-8 font-heading text-xl font-semibold">
-            Services in {city.name}
+            {`Services in ${city.name}`}
           </h2>
           <ul className="mt-3 grid gap-3">
             {services.map((service) => (

@@ -167,7 +167,7 @@ export default function ForProsPage() {
       </ul>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Live Columbus URLs (in-house with {site.exclusiveContractor})
+        {`Live Columbus URLs (in-house with ${site.exclusiveContractor})`}
       </h2>
       <ul className="mt-3 space-y-2">
         {columbusCities.map((city) => (
@@ -183,7 +183,7 @@ export default function ForProsPage() {
       </ul>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Live Cincinnati URLs (in-house with {site.exclusiveContractor})
+        {`Live Cincinnati URLs (in-house with ${site.exclusiveContractor})`}
       </h2>
       <ul className="mt-3 space-y-2">
         {cincinnatiCities.map((city) => (
