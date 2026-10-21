@@ -16,6 +16,7 @@ import {
   servicePath,
   services,
   site,
+  hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro, serviceCardBlurb } from "@/lib/content";
 import {
@@ -23,6 +24,7 @@ import {
   hubBreadcrumbs,
   publisherLocalBusiness,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
 
 export const dynamicParams = false;
 
@@ -39,12 +41,13 @@ export async function generateMetadata({
   const city = getCity(citySlug);
   if (!city) return {};
 
-  const title = `Roofing in ${city.name}, ${city.stateAbbr}`;
+  const title = hubTitle(city);
   const description = `${site.name} directory hub for ${city.name}. Open roof repair, replacement, storm damage, and inspection pages. Not a contractor.`;
   return {
     title,
     description,
     alternates: { canonical: `/${city.slug}/` },
+    ...shareMeta(title, description, `/${city.slug}/`),
   };
 }
 

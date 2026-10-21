@@ -20,17 +20,17 @@ import {
   organizationSchema,
   webSiteSchema,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `Roofing Quotes in Dayton, Columbus & Cincinnati | ${site.name}`;
+const description =
+  site.description;
 
 export const metadata: Metadata = {
-  title: `${site.name} — roofing quote directory`,
-  description: site.description,
+  title,
+  description,
   alternates: { canonical: "/" },
-  openGraph: {
-    description: site.description,
-  },
-  twitter: {
-    description: site.description,
-  },
+  ...shareMeta(title, description, "/"),
 };
 
 export default function HomePage() {

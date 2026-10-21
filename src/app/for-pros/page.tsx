@@ -5,11 +5,17 @@ import {
   servicePath,
   site,
 } from "@/config/site";
+import { shareMeta } from "@/lib/share-meta";
+
+const title = `For Roofing Companies: How ${site.name} Coverage Works`;
+const description =
+  `How ${site.name} treats Dayton / Miami Valley, Columbus, and Cincinnati coverage. No exclusive or sold Dayton, Columbus, or Cincinnati leads. No credit card on this page.`;
 
 export const metadata: Metadata = {
-  title: `For roofing companies — ${site.name}`,
-  description: `How ${site.name} treats Dayton / Miami Valley, Columbus, and Cincinnati coverage. No exclusive or sold Dayton, Columbus, or Cincinnati leads. No credit card on this page.`,
+  title,
+  description,
   alternates: { canonical: "/for-pros/" },
+  ...shareMeta(title, description, "/for-pros/"),
 };
 
 export default function ForProsPage() {
