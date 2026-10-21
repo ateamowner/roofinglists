@@ -77,7 +77,7 @@ export default function RootLayout({
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
       {/*
-        Site verification placeholders — do not invent codes.
+        Site verification placeholders, do not invent codes.
         Bing Webmaster: <meta name="msvalidate.01" content="PASTE_FROM_BING_WEBMASTER_TOOLS" />
         Google: <meta name="google-site-verification" content="PASTE_FROM_GOOGLE_SEARCH_CONSOLE" />
         Anthony must add roofinglists.com in Bing Webmaster Tools and paste the real code.

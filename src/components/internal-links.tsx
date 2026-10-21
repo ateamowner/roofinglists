@@ -64,7 +64,7 @@ export function RelatedServiceLinks({
               href={servicePath(city, item)}
               className="inline-flex min-h-10 items-center underline-offset-2 hover:underline"
             >
-              Best {item.name} in {city.name} — {site.year}
+              Best {item.name} in {city.name}, {site.year}
             </Link>
           </li>
         ))}

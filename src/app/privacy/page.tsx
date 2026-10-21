@@ -3,7 +3,7 @@ import { Disclosure } from "@/components/disclosure";
 import { site } from "@/config/site";
 import { shareMeta } from "@/lib/share-meta";
 
-const title = `Privacy Policy — ${site.name}`;
+const title = `Privacy Policy, ${site.name}`;
 const description =
   `How ${site.name} collects quote-form data. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}.`;
 
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
         . Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
         Hamilton County requests stay with {site.exclusiveContractor} at that
         inbox. We do not sell those Ohio leads. Other live-market requests,
-        including Madison, are held at the same inbox for now. Paid listings
+        including Madison, go to the same inbox. Paid listings
         may exist later outside Dayton, Columbus, and Cincinnati. For now the
         inbox is {site.leadsEmail} only.
       </p>

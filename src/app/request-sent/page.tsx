@@ -4,7 +4,7 @@ import { Disclosure } from "@/components/disclosure";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: `Request sent — ${site.name}`,
+  title: `Request sent, ${site.name}`,
   robots: { index: false, follow: false },
 };
 
@@ -19,8 +19,8 @@ export default function RequestSentPage() {
         {site.name} is a directory. Your request went to {site.leadsEmail}.
         Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
         Hamilton County coverage stays with {site.exclusiveContractor}. We do
-        not sell those Ohio leads to other contractors. Other live-market
-        requests are held at the same inbox for now. The call does not come
+        not sell those Ohio leads to other contractors. Requests from other cities go
+        to the same inbox. The call does not come
         from a {site.name} crew.
       </p>
       <Disclosure className="mt-4" />

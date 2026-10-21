@@ -1,5 +1,5 @@
 /**
- * RoofingLists site config — brand, domain, inbox, cities, and services.
+ * RoofingLists site config, brand, domain, inbox, cities, and services.
  * Theme tokens live here so a rebrand is one file.
  */
 
@@ -24,9 +24,12 @@ export const site = {
   /** Locked homepage + city-page trust chips. Do not invent variants. */
   trustStrip: [
     "No credit card",
-    "Paid spots labeled",
-    "We hold your request",
+    "No obligation",
+    "Reply within 1 business day",
   ] as const,
+  /** Public A Team phone for in-house roof requests (same destination as the form). */
+  publicPhone: "(937) 777-9093",
+  publicPhoneHref: "tel:+19377779093",
   theme: {
     background: "#f4efe8",
     foreground: "#1c1916",
@@ -59,7 +62,7 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
-  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs — also in-house. Set national for markets outside those rings. */
+  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs, also in-house. Set national for markets outside those rings. */
   region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
@@ -96,7 +99,7 @@ export const services: Service[] = [
     name: "Storm Damage",
     formValue: "storm damage",
     blurb:
-      "Wind, hail, or ice after a Miami Valley storm — document first, then decide repair vs replacement.",
+      "Wind, hail, or ice after a Miami Valley storm, document first, then decide repair vs replacement.",
   },
   {
     slug: "roof-inspection",
@@ -116,10 +119,10 @@ export const formServiceTypes = [
 ] as const;
 
 export const formTimings = [
-  { value: "emergency", label: "Emergency — leaking now" },
+  { value: "emergency", label: "Emergency, leaking now" },
   { value: "this_week", label: "This week" },
   { value: "this_month", label: "This month" },
-  { value: "planning", label: "Planning — no rush" },
+  { value: "planning", label: "Planning, no rush" },
 ] as const;
 
 export const formRoofTypes = [
@@ -189,7 +192,7 @@ export const cities: City[] = [
     storms:
       "Ice dams show up on lower-pitch ranches when attic ventilation is weak and gutters ice over after a Miami Valley freeze.",
     localNote:
-      "A Kettering ranch is a different leak path than a Dayton Victorian — one long plane, fewer valleys, more ice sitting on a low pitch.",
+      "A Kettering ranch is a different leak path than a Dayton Victorian, one long plane, fewer valleys, more ice sitting on a low pitch.",
   },
   {
     slug: "beavercreek-oh",
@@ -255,7 +258,7 @@ export const cities: City[] = [
     setting:
       "Huber Heights is a northern Dayton suburb known for brick ranches. Lots are often wider than inner-city Dayton.",
     roofs:
-      "Low-pitch asphalt planes on brick ranches — lots of area, less steepness for snow shed.",
+      "Low-pitch asphalt planes on brick ranches, lots of area, less steepness for snow shed.",
     housing:
       "1950s–70s Huber brick ranches and later infill. Simple footprints compared with Centerville colonials.",
     storms:
@@ -377,7 +380,7 @@ export const cities: City[] = [
     roofs:
       "Aging asphalt is common; brick houses and some slate appear on older streets.",
     housing:
-      "Older city stock — brick, two-stories, and houses that have seen decades of ice seasons.",
+      "Older city stock, brick, two-stories, and houses that have seen decades of ice seasons.",
     storms:
       "Ice storms are a regular Miami Valley and Clark County story. Roof condition is the gate, not a slogan.",
     localNote:
@@ -425,7 +428,7 @@ export const cities: City[] = [
     roofs:
       "Asphalt is common on later replacements; early houses along Far Hills and Schantz still carry slate or a mixed covering that is not a three-tab patch.",
     housing:
-      "Tudor, colonial, and foursquare stock on shaded lots — older Dayton-adjacent housing, not a 1990s subdivision street.",
+      "Tudor, colonial, and foursquare stock on shaded lots, older Dayton-adjacent housing, not a 1990s subdivision street.",
     storms:
       "Mature shade holds ice on north planes; ice dams show up where attic ventilation is weak on those older roofs.",
     localNote:
@@ -497,7 +500,7 @@ export const cities: City[] = [
     roofs:
       "Later architectural shingles on subdivision streets; the older National Road core has aging asphalt and more flashing lines.",
     housing:
-      "1970s–2000s colonials and ranches plus a compact older core — not inner-city Dayton bungalow stock.",
+      "1970s–2000s colonials and ranches plus a compact older core, not inner-city Dayton bungalow stock.",
     storms:
       "I-70-corridor wind on open subdivision lots; ice still sits on lower-pitch ranches after a Miami Valley freeze.",
     localNote:
@@ -521,7 +524,7 @@ export const cities: City[] = [
     roofs:
       "A mix of older east-Dayton asphalt and later military-adjacent housing. Slate is uncommon; flashing age varies block to block.",
     housing:
-      "East-side Dayton stock plus base-adjacent streets — tighter than Beavercreek subdivisions, newer on average than Fairborn’s downtown.",
+      "East-side Dayton stock plus base-adjacent streets, tighter than Beavercreek subdivisions, newer on average than Fairborn’s downtown.",
     storms:
       "Wind off more open base-adjacent corridors; ice-dam leaks still show up on older east-side attics with weak ventilation.",
     localNote:
@@ -545,7 +548,7 @@ export const cities: City[] = [
     roofs:
       "Aging asphalt on worker-era houses and later replacements. Slate leftovers are rarer than Oakwood; simple gables are common.",
     housing:
-      "Mid-century industrial-adjacent streets and later infill — older Dayton housing nearby, not a Springboro subdivision.",
+      "Mid-century industrial-adjacent streets and later infill, older Dayton housing nearby, not a Springboro subdivision.",
     storms:
       "I-75-corridor wind plus ice on older flashing. Staging on tighter plant-era lots differs from a wide Beavercreek street.",
     localNote:
@@ -567,7 +570,7 @@ export const cities: City[] = [
     setting:
       "Bellbrook is a Greene County city southeast of Dayton, with a compact historic Main Street and later housing toward Sugarcreek Township.",
     roofs:
-      "Older downtown pitches — some aged covering — plus later architectural shingles on wider township-edge lots.",
+      "Older downtown pitches, some aged covering, plus later architectural shingles on wider township-edge lots.",
     housing:
       "Small-town two-stories in the core and later colonials on the edges. Not a Huber brick-ranch grid.",
     storms:
@@ -617,7 +620,7 @@ export const cities: City[] = [
     roofs:
       "Brick and two-story stock around the square still show aging asphalt and some older covering; later edges are architectural shingle.",
     housing:
-      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials — older housing than a Vandalia tri-level street.",
+      "County-seat downtown two-stories plus 1970s–2000s ranches and colonials, older housing than a Vandalia tri-level street.",
     storms:
       "Ice on downtown eaves and freeze–thaw at brick chimneys; open north-edge lots catch more wind than the square.",
     localNote:
@@ -641,7 +644,7 @@ export const cities: City[] = [
     roofs:
       "Asphalt on later houses and aging covering on older rural-edge buildings. Slate is uncommon; simple planes are typical.",
     housing:
-      "A mix of older farmhouse leftovers and later ranches — more open than Trotwood’s post-war grid, less subdivision than Englewood.",
+      "A mix of older farmhouse leftovers and later ranches, more open than Trotwood’s post-war grid, less subdivision than Englewood.",
     storms:
       "Open northwest lots take wind-driven snow; ice still backs under low-pitch eaves after a Miami Valley freeze.",
     localNote:
@@ -665,7 +668,7 @@ export const cities: City[] = [
     roofs:
       "Older in-town asphalt and some aged covering downtown; later edges are simpler architectural-shingle planes.",
     housing:
-      "Small-town two-stories in the core and later ranches on the edges — more rural-adjacent than Kettering.",
+      "Small-town two-stories in the core and later ranches on the edges, more rural-adjacent than Kettering.",
     storms:
       "West-side open lots catch wind; downtown ice sits on older flashing the way other Miami Valley cores do.",
     localNote:
@@ -689,7 +692,7 @@ export const cities: City[] = [
     roofs:
       "Older brick-house asphalt and some leftover older covering downtown; later edges are standard architectural shingle.",
     housing:
-      "Nineteenth-century and early 20th-century village stock — closer to older Dayton housing than to a Springboro subdivision.",
+      "Nineteenth-century and early 20th-century village stock, closer to older Dayton housing than to a Springboro subdivision.",
     storms:
       "Ice on brick-chimney flashing is a regular village-core story; later open edges shed snow faster.",
     localNote:
@@ -713,7 +716,7 @@ export const cities: City[] = [
     roofs:
       "Older mill-town pitches and aging asphalt downtown; later housing adds architectural shingle on simpler planes.",
     housing:
-      "Historic two-stories near the river plus later edges — older stock than Springboro’s HOA streets.",
+      "Historic two-stories near the river plus later edges, older stock than Springboro’s HOA streets.",
     storms:
       "River-adjacent ice and I-75-corridor wind. North planes on older downtown roofs hold freeze–thaw longer.",
     localNote:
@@ -824,7 +827,7 @@ export const cities: City[] = [
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open I-270 and SR-161-edge lots catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze. Olentangy-edge shade holds ice on north planes.",
     localNote:
-      "An Old Worthington or High Street historic-core roof is a different shade and access problem than a later I-270 / SR-161 subdivision plane — and both differ from a German Village two-story — even when all sit on AEP Ohio. We do not invent a Worthington-only dollar figure.",
+      "An Old Worthington or High Street historic-core roof is a different shade and access problem than a later I-270 / SR-161 subdivision plane, and both differ from a German Village two-story, even when all sit on AEP Ohio. We do not invent a Worthington-only dollar figure.",
   },
   {
     slug: "upper-arlington-oh",
@@ -850,7 +853,7 @@ export const cities: City[] = [
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; Scioto / Riverside Drive-edge shade holds ice on north planes, and open northwest edges catch more wind than a tree-lined German Village alley. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
-      "A Lane Avenue or Mallway-adjacent mid-century roof is a different shade and access problem than a later Dublin Muirfield plane — and both differ from a German Village two-story — even when all sit on AEP Ohio. We do not invent an Upper Arlington-only dollar figure.",
+      "A Lane Avenue or Mallway-adjacent mid-century roof is a different shade and access problem than a later Dublin Muirfield plane, and both differ from a German Village two-story, even when all sit on AEP Ohio. We do not invent an Upper Arlington-only dollar figure.",
   },
   {
     slug: "westerville-oh",
@@ -869,15 +872,15 @@ export const cities: City[] = [
       "new-albany-oh",
       ],
     setting:
-      "Westerville is a northeast Columbus suburb on the Franklin–Delaware County edge, with Uptown Westerville and the State Street historic core plus later housing toward Delaware County. Those streets replace the tight German Village lots and are not a Worthington High Street / Olentangy walk, an Upper Arlington Lane Avenue / Mallway / Scioto plane, or a Dublin Muirfield / Bridge Park rectangle. Westerville Electric (the city utility) is on the bill for most addresses; some edges print AEP Ohio — confirm on the bill.",
+      "Westerville is a northeast Columbus suburb on the Franklin–Delaware County edge, with Uptown Westerville and the State Street historic core plus later housing toward Delaware County. Those streets replace the tight German Village lots and are not a Worthington High Street / Olentangy walk, an Upper Arlington Lane Avenue / Mallway / Scioto plane, or a Dublin Muirfield / Bridge Park rectangle. Westerville Electric (the city utility) is on the bill for most addresses; some edges print AEP Ohio, confirm on the bill.",
     roofs:
       "Mostly asphalt and architectural shingles on later houses toward Delaware County; Uptown Westerville and State Street historic-core pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
-      "Historic-core two-stories on tighter Uptown / State Street lots plus later colonials and subdivision stock on wider streets toward Delaware County — wider than German Village alleys, and a different street pattern than Worthington’s High Street, Upper Arlington’s Lane Avenue canopy, or Dublin’s Muirfield rectangles.",
+      "Historic-core two-stories on tighter Uptown / State Street lots plus later colonials and subdivision stock on wider streets toward Delaware County, wider than German Village alleys, and a different street pattern than Worthington’s High Street, Upper Arlington’s Lane Avenue canopy, or Dublin’s Muirfield rectangles.",
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward Delaware County catch more wind than a tree-lined German Village alley, and Uptown / State Street shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
-      "A State Street historic-core roof is a different shade and access problem than a later Delaware County-edge plane — and both differ from a German Village two-story, a Worthington High Street / Olentangy pitch, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. Westerville Electric on most bills is not a price. We do not invent a Westerville-only dollar figure.",
+      "A State Street historic-core roof is a different shade and access problem than a later Delaware County-edge plane, and both differ from a German Village two-story, a Worthington High Street / Olentangy pitch, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. Westerville Electric on most bills is not a price. We do not invent a Westerville-only dollar figure.",
   },
   {
     slug: "gahanna-oh",
@@ -901,11 +904,11 @@ export const cities: City[] = [
     roofs:
       "Mostly asphalt and architectural shingles on later east-side houses; Olde Gahanna and Mill Street-adjacent pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
-      "Compact Olde Gahanna / Mill Street two-stories plus later colonials and subdivision stock along Hamilton Road and toward the I-270 east edge — wider than German Village alleys, and a different street pattern than Westerville’s State Street core, Worthington’s High Street, Upper Arlington’s Lane Avenue canopy, or Dublin’s Muirfield rectangles.",
+      "Compact Olde Gahanna / Mill Street two-stories plus later colonials and subdivision stock along Hamilton Road and toward the I-270 east edge, wider than German Village alleys, and a different street pattern than Westerville’s State Street core, Worthington’s High Street, Upper Arlington’s Lane Avenue canopy, or Dublin’s Muirfield rectangles.",
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward the I-270 east edge catch more wind than a tree-lined German Village alley, and Olde Gahanna / Creekside-adjacent shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
-      "An Olde Gahanna or Mill Street-adjacent roof is a different shade and access problem than a later Hamilton Road / I-270-edge plane — and both differ from a German Village two-story, a Westerville Uptown / State Street pitch, a Worthington High Street / Olentangy walk, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Gahanna-only dollar figure.",
+      "An Olde Gahanna or Mill Street-adjacent roof is a different shade and access problem than a later Hamilton Road / I-270-edge plane, and both differ from a German Village two-story, a Westerville Uptown / State Street pitch, a Worthington High Street / Olentangy walk, an Upper Arlington Lane / Mallway colonial, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Gahanna-only dollar figure.",
   },
   {
     slug: "grove-city-oh",
@@ -924,15 +927,15 @@ export const cities: City[] = [
       "pickerington-oh",
     ],
     setting:
-      "Grove City is a southwest Columbus suburb in Franklin County, along I-71 and Stringtown Road around the Broadway Town Center, the old Beulah Park grounds, and later subdivisions west toward the county line. Those streets replace the tight German Village lots and are not a Hilliard Cemetery Road / Old Hilliard walk, a Gahanna Olde Gahanna / Hamilton Road plane, or a Dublin Muirfield / Bridge Park rectangle. AEP Ohio is the usual electric utility on the bill; some edges print a co-op — confirm on the bill.",
+      "Grove City is a southwest Columbus suburb in Franklin County, along I-71 and Stringtown Road around the Broadway Town Center, the old Beulah Park grounds, and later subdivisions west toward the county line. Those streets replace the tight German Village lots and are not a Hilliard Cemetery Road / Old Hilliard walk, a Gahanna Olde Gahanna / Hamilton Road plane, or a Dublin Muirfield / Bridge Park rectangle. AEP Ohio is the usual electric utility on the bill; some edges print a co-op, confirm on the bill.",
     roofs:
       "Mostly asphalt and architectural shingles on later southwest-side houses; Town Center / Broadway-adjacent pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
-      "Older Broadway Town Center two-stories and ranches plus wide later colonials and subdivision stock off Stringtown Road, Hoover Road, and the Beulah Park redevelopment — wider than German Village alleys, and a different street pattern than Hilliard’s Cemetery Road, Gahanna’s Hamilton Road, or Dublin’s Muirfield rectangles.",
+      "Older Broadway Town Center two-stories and ranches plus wide later colonials and subdivision stock off Stringtown Road, Hoover Road, and the Beulah Park redevelopment, wider than German Village alleys, and a different street pattern than Hilliard’s Cemetery Road, Gahanna’s Hamilton Road, or Dublin’s Muirfield rectangles.",
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots on the flat southwest edge and along I-71 catch more wind than a tree-lined German Village alley, and older Town Center shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
-      "A Broadway Town Center roof is a different age and access problem than a later Stringtown Road / Beulah Park subdivision plane — and both differ from a German Village two-story, an Old Hilliard pitch, an Olde Gahanna / Mill Street walk, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Grove City-only dollar figure.",
+      "A Broadway Town Center roof is a different age and access problem than a later Stringtown Road / Beulah Park subdivision plane, and both differ from a German Village two-story, an Old Hilliard pitch, an Olde Gahanna / Mill Street walk, and a Dublin Muirfield or Bridge Park rectangle. AEP Ohio on the bill is not a price. We do not invent a Grove City-only dollar figure.",
   },
   {
     slug: "reynoldsburg-oh",
@@ -950,15 +953,15 @@ export const cities: City[] = [
       "new-albany-oh",
       ],
     setting:
-      "Reynoldsburg is an east Columbus suburb that sits mostly in Franklin County and runs into Licking and Fairfield counties, along East Main Street (the old National Road / US-40), Brice Road, and the I-70 corridor around Olde Reynoldsburg and Huber Park. Those streets replace the tight German Village lots and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Grove City Broadway Town Center pitch. AEP Ohio is the usual electric utility on the bill; some Licking or Fairfield County edges print a co-op — confirm on the bill.",
+      "Reynoldsburg is an east Columbus suburb that sits mostly in Franklin County and runs into Licking and Fairfield counties, along East Main Street (the old National Road / US-40), Brice Road, and the I-70 corridor around Olde Reynoldsburg and Huber Park. Those streets replace the tight German Village lots and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Grove City Broadway Town Center pitch. AEP Ohio is the usual electric utility on the bill; some Licking or Fairfield County edges print a co-op, confirm on the bill.",
     roofs:
       "Mostly asphalt and architectural shingles on mid-century ranches and later subdivisions; Olde Reynoldsburg and Main Street-adjacent pitches carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
-      "Mid-century ranches and split-levels off Main Street and Brice Road, small Olde Reynoldsburg two-stories, and later colonials and subdivision stock toward the Licking and Fairfield County edges — wider than German Village alleys, and a different street pattern than Gahanna’s Hamilton Road, Westerville’s State Street core, or Grove City’s Stringtown Road subdivisions.",
+      "Mid-century ranches and split-levels off Main Street and Brice Road, small Olde Reynoldsburg two-stories, and later colonials and subdivision stock toward the Licking and Fairfield County edges, wider than German Village alleys, and a different street pattern than Gahanna’s Hamilton Road, Westerville’s State Street core, or Grove City’s Stringtown Road subdivisions.",
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward the county edges and along I-70 catch more wind than a tree-lined German Village alley, and older Olde Reynoldsburg / Huber Park-adjacent shade holds ice on north planes. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
-      "An Olde Reynoldsburg or Main Street ranch is a different age and access problem than a later Licking or Fairfield County-edge subdivision plane — and both differ from a German Village two-story, an Olde Gahanna / Mill Street walk, a Westerville State Street pitch, and a Grove City Broadway Town Center roof. AEP Ohio on the bill is not a price. We do not invent a Reynoldsburg-only dollar figure.",
+      "An Olde Reynoldsburg or Main Street ranch is a different age and access problem than a later Licking or Fairfield County-edge subdivision plane, and both differ from a German Village two-story, an Olde Gahanna / Mill Street walk, a Westerville State Street pitch, and a Grove City Broadway Town Center roof. AEP Ohio on the bill is not a price. We do not invent a Reynoldsburg-only dollar figure.",
   },
   {
     slug: "pickerington-oh",
@@ -999,11 +1002,11 @@ export const cities: City[] = [
       "reynoldsburg-oh",
     ],
     setting:
-      "Need a roofer in New Albany? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. New Albany is a northeast Columbus suburb on the Franklin–Licking County edge, built around the Village Center / Market Street core and later planned neighborhoods off Route 161, Morse Road, Beech Road, and Central College Road. Those streets replace German Village alleys and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Reynoldsburg Main Street / Brice Road pitch. AEP Ohio is the usual electric utility on the bill; some Licking County edges print a co-op — confirm on the bill.",
+      "Need a roofer in New Albany? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. New Albany is a northeast Columbus suburb on the Franklin–Licking County edge, built around the Village Center / Market Street core and later planned neighborhoods off Route 161, Morse Road, Beech Road, and Central College Road. Those streets replace German Village alleys and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Reynoldsburg Main Street / Brice Road pitch. AEP Ohio is the usual electric utility on the bill; some Licking County edges print a co-op, confirm on the bill.",
     roofs:
       "Mostly architectural and asphalt shingles on larger planned-community two-stories and colonials; Village Center–adjacent stock can carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
-      "Larger 1990s-and-later colonials and two-stories in The New Albany Company planned neighborhoods plus Village Center / Market Street–adjacent homes — wider lots than German Village, and a different street pattern than Gahanna’s Hamilton Road, Westerville’s State Street core, or Reynoldsburg’s Main Street / Brice Road stock.",
+      "Larger 1990s-and-later colonials and two-stories in The New Albany Company planned neighborhoods plus Village Center / Market Street–adjacent homes, wider lots than German Village, and a different street pattern than Gahanna’s Hamilton Road, Westerville’s State Street core, or Reynoldsburg’s Main Street / Brice Road stock.",
     storms:
       "Central Ohio freeze–thaw and ice still wear flashing; open later lots toward Route 161 and the Licking County edge catch more wind than a tree-lined German Village alley, and shaded north planes near the Village Center hold ice longer. Ice dams show up where attic ventilation is weak after a hard freeze.",
     localNote:
@@ -1092,12 +1095,12 @@ export const cityRegionHeadings: Record<
   cincinnati: {
     heading: "Cincinnati / Hamilton County",
     intro:
-      "Live Southwest Ohio hub. Nearby links only point at cities that already exist on this site — Cincinnati has no in-repo neighbor yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
+      "Live Southwest Ohio hub. Nearby links only point at cities that already exist on this site, Cincinnati has no nearby city page yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
   },
   national: {
     heading: "Other markets",
     intro:
-      "Live markets outside the Dayton, Columbus, and Cincinnati in-house rings. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests are held at the directory inbox for now.",
+      "Live markets outside the Dayton, Columbus, and Cincinnati in-house rings. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests go to the directory inbox.",
   },
 };
 
@@ -1147,11 +1150,11 @@ export function listingsHoldNote(city: City): string {
   if (isInHouseLead(city)) {
     return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
   }
-  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} quote requests are held at ${site.leadsEmail} for now. Paid spots, when they exist, are labeled.`;
+  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
 }
 
 export function listingsEmptyNote(_city: City): string {
-  return "No public list here yet — your request still gets held for a match.";
+  return "We are still verifying roofing companies for this city. Send a request and we will follow up.";
 }
 
 export function listingsEmptyFollowUp(): string {
@@ -1163,18 +1166,18 @@ export function pageDisclosure(city: City): string {
   if (isInHouseLead(city)) {
     return `${site.name} is a directory. ${inHouseCoverageLabel(city)} quote requests stay with ${site.exclusiveContractor}. We do not sell those leads to other contractors. Paid spots, when they exist, are labeled.`;
   }
-  return `${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests are held at ${site.leadsEmail} for now. Paid spots, when they exist, are labeled.`;
+  return `${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
 }
 
 /** Sidebar copy on the quote form. Homepage (no city) names the OH in-house rings. */
 export function formLeadNote(city?: City): string {
   if (city) {
     if (isInHouseLead(city)) {
-      return `No credit card. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+      return `No credit card, no obligation. ${site.exclusiveContractor} reviews every ${inHouseCoverageLabel(city)} roof request and calls you back, usually within one business day. Prefer to talk? Call or text ${site.publicPhone}. We never sell your request.`;
     }
-    return `No credit card. ${city.name} requests are held at ${site.leadsEmail} for now.`;
+    return `No credit card. ${city.name} requests go to ${site.leadsEmail}.`;
   }
-  return `No credit card. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads.`;
+  return `No credit card, no obligation. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County roof requests go to ${site.exclusiveContractor}, who calls you back, usually within one business day. Prefer to talk? Call or text ${site.publicPhone}. We never sell your request.`;
 }
 
 export const liveCitySlugs = cities
@@ -1225,7 +1228,7 @@ export function servicePath(
 }
 
 export function lockedH1(service: Service, city: City): string {
-  return `Best ${service.name} in ${city.name} — ${site.year}`;
+  return `Best ${serviceTitleNoun[service.slug] ?? service.name} in ${city.name}, ${city.stateAbbr} (${site.year})`;
 }
 
 /** City hub title: descriptive and keeps "Best" (Anthony 10/16). Falls back to shorter forms for long city names. */
@@ -1245,11 +1248,11 @@ const serviceTitleNoun: Record<string, string> = {
   "roof-inspection": "Roof Inspection Services",
 };
 
-/** Title tag: "Best <noun> in City, ST — year", keeping "Best" (Anthony 10/16); shorter fallbacks for long names. */
+/** Title tag: "Best <noun> in City, ST, year", keeping "Best" (Anthony 10/16); shorter fallbacks for long names. */
 export function pageTitle(service: Service, city: City): string {
   const noun = serviceTitleNoun[service.slug] ?? service.name;
   const options = [
-    `Best ${noun} in ${city.name}, ${city.stateAbbr} — ${site.year}`,
+    `Best ${noun} in ${city.name}, ${city.stateAbbr} (${site.year})`,
     `Best ${noun} in ${city.name}, ${city.stateAbbr}`,
     `Best ${service.name} in ${city.name}, ${city.stateAbbr}`,
   ];

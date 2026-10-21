@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  inHouseCoverageLabel,
   isInHouseLead,
   listingsEmptyFollowUp,
   listingsEmptyNote,
@@ -10,8 +11,8 @@ import {
 import type { Listing } from "@/types/listing";
 
 const TIER_LABEL: Record<Listing["tier"], string> = {
-  featured: "Featured — paid placement",
-  exclusive: "Exclusive — paid placement",
+  featured: "Featured (paid placement)",
+  exclusive: "Exclusive (paid placement)",
   standard: "Listing",
 };
 
@@ -22,6 +23,41 @@ export function ListingsBlock({
   listings: Listing[];
   city: City;
 }) {
+  if (listings.length === 0 && isInHouseLead(city)) {
+    return (
+      <section id="listings" className="mt-10">
+        <h2 className="font-heading text-xl font-semibold sm:text-2xl">
+          Who handles your {city.name} roof request
+        </h2>
+        <div className="mt-4 rounded-[14px] border border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
+          <p className="font-heading text-lg font-semibold leading-[26px]">
+            {site.exclusiveContractor} handles {inHouseCoverageLabel(city)} roof
+            requests directly.
+          </p>
+          <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
+            Send the short form or call. You get a callback, usually within one
+            business day. No credit card, no obligation, and your request is
+            never sold.
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href="#quote"
+              className="inline-flex h-11 items-center justify-center rounded-[14px] bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
+            >
+              Get a roof quote
+            </a>
+            <a
+              href={site.publicPhoneHref}
+              className="inline-flex h-11 items-center justify-center rounded-[14px] border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              Call or text {site.publicPhone}
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="listings" className="mt-10">
       <h2 className="font-heading text-xl font-semibold sm:text-2xl">
@@ -50,19 +86,18 @@ export function ListingsBlock({
               href="/for-pros/"
               className="inline-flex h-11 items-center justify-center rounded-[14px] border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
             >
-              Get Featured — $99/month
+              Get Featured ($99/month)
             </Link>
           </div>
           {isInHouseLead(city) ? (
             <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
               {city.name} roofing is in-house with {site.exclusiveContractor} at{" "}
-              {site.leadsEmail}. It is not a contractor-pay Exclusive SKU.
-              Featured — $99/month is for other markets.
+              {site.leadsEmail}. 
             </p>
           ) : (
             <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
               Featured spots, when they exist, are labeled{" "}
-              <span className="font-semibold">Featured — paid placement</span>.
+              <span className="font-semibold">Featured (paid placement)</span>.
             </p>
           )}
         </div>
