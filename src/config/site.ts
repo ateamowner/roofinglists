@@ -1031,44 +1031,6 @@ export const cities: City[] = [
     localNote:
       "A hillside Price Hill or Hyde Park two-story is a different shade and access problem than a later suburban ranch, even when both sit on Duke Energy Ohio. We do not invent a Cincinnati-only dollar figure.",
   },
-  {
-    slug: "madison-wi",
-    name: "Madison",
-    state: "Wisconsin",
-    stateAbbr: "WI",
-    status: "live",
-    region: "national",
-    nearbySlugs: [],
-    setting:
-      "Madison sits on an isthmus between Lake Mendota and Lake Monona in Dane County, with older city lots, street trees, and a mix of bungalows and two-stories from the near-east / Willy Street side plus later west-side and Fitchburg-edge subdivisions. Madison Gas and Electric (MG&E) is the usual electric utility on the bill.",
-    roofs:
-      "Mostly asphalt shingles; older near-east and isthmus blocks can still carry a mixed or aged covering that is not a three-tab patch. Later west-side houses are more often architectural shingle.",
-    housing:
-      "Near-east bungalows and two-stories on tighter lots than later west-side or Fitchburg-edge subdivisions.",
-    storms:
-      "Southern Wisconsin freeze–thaw and ice wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze. Open west-side lots catch more wind than a tree-lined Willy Street block.",
-    localNote:
-      "A near-east / Willy Street two-story is a different shade and access problem than a later west-side or Fitchburg-edge ranch, even when both sit on MG&E. We do not invent a Madison-only dollar figure.",
-  },
-  {
-    slug: "syracuse-ny",
-    name: "Syracuse",
-    state: "New York",
-    stateAbbr: "NY",
-    status: "live",
-    region: "national",
-    nearbySlugs: [],
-    setting:
-      "Syracuse sits in Onondaga County in Central New York, with older city lots, street trees, and a mix of bungalows and two-stories from Eastwood and Strathmore plus later suburban edges. National Grid is the usual electric utility on the bill.",
-    roofs:
-      "Mostly asphalt shingles; older Eastwood and Strathmore blocks can still carry a mixed or aged covering that is not a three-tab patch. Later suburban houses are more often architectural shingle.",
-    housing:
-      "Eastwood and Strathmore bungalows and two-stories on tighter lots than later suburban subdivisions.",
-    storms:
-      "Lake-effect snow and Central New York freeze–thaw wear flashing and shingles; ice dams show up on older attics with weak ventilation after a hard freeze. Open later-suburban lots catch more wind than a tree-lined Eastwood or Strathmore block.",
-    localNote:
-      "An Eastwood or Strathmore two-story is a different shade and access problem than a later suburban ranch, even when both sit on National Grid. We do not invent a Syracuse-only dollar figure.",
-  },
 ];
 
 export const cityRegionOrder: CityRegion[] = [
