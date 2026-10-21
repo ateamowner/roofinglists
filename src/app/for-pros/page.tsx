@@ -140,8 +140,8 @@ export default function ForProsPage() {
         The form collects required phone, email, ZIP, service, timing, and
         privacy consent. SMS consent is optional and visible. Optional name,
         message, roof type, and roof age sit behind More details. Hidden fields
-        carry page URL, city, state, and service. Every request, Dayton,
-        Columbus, Cincinnati, Madison, or otherwise, posts to {site.leadsEmail}.
+        carry page URL, city, state, and service. Every request, from
+        Dayton, Columbus, or Cincinnati, posts to {site.leadsEmail}.
       </p>
 
       <h2 className="mt-10 font-heading text-2xl font-semibold">Contact</h2>
@@ -201,17 +201,6 @@ export default function ForProsPage() {
           </li>
         ))}
       </ul>
-
-      <h2 className="mt-10 font-heading text-2xl font-semibold">
-        Other live markets
-      </h2>
-      <p className="mt-3 leading-7">
-        Madison, Wisconsin and Syracuse, New York are live markets outside
-        the Dayton, Columbus, and Cincinnati in-house rings. Homeowner forms
-        on those URLs still post to {site.leadsEmail} and are held there for
-        now. Sold leads may exist later. There is no Featured or exclusive
-        paid listing for Madison or Syracuse on this page today.
-      </p>
       <ul className="mt-3 space-y-2">
         {nationalCities.map((city) => (
           <li key={city.slug}>

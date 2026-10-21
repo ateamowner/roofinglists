@@ -47,9 +47,7 @@ export default function PrivacyPage() {
         </a>
         . Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
         Hamilton County requests stay with {site.exclusiveContractor} at that
-        inbox. We do not sell those Ohio leads. Other live-market requests,
-        including Madison, go to the same inbox. Paid listings
-        may exist later outside Dayton, Columbus, and Cincinnati. For now the
+        inbox. We do not sell those Ohio leads. For now the
         inbox is {site.leadsEmail} only.
       </p>
 
