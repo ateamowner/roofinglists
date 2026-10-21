@@ -55,7 +55,7 @@ export function RelatedServiceLinks({
   return (
     <section className="mt-10">
       <h2 className="font-heading text-xl font-semibold">
-        Related services in {city.name}
+        {`Related services in ${city.name}`}
       </h2>
       <ul className="mt-3 grid gap-2 sm:grid-cols-2">
         {related.map((item) => (
@@ -64,7 +64,7 @@ export function RelatedServiceLinks({
               href={servicePath(city, item)}
               className="inline-flex min-h-10 items-center underline-offset-2 hover:underline"
             >
-              Best {item.name} in {city.name} — {site.year}
+              Best {item.name} in {city.name}, {site.year}
             </Link>
           </li>
         ))}

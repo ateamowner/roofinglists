@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/config/site";
 import "./globals.css";
+import { shareImage } from "@/lib/share-meta";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -21,11 +22,21 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — roofing quote directory`,
+    default: `Roofing Quotes in Dayton, Columbus & Cincinnati | ${site.name}`,
     template: `%s`,
   },
   description: site.description,
   applicationName: site.name,
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    locale: "en_US",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [shareImage.url],
+  },
   // Verification codes must be pasted by Anthony. Do not invent values.
   // Bing Webmaster Tools: add roofinglists.com, then set
   //   verification.other["msvalidate.01"] = "<code from Bing>"
@@ -66,7 +77,7 @@ export default function RootLayout({
       className={`${sans.variable} ${serif.variable} h-full scroll-smooth antialiased`}
     >
       {/*
-        Site verification placeholders — do not invent codes.
+        Site verification placeholders, do not invent codes.
         Bing Webmaster: <meta name="msvalidate.01" content="PASTE_FROM_BING_WEBMASTER_TOOLS" />
         Google: <meta name="google-site-verification" content="PASTE_FROM_GOOGLE_SEARCH_CONSOLE" />
         Anthony must add roofinglists.com in Bing Webmaster Tools and paste the real code.

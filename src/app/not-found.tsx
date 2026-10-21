@@ -26,7 +26,7 @@ export default function NotFound() {
               href={servicePath(city, "roof-repair")}
               className="underline underline-offset-2"
             >
-              Best Roof Repair in {city.name} — {site.year}
+              Best Roof Repair in {city.name}, {site.year}
             </Link>
           </li>
         ))}

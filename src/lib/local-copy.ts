@@ -2,7 +2,7 @@ import type { City, Service } from "@/config/site";
 
 const copy: Record<string, string> = {
   "dayton-oh:roof-repair":
-    "Dayton repairs often start on older asphalt — a missing tab, a failed step flashing, or an ice-dam leak at a gutter line on a bungalow or two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight lots and street trees change staging. We do not publish a Dayton-only price.",
+    "Dayton repairs often start on older asphalt, a missing tab, a failed step flashing, or an ice-dam leak at a gutter line on a bungalow or two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight lots and street trees change staging. We do not publish a Dayton-only price.",
   "dayton-oh:roof-replacement":
     "A Dayton reroof has to name the covering you already have: common asphalt on mid-century streets, slate or tile leftovers in Oregon District and St. Anne’s Hill, and decks that have seen decades of Miami Valley ice. Tear-off vs overlay belongs in the written scope. National ranges are the only dollars on this page.",
   "dayton-oh:storm-damage":
@@ -24,12 +24,12 @@ const copy: Record<string, string> = {
   "beavercreek-oh:roof-replacement":
     "Later Beavercreek subdivisions usually mean younger architectural shingles and fewer slate leftovers than Dayton’s core. A replacement still has to name tear-off, underlayment, and any HOA color rule. Wider lots do not create a local price list.",
   "beavercreek-oh:storm-damage":
-    "East-side open lots see wind that a Dayton alley does not. After a Miami Valley storm, look for creased architectural tabs and granule piles in gutters — then decide repair vs replacement from photos, not a county average we made up.",
+    "East-side open lots see wind that a Dayton alley does not. After a Miami Valley storm, look for creased architectural tabs and granule piles in gutters, then decide repair vs replacement from photos, not a county average we made up.",
   "beavercreek-oh:roof-inspection":
     "Check HOA-visible planes, ridge vents, and whether the architectural shingles still have granule. Wright-Patterson-adjacent housing is newer on average than Fairborn’s downtown, but age still varies street to street.",
 
   "centerville-oh:roof-repair":
-    "Centerville repairs split between a historic downtown pitch — sometimes slate — and multi-facet colonials in Washington Township. More valleys mean more flashing. A leak in a north valley after ice is a common call.",
+    "Centerville repairs split between a historic downtown pitch, sometimes slate, and multi-facet colonials in Washington Township. More valleys mean more flashing. A leak in a north valley after ice is a common call.",
   "centerville-oh:roof-replacement":
     "A four-plane Centerville colonial is a different reroof than a Huber ranch. The written scope should say which planes come off, how ice-season flashing is rebuilt, and whether any downtown slate stays. No invented Centerville dollar figure.",
   "centerville-oh:storm-damage":
@@ -44,7 +44,7 @@ const copy: Record<string, string> = {
   "huber-heights-oh:storm-damage":
     "Low pitch means wind can lift a long run of tabs and ice can pond. After a Miami Valley event, walk the eaves and the ridge. Standing melt is a Huber story more than a steep Miamisburg hillside story.",
   "huber-heights-oh:roof-inspection":
-    "Look at eave ice-dam history, remaining asphalt life, and whether the low pitch has already had an overlay. Simpler geometry than Centerville — the question is usually the deck, not the number of valleys.",
+    "Look at eave ice-dam history, remaining asphalt life, and whether the low pitch has already had an overlay. Simpler geometry than Centerville, the question is usually the deck, not the number of valleys.",
 
   "fairborn-oh:roof-repair":
     "Fairborn repairs mix older downtown flashing with later subdivision shingles near the base. Roof age jumps block to block. A leak on a 1940s pitch is not the same visit as a 1990s architectural tab.",
@@ -56,7 +56,7 @@ const copy: Record<string, string> = {
     "Start with age and flashing, then decide if another winter is honest. Shade here is less about downtown street trees and more about neighboring two-stories and additions.",
 
   "miamisburg-oh:roof-repair":
-    "Miamisburg hillside two-stories and downtown leftovers mean steeper pitches, tighter staging, and the occasional slate patch. A freeze changes how a crew reaches the north slope. River-adjacent is not a premium we invented — it is an access note.",
+    "Miamisburg hillside two-stories and downtown leftovers mean steeper pitches, tighter staging, and the occasional slate patch. A freeze changes how a crew reaches the north slope. River-adjacent is not a premium we invented, it is an access note.",
   "miamisburg-oh:roof-replacement":
     "Steeper Miamisburg roofs shed snow better than a Huber ranch but cost more in staging. Name asphalt vs slate, hillside access, and which planes come off. National published ranges are the only dollars here.",
   "miamisburg-oh:storm-damage":
@@ -67,7 +67,7 @@ const copy: Record<string, string> = {
   "xenia-oh:roof-repair":
     "Xenia repairs have to ask whether the roof is a post-storm rebuild or unrestored older asphalt. Wind history is a reason to inspect, not a reason to publish a Xenia price. Open lots see different lift than a tree-lined Dayton street.",
   "xenia-oh:roof-replacement":
-    "If a Xenia roof was replaced after historic wind events, a new reroof may be years away — or the unrestored neighbor may be due now. Ask for the last replacement year. We will not invent a Greene County survey number.",
+    "If a Xenia roof was replaced after historic wind events, a new reroof may be years away, or the unrestored neighbor may be due now. Ask for the last replacement year. We will not invent a Greene County survey number.",
   "xenia-oh:storm-damage":
     "Open-lot wind plus ice is the Xenia pair. After a Miami Valley storm, look for creased tabs and any repeat of damage on a roof that has already been through high wind. Photos first, then repair vs replacement.",
   "xenia-oh:roof-inspection":
@@ -89,10 +89,10 @@ const copy: Record<string, string> = {
   "springfield-oh:storm-damage":
     "Ice storms are a regular Miami Valley and Clark County story. After wind or ice, photograph lifted tabs, broken slate, and interior stains. Roof condition is the gate, not a slogan.",
   "springfield-oh:roof-inspection":
-    "Separate asphalt streets from any slate leftovers. Older industrial-era housing has seen decades of ice seasons — the inspection should say so in writing, without a fake star rating.",
+    "Separate asphalt streets from any slate leftovers. Older industrial-era housing has seen decades of ice seasons, the inspection should say so in writing, without a fake star rating.",
 
   "tipp-city-oh:roof-repair":
-    "Tipp City repairs split between canal-era downtown two-stories — older flashing, sometimes aged covering — and later Miami County subdivision asphalt. Ice hits downtown eaves differently than an open I-75-corridor ranch.",
+    "Tipp City repairs split between canal-era downtown two-stories, older flashing, sometimes aged covering, and later Miami County subdivision asphalt. Ice hits downtown eaves differently than an open I-75-corridor ranch.",
   "tipp-city-oh:roof-replacement":
     "A Main Street two-story is a different reroof than a 1990s Tipp subdivision ranch. Name the covering, the planes, and access on a compact downtown lot. We do not publish a Tipp-only price.",
   "tipp-city-oh:storm-damage":
@@ -101,7 +101,7 @@ const copy: Record<string, string> = {
     "Downtown Tipp lots can fight tighter setbacks and older planes; later subdivision roofs are often simpler rectangles. Walk both the covering and the ice-season attic, not a brand ranking we invented for Miami County.",
 
   "oakwood-oh:roof-repair":
-    "Oakwood repairs often start on early 20th-century stock — failed step flashing, a cracked slate, or an ice-dam leak under Far Hills shade. A three-tab patch does not belong on leftover slate. Tight inner-ring lots change staging. We do not publish an Oakwood-only price.",
+    "Oakwood repairs often start on early 20th-century stock, failed step flashing, a cracked slate, or an ice-dam leak under Far Hills shade. A three-tab patch does not belong on leftover slate. Tight inner-ring lots change staging. We do not publish an Oakwood-only price.",
   "oakwood-oh:roof-replacement":
     "An Oakwood reroof has to name asphalt vs slate before anyone talks tear-off. Schantz and Far Hills houses are not Kettering ranch rectangles. Ask which planes come off and whether the deck can take another overlay. National ranges are the only dollars here.",
   "oakwood-oh:storm-damage":
@@ -119,7 +119,7 @@ const copy: Record<string, string> = {
     "Walk remaining asphalt life, eave ice-dam marks, and whether a prior overlay is already on a low-pitch ranch. Downtown leftovers need a separate look from a later split-level. We do not invent a West Carrollton inspection fee.",
 
   "trotwood-oh:roof-repair":
-    "Trotwood repairs are usually asphalt — a missing tab, clogged gutter, or ice-dam leak on a post-war plane along Salem or State Route 49. Historic slate is uncommon. Wider lots help staging; pitch and ventilation still decide the leak.",
+    "Trotwood repairs are usually asphalt, a missing tab, clogged gutter, or ice-dam leak on a post-war plane along Salem or State Route 49. Historic slate is uncommon. Wider lots help staging; pitch and ventilation still decide the leak.",
   "trotwood-oh:roof-replacement":
     "A Trotwood reroof is often one asphalt field on a post-war or later house. Ask about deck soundness and ice-and-water at eaves. We will not invent a Trotwood survey price or treat this like an Oregon District slate tear-off.",
   "trotwood-oh:storm-damage":
@@ -132,21 +132,21 @@ const copy: Record<string, string> = {
   "englewood-oh:roof-replacement":
     "Later Englewood streets usually mean architectural shingles and fewer slate leftovers than Dayton’s core. A written scope should still name tear-off, underlayment, and which planes come off. I-70 proximity is not a price list.",
   "englewood-oh:storm-damage":
-    "I-70-corridor wind on open subdivision lots lifts architectural tabs that a tree-lined Dayton street may hold. After ice, check north valleys on colonials and eaves on ranches. Photos first — no invented Englewood dollar figure.",
+    "I-70-corridor wind on open subdivision lots lifts architectural tabs that a tree-lined Dayton street may hold. After ice, check north valleys on colonials and eaves on ranches. Photos first, no invented Englewood dollar figure.",
   "englewood-oh:roof-inspection":
     "Separate the National Road core from later I-70-edge colonials. Walk ridge vents, remaining granule, and ice-season attic moisture. We do not invent a local inspection score.",
 
   "riverside-oh:roof-repair":
     "Riverside repairs sit on east-Dayton asphalt and military-adjacent housing along Woodman. Roof age jumps near Wright-Patterson. A leak on an older east-side pitch is not a Beavercreek HOA flashing call.",
   "riverside-oh:roof-replacement":
-    "A Riverside reroof has to ask when the covering last changed — some base-adjacent streets were already swapped; older east-Dayton stock may be due. We confirm that from the house, not a map, and we do not publish a Riverside price.",
+    "A Riverside reroof has to ask when the covering last changed, some base-adjacent streets were already swapped; older east-Dayton stock may be due. We confirm that from the house, not a map, and we do not publish a Riverside price.",
   "riverside-oh:storm-damage":
     "Wind off more open base-adjacent corridors plus ice on older east-side flashing are the usual pair. Document lifted tabs and wet attic spots. Replacement history near Wright-Patterson is a first question, not a slogan.",
   "riverside-oh:roof-inspection":
-    "Start with age and flashing, then decide if another ice season is honest. Riverside is tighter than Beavercreek and newer on average than Fairborn’s downtown — the walk still has to say what covering is on the deck.",
+    "Start with age and flashing, then decide if another ice season is honest. Riverside is tighter than Beavercreek and newer on average than Fairborn’s downtown, the walk still has to say what covering is on the deck.",
 
   "moraine-oh:roof-repair":
-    "Moraine repairs are often aging asphalt on plant-era gables along the I-75 corridor — failed flashing, a missing tab, or ice at the eaves. This is not an Oakwood slate job and not a Springboro HOA patch.",
+    "Moraine repairs are often aging asphalt on plant-era gables along the I-75 corridor, failed flashing, a missing tab, or ice at the eaves. This is not an Oakwood slate job and not a Springboro HOA patch.",
   "moraine-oh:roof-replacement":
     "A Moraine replacement is usually simple asphalt geometry on industrial-adjacent housing. Ask about deck soundness and ice-and-water at eaves. Tight plant-era lots change staging. National Angi ranges are the only dollars on this URL.",
   "moraine-oh:storm-damage":
@@ -155,7 +155,7 @@ const copy: Record<string, string> = {
     "Walk remaining asphalt life, eave ice-dam marks, and whether a prior overlay already sits on a plant-era deck. Geometry is simpler than Centerville; the question is the covering, not the number of valleys.",
 
   "bellbrook-oh:roof-repair":
-    "Bellbrook repairs split between a historic Main Street pitch — older flashing, sometimes aged covering — and later Sugarcreek-edge architectural shingles. A north-valley ice leak downtown is not a later colonial flashing call.",
+    "Bellbrook repairs split between a historic Main Street pitch, older flashing, sometimes aged covering, and later Sugarcreek-edge architectural shingles. A north-valley ice leak downtown is not a later colonial flashing call.",
   "bellbrook-oh:roof-replacement":
     "A Bellbrook downtown two-story is a different reroof than a later township-edge colonial. Name the covering, the planes, and access on a compact Main Street lot. We do not publish a Bellbrook-only price.",
   "bellbrook-oh:storm-damage":
@@ -173,13 +173,13 @@ const copy: Record<string, string> = {
     "Check HOA-visible planes, ridge vents, and remaining granule on later architectural shingles. Downtown Springboro is a tighter, older walk. We do not invent a star rating for Warren County.",
 
   "troy-oh:roof-repair":
-    "Troy repairs around the public square often start on brick-chimney flashing or aging asphalt on a two-story. Later I-75-edge ranches leak at low-pitch eaves after ice. Material is the first filter — we do not invent a Troy repair price.",
+    "Troy repairs around the public square often start on brick-chimney flashing or aging asphalt on a two-story. Later I-75-edge ranches leak at low-pitch eaves after ice. Material is the first filter, we do not invent a Troy repair price.",
   "troy-oh:roof-replacement":
     "A county-seat downtown reroof is not a Tipp subdivision ranch overlay. Name asphalt vs any older covering, which planes come off, and access on a compact square-adjacent lot. National Angi ranges are the only dollars on this page.",
   "troy-oh:storm-damage":
     "Ice on downtown eaves and wind on open north-edge lots are the Troy pair. After a storm, photograph lifted tabs, chimney flashing, and interior stains. Roof condition is the gate, not a Miami County slogan.",
   "troy-oh:roof-inspection":
-    "Separate square-adjacent two-stories from later edge ranches. Older brick stock has seen decades of ice seasons — the inspection should say so in writing, without a fake rating.",
+    "Separate square-adjacent two-stories from later edge ranches. Older brick stock has seen decades of ice seasons, the inspection should say so in writing, without a fake rating.",
 
   "clayton-oh:roof-repair":
     "Clayton repairs mix later ranch asphalt with older rural-edge covering northwest of Dayton. Ice backs under low-pitch eaves; wind on open Randolph Township leftovers lifts tabs a Trotwood grid may hold. Not an Englewood HOA flashing job.",
@@ -191,7 +191,7 @@ const copy: Record<string, string> = {
     "Look at remaining shingle life, eave ice-dam marks, and whether a farmhouse leftover still has an older covering next to a later ranch. We do not invent a local inspection fee.",
 
   "brookville-oh:roof-repair":
-    "Brookville repairs split between a compact downtown pitch — older flashing — and later west-edge ranch asphalt along the US-35 / I-70 side. Ice hits downtown eaves differently than an open-edge plane.",
+    "Brookville repairs split between a compact downtown pitch, older flashing, and later west-edge ranch asphalt along the US-35 / I-70 side. Ice hits downtown eaves differently than an open-edge plane.",
   "brookville-oh:roof-replacement":
     "A Brookville downtown two-story is a different reroof than a later west-edge ranch. Name the covering and the planes. Rural-adjacent access is a note, not a Brookville surcharge we made up.",
   "brookville-oh:storm-damage":
@@ -206,7 +206,7 @@ const copy: Record<string, string> = {
   "germantown-oh:storm-damage":
     "Ice on brick-chimney flashing is a village-core story; later open edges take more wind. After a Miami Valley storm, photograph the chimney, the north plane, and interior stains. Document first.",
   "germantown-oh:roof-inspection":
-    "Separate historic village stock from later edges. Older German-village housing has seen decades of ice seasons — ask for findings in writing. We do not invent a Germantown inspection score.",
+    "Separate historic village stock from later edges. Older German-village housing has seen decades of ice seasons, ask for findings in writing. We do not invent a Germantown inspection score.",
 
   "franklin-oh:roof-repair":
     "Franklin mill-town repairs start on older river-street flashing or aging asphalt downtown. Later I-75-edge houses leak at eaves after ice. This is not a Springboro HOA architectural-shingle call.",
@@ -218,7 +218,7 @@ const copy: Record<string, string> = {
     "Walk the mill-town covering separately from later edge architectural shingles. Ice-season attic moisture and chimney flashing on older stock come first. We do not invent a Warren County rating.",
 
   "columbus-oh:roof-repair":
-    "Columbus repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a Clintonville bungalow or German Village two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight lots and street trees change staging. AEP Ohio on the bill is not a Columbus repair price. We do not publish a Franklin County dollar figure.",
+    "Columbus repairs often start on older asphalt, a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a Clintonville bungalow or German Village two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight lots and street trees change staging. AEP Ohio on the bill is not a Columbus repair price. We do not publish a Franklin County dollar figure.",
   "columbus-oh:roof-replacement":
     "A Columbus reroof has to name the covering you already have: common asphalt on mid-century streets, slate or mixed leftovers in German Village and older Clintonville, and decks that have seen decades of Central Ohio freeze–thaw. Tear-off vs overlay belongs in the written scope. Newer suburban edges are a different geometry. National ranges are the only dollars on this page.",
   "columbus-oh:storm-damage":
@@ -229,14 +229,14 @@ const copy: Record<string, string> = {
   "dublin-oh:roof-repair":
     "Dublin repairs are more often architectural-shingle flashing and ice at the eaves on later northwest-suburb planes than historic slate. A leak on a Muirfield colonial or Bridge Park-adjacent roof is not a German Village valley patch. AEP Ohio on the bill is not a Dublin repair price. We do not publish a Franklin County dollar figure.",
   "dublin-oh:roof-replacement":
-    "A Dublin reroof is frequently later architectural shingle on a 1980s–2010s colonial or Muirfield-area two-story — not a German Village slate leftover. Historic Dublin river-street pitches are a tighter, older walk. Name tear-off vs overlay and any HOA color rule. National ranges are the only dollars on this page.",
+    "A Dublin reroof is frequently later architectural shingle on a 1980s–2010s colonial or Muirfield-area two-story, not a German Village slate leftover. Historic Dublin river-street pitches are a tighter, older walk. Name tear-off vs overlay and any HOA color rule. National ranges are the only dollars on this page.",
   "dublin-oh:storm-damage":
     "After a Central Ohio wind or ice event, Dublin owners usually need photos of lifted architectural tabs and wet attic spots. Open northwest lots and I-270 office-park edges catch more wind than Clintonville shade. Document first. RoofingLists is a directory, not the crew on your roof.",
   "dublin-oh:roof-inspection":
-    "A Dublin inspection should walk later architectural shingles, ridge vents, and ice-season attic moisture — plus any HOA-visible Muirfield or Bridge Park-adjacent plane. This is not a German Village slate walk. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
+    "A Dublin inspection should walk later architectural shingles, ridge vents, and ice-season attic moisture, plus any HOA-visible Muirfield or Bridge Park-adjacent plane. This is not a German Village slate walk. Ask for what they saw in writing. We do not invent a Franklin County inspection fee.",
 
   "hilliard-oh:roof-repair":
-    "Hilliard leak calls usually sit on later subdivision asphalt — a failed valley flashing or ice backing under the first courses on a Cemetery Road-adjacent colonial — not a German Village slate patch. Old Hilliard pitches still have older flashing. AEP Ohio on the bill is not a Hilliard repair price. We do not publish a Franklin County dollar figure.",
+    "Hilliard leak calls usually sit on later subdivision asphalt, a failed valley flashing or ice backing under the first courses on a Cemetery Road-adjacent colonial, not a German Village slate patch. Old Hilliard pitches still have older flashing. AEP Ohio on the bill is not a Hilliard repair price. We do not publish a Franklin County dollar figure.",
   "hilliard-oh:roof-replacement":
     "A Hilliard reroof is usually 1990s–2010s architectural shingle on a wider I-270-edge lot, not a Clintonville mixed leftover. Old Hilliard off Cemetery Road is a tighter, older walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "hilliard-oh:storm-damage":
@@ -245,7 +245,7 @@ const copy: Record<string, string> = {
     "A Hilliard inspection should separate Old Hilliard covering from a later subdivision rectangle west of I-270. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
   "worthington-oh:roof-repair":
-    "Worthington leak calls split between Old Worthington / High Street historic-core flashing — older pitches, tighter village lots — and later subdivision asphalt north of SR-161. Ice backing under the first courses on an Olentangy-edge colonial is not a German Village slate patch. AEP Ohio on the bill is not a Worthington repair price. We do not publish a Franklin County dollar figure.",
+    "Worthington leak calls split between Old Worthington / High Street historic-core flashing, older pitches, tighter village lots, and later subdivision asphalt north of SR-161. Ice backing under the first courses on an Olentangy-edge colonial is not a German Village slate patch. AEP Ohio on the bill is not a Worthington repair price. We do not publish a Franklin County dollar figure.",
   "worthington-oh:roof-replacement":
     "A Worthington reroof has to name which street you are on: High Street village-core covering that may be aging asphalt on a tighter historic pitch, or a later I-270 / SR-161 subdivision rectangle. This is not a German Village mixed leftover. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "worthington-oh:storm-damage":
@@ -254,16 +254,16 @@ const copy: Record<string, string> = {
     "A Worthington inspection should separate Old Worthington / High Street covering from a later northern Franklin County subdivision plane off I-270 or SR-161. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
   "upper-arlington-oh:roof-repair":
-    "Upper Arlington leak calls usually sit on mid-century asphalt — a failed valley flashing or ice backing under the first courses on a Lane Avenue or Tremont Road colonial — not a German Village slate patch. Scioto / Riverside Drive-edge shade keeps north planes wet longer. AEP Ohio on the bill is not an Upper Arlington repair price. We do not publish a Franklin County dollar figure.",
+    "Upper Arlington leak calls usually sit on mid-century asphalt, a failed valley flashing or ice backing under the first courses on a Lane Avenue or Tremont Road colonial, not a German Village slate patch. Scioto / Riverside Drive-edge shade keeps north planes wet longer. AEP Ohio on the bill is not an Upper Arlington repair price. We do not publish a Franklin County dollar figure.",
   "upper-arlington-oh:roof-replacement":
-    "An Upper Arlington reroof is usually mid-century or later architectural shingle on a tree-lined northwest Franklin County lot — not a German Village mixed leftover and not a later Muirfield I-270-edge rectangle. Name tear-off vs overlay and any Mallway- or Lane Avenue-visible plane in the written scope. National ranges are the only dollars on this page.",
+    "An Upper Arlington reroof is usually mid-century or later architectural shingle on a tree-lined northwest Franklin County lot, not a German Village mixed leftover and not a later Muirfield I-270-edge rectangle. Name tear-off vs overlay and any Mallway- or Lane Avenue-visible plane in the written scope. National ranges are the only dollars on this page.",
   "upper-arlington-oh:storm-damage":
     "After a Central Ohio ice or wind week, Upper Arlington owners need photos of lifted tabs and wet attic spots. Scioto / Riverside Drive shade can hide a north plane; open northwest edges take more wind than a tree-lined German Village alley. Document first. RoofingLists is a directory, not the crew on your roof.",
   "upper-arlington-oh:roof-inspection":
-    "An Upper Arlington inspection should walk mid-century asphalt life, ridge vents, and ice-season attic moisture on Lane Avenue, Tremont, and Mallway-adjacent planes — plus Scioto-edge shade notes. This is not a German Village slate walk and not a later Dublin subdivision rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
+    "An Upper Arlington inspection should walk mid-century asphalt life, ridge vents, and ice-season attic moisture on Lane Avenue, Tremont, and Mallway-adjacent planes, plus Scioto-edge shade notes. This is not a German Village slate walk and not a later Dublin subdivision rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
   "westerville-oh:roof-repair":
-    "Westerville leak calls split between Uptown / State Street historic-core flashing — older pitches on the northeast Franklin–Delaware edge — and later subdivision asphalt toward Delaware County. Ice backing under the first courses on a State Street two-story is not a German Village slate patch, not a Worthington High Street / Olentangy valley, and not an Upper Arlington Lane Avenue colonial. Westerville Electric on most bills (AEP Ohio on some edges — confirm on the bill) is not a Westerville repair price. We do not publish a Franklin County dollar figure.",
+    "Westerville leak calls split between Uptown / State Street historic-core flashing, older pitches on the northeast Franklin–Delaware edge, and later subdivision asphalt toward Delaware County. Ice backing under the first courses on a State Street two-story is not a German Village slate patch, not a Worthington High Street / Olentangy valley, and not an Upper Arlington Lane Avenue colonial. Westerville Electric on most bills (AEP Ohio on some edges, confirm on the bill) is not a Westerville repair price. We do not publish a Franklin County dollar figure.",
   "westerville-oh:roof-replacement":
     "A Westerville reroof has to name which street you are on: Uptown State Street covering that may be aging asphalt on a tighter historic pitch, or a later plane toward Delaware County. This is not a German Village mixed leftover, not a Dublin Muirfield / Bridge Park rectangle, and not an Upper Arlington Mallway-adjacent mid-century walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "westerville-oh:storm-damage":
@@ -273,7 +273,7 @@ const copy: Record<string, string> = {
 
 
   "gahanna-oh:roof-repair":
-    "Gahanna leak calls split between Olde Gahanna / Mill Street flashing — older pitches on the east Franklin County side near Creekside — and later subdivision asphalt along the Hamilton Road corridor toward I-270. Ice backing under the first courses on a Mill Street two-story is not a German Village slate patch, not a Westerville Uptown / State Street valley, and not a Worthington High Street / Olentangy plane. AEP Ohio on the bill is not a Gahanna repair price. We do not publish a Franklin County dollar figure.",
+    "Gahanna leak calls split between Olde Gahanna / Mill Street flashing, older pitches on the east Franklin County side near Creekside, and later subdivision asphalt along the Hamilton Road corridor toward I-270. Ice backing under the first courses on a Mill Street two-story is not a German Village slate patch, not a Westerville Uptown / State Street valley, and not a Worthington High Street / Olentangy plane. AEP Ohio on the bill is not a Gahanna repair price. We do not publish a Franklin County dollar figure.",
   "gahanna-oh:roof-replacement":
     "A Gahanna reroof has to name which street you are on: Olde Gahanna / Mill Street covering that may be aging asphalt on a tighter historic pitch, or a later Hamilton Road / I-270-east rectangle. This is not a German Village mixed leftover, not a Westerville Delaware County-edge plane, not a Dublin Muirfield / Bridge Park rectangle, and not an Upper Arlington Mallway-adjacent mid-century walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "gahanna-oh:storm-damage":
@@ -282,7 +282,7 @@ const copy: Record<string, string> = {
     "A Gahanna inspection should separate Olde Gahanna / Mill Street covering from a later Hamilton Road / I-270-east subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not a Westerville State Street inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
   "grove-city-oh:roof-repair":
-    "Grove City leak calls split between Broadway Town Center flashing — older pitches near the historic downtown core — and later subdivision asphalt off Stringtown Road and the Beulah Park redevelopment toward I-71. Ice backing under the first courses on a Town Center two-story is not a German Village slate patch, not an Old Hilliard valley, and not an Olde Gahanna / Hamilton Road plane. AEP Ohio on the bill is not a Grove City repair price. We do not publish a Franklin County dollar figure.",
+    "Grove City leak calls split between Broadway Town Center flashing, older pitches near the historic downtown core, and later subdivision asphalt off Stringtown Road and the Beulah Park redevelopment toward I-71. Ice backing under the first courses on a Town Center two-story is not a German Village slate patch, not an Old Hilliard valley, and not an Olde Gahanna / Hamilton Road plane. AEP Ohio on the bill is not a Grove City repair price. We do not publish a Franklin County dollar figure.",
   "grove-city-oh:roof-replacement":
     "A Grove City reroof has to name which street you are on: Broadway Town Center covering that may be aging asphalt on an older ranch or two-story, or a later Stringtown Road / Hoover Road / Beulah Park rectangle. This is not a German Village mixed leftover, not a Hilliard Cemetery Road plane, not a Dublin Muirfield / Bridge Park rectangle, and not a Gahanna Mill Street walk. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "grove-city-oh:storm-damage":
@@ -291,7 +291,7 @@ const copy: Record<string, string> = {
     "A Grove City inspection should separate Broadway Town Center covering from a later Stringtown Road / Beulah Park subdivision plane. Walk remaining granule, ridge vents, and ice-season attic moisture. This is not a German Village slate walk, not an Old Hilliard inspection, and not a Dublin Bridge Park rectangle. Ask for findings in writing. We do not invent a Franklin County inspection fee.",
 
   "reynoldsburg-oh:roof-repair":
-    "Reynoldsburg leak calls split between older Main Street / Olde Reynoldsburg flashing — mid-century ranches and small two-stories along the old National Road — and later subdivision asphalt off Brice Road and toward the Licking and Fairfield County edges. Ice backing under the first courses on a Main Street ranch is not a German Village slate patch, not an Olde Gahanna / Hamilton Road valley, and not a Grove City Town Center plane. AEP Ohio on the bill is not a Reynoldsburg repair price. We do not publish a Franklin County dollar figure.",
+    "Reynoldsburg leak calls split between older Main Street / Olde Reynoldsburg flashing, mid-century ranches and small two-stories along the old National Road, and later subdivision asphalt off Brice Road and toward the Licking and Fairfield County edges. Ice backing under the first courses on a Main Street ranch is not a German Village slate patch, not an Olde Gahanna / Hamilton Road valley, and not a Grove City Town Center plane. AEP Ohio on the bill is not a Reynoldsburg repair price. We do not publish a Franklin County dollar figure.",
   "reynoldsburg-oh:roof-replacement":
     "A Reynoldsburg reroof has to name which street you are on: an older Main Street / Olde Reynoldsburg ranch or split-level that may be aging asphalt, or a later Brice Road / county-edge subdivision rectangle. This is not a German Village mixed leftover, not a Gahanna Mill Street walk, not a Westerville State Street pitch, and not a Grove City Stringtown Road plane. Name tear-off vs overlay in the written scope. National ranges are the only dollars on this page.",
   "reynoldsburg-oh:storm-damage":
@@ -319,7 +319,7 @@ const copy: Record<string, string> = {
     "A good New Albany roof inspection checks granule loss, ridge and attic vents, flashing, and attic moisture after ice season. Village Center–adjacent roofs need a closer look at flashing and decking. Later Morse Road, Beech Road, and Central College Road roofs mostly need a check on ventilation and first-roof wear. Ask for photos and findings in writing. We do not invent a Franklin or Licking County inspection fee.",
 
   "cincinnati-oh:roof-repair":
-    "Cincinnati repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
+    "Cincinnati repairs often start on older asphalt, a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a hillside Italianate or Over-the-Rhine two-story. Historic blocks can still carry slate or tile; those are not a three-tab patch. Tight hillside lots and street trees change staging. Duke Energy Ohio on the bill is not a Cincinnati repair price. We do not publish a Hamilton County dollar figure.",
   "cincinnati-oh:roof-replacement":
     "A Cincinnati reroof has to name the covering you already have: common asphalt on mid-century streets, slate or mixed leftovers on hillside Italianates and older Hyde Park blocks, and decks that have seen decades of Ohio River freeze–thaw. Tear-off vs overlay belongs in the written scope. Steeper hillside planes are a different staging problem than a later suburban ranch. National ranges are the only dollars on this page.",
   "cincinnati-oh:storm-damage":
@@ -328,7 +328,7 @@ const copy: Record<string, string> = {
     "A Cincinnati inspection should walk asphalt vs slate, flashing at chimneys common on older hillside and Over-the-Rhine stock, and attic moisture after freeze–thaw season. Hillside access and street-tree shade are notes, not prices. Ask for what they saw in writing. We do not invent a Hamilton County inspection fee.",
 
   "madison-wi:roof-repair":
-    "Madison repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a near-east / Willy Street bungalow or isthmus two-story. Historic leftover covering is not a three-tab patch. Tight isthmus lots and street trees change staging. MG&E on the bill is not a Madison repair price. We do not publish a Dane County dollar figure.",
+    "Madison repairs often start on older asphalt, a missing tab, failed step flashing, or an ice-dam leak at a gutter line on a near-east / Willy Street bungalow or isthmus two-story. Historic leftover covering is not a three-tab patch. Tight isthmus lots and street trees change staging. MG&E on the bill is not a Madison repair price. We do not publish a Dane County dollar figure.",
   "madison-wi:roof-replacement":
     "A Madison reroof has to name the covering you already have: common asphalt on later west-side streets, mixed or aged leftovers on near-east and isthmus blocks, and decks that have seen decades of southern Wisconsin freeze–thaw. Tear-off vs overlay belongs in the written scope. A Fitchburg-edge subdivision plane is a different geometry than a Willy Street two-story. National ranges are the only dollars on this page.",
   "madison-wi:storm-damage":
@@ -337,7 +337,7 @@ const copy: Record<string, string> = {
     "A Madison inspection should walk remaining asphalt life, flashing at chimneys common on older near-east and isthmus stock, and attic moisture after ice-dam season. Isthmus access and street-tree shade are notes, not prices. This is not a later west-side ranch walk. Ask for what they saw in writing. We do not invent a Dane County inspection fee.",
 
   "syracuse-ny:roof-repair":
-    "Syracuse repairs often start on older asphalt — a missing tab, failed step flashing, or an ice-dam leak at a gutter line on an Eastwood bungalow or Strathmore two-story. Historic leftover covering is not a three-tab patch. Tight older lots and street trees change staging. Lake-effect snow loads ice at eaves. National Grid on the bill is not a Syracuse repair price. We do not publish an Onondaga County dollar figure.",
+    "Syracuse repairs often start on older asphalt, a missing tab, failed step flashing, or an ice-dam leak at a gutter line on an Eastwood bungalow or Strathmore two-story. Historic leftover covering is not a three-tab patch. Tight older lots and street trees change staging. Lake-effect snow loads ice at eaves. National Grid on the bill is not a Syracuse repair price. We do not publish an Onondaga County dollar figure.",
   "syracuse-ny:roof-replacement":
     "A Syracuse reroof has to name the covering you already have: common asphalt on later suburban streets, mixed or aged leftovers on Eastwood and Strathmore blocks, and decks that have seen decades of lake-effect snow and freeze–thaw. Tear-off vs overlay belongs in the written scope. A later suburban plane is a different geometry than an Eastwood or Strathmore two-story. National ranges are the only dollars on this page.",
   "syracuse-ny:storm-damage":

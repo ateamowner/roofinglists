@@ -16,6 +16,7 @@ import {
   servicePath,
   services,
   site,
+  hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro, serviceCardBlurb } from "@/lib/content";
 import {
@@ -23,6 +24,7 @@ import {
   hubBreadcrumbs,
   publisherLocalBusiness,
 } from "@/lib/schema";
+import { shareMeta } from "@/lib/share-meta";
 
 export const dynamicParams = false;
 
@@ -39,12 +41,13 @@ export async function generateMetadata({
   const city = getCity(citySlug);
   if (!city) return {};
 
-  const title = `Roofing in ${city.name}, ${city.stateAbbr}`;
+  const title = hubTitle(city);
   const description = `${site.name} directory hub for ${city.name}. Open roof repair, replacement, storm damage, and inspection pages. Not a contractor.`;
   return {
     title,
     description,
     alternates: { canonical: `/${city.slug}/` },
+    ...shareMeta(title, description, `/${city.slug}/`),
   };
 }
 
@@ -85,7 +88,7 @@ export default async function CityHubPage({
             {city.status === "coming_soon" ? " · Coming soon" : null}
           </p>
           <h1 className="mt-2 font-heading text-[clamp(1.5rem,6.2vw,2rem)] font-semibold leading-[1.25] tracking-tight text-balance md:text-[40px] md:leading-[48px]">
-            Roofing in {city.name}, {city.stateAbbr}
+            {`Roofing in ${city.name}, ${city.stateAbbr}`}
           </h1>
           <TrustStrip className="mt-4" />
           {city.status === "coming_soon" ? (
@@ -112,7 +115,7 @@ export default async function CityHubPage({
           <Disclosure city={city} className="mt-4" />
 
           <h2 className="mt-8 font-heading text-xl font-semibold">
-            Services in {city.name}
+            {`Services in ${city.name}`}
           </h2>
           <ul className="mt-3 grid gap-3">
             {services.map((service) => (
@@ -122,7 +125,7 @@ export default async function CityHubPage({
                   className="block rounded-lg border border-border bg-card px-4 py-3 hover:border-primary"
                 >
                   <span className="font-medium">
-                    Best {service.name} in {city.name} — {site.year}
+                    Best {service.name} in {city.name}, {site.year}
                   </span>
                   <span className="mt-1 block text-sm text-muted-foreground">
                     {serviceCardBlurb(city, service)}

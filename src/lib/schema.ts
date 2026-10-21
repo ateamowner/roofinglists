@@ -10,10 +10,10 @@ import type { Faq } from "@/lib/content";
 export function publisherLocalBusiness(city: City) {
   const leadLine = isInHouseLead(city)
     ? `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}.`
-    : `${city.name} quote requests are held at ${site.leadsEmail} for now.`;
+    : `${city.name} quote requests go to ${site.leadsEmail}.`;
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     name: site.legalName,
     alternateName: site.name,
     description: `${site.name} is a directory that publishes city pages for roofing. ${leadLine} ${site.name} is not a roofing contractor and does not perform field work.`,
@@ -61,7 +61,7 @@ export function organizationSchema() {
   };
 }
 
-/** Homepage-only WebSite node. No SearchAction — this site has no site search. */
+/** Homepage-only WebSite node. No SearchAction, this site has no site search. */
 export function webSiteSchema() {
   const url = trailingSlashUrl("/");
   return {

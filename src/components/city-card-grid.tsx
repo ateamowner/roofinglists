@@ -57,7 +57,7 @@ export function CityCardGrid({ regions }: { regions: CityCardRegion[] }) {
 
       {filtered.length === 0 ? (
         <p className="mt-8 max-w-xl text-base leading-[26px] text-muted-foreground">
-          No cities match that name. Send the form above — we still hold the
+          No cities match that name. Send the form above, we still hold the
           request.
         </p>
       ) : (
