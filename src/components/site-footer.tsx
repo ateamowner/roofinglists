@@ -42,6 +42,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/how-we-list/" className="hover:underline">
+                How RoofingLists works
+              </Link>
+            </li>
+            <li>
               <Link href="/privacy/" className="hover:underline">
                 Privacy
               </Link>

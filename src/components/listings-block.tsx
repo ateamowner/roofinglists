@@ -53,6 +53,11 @@ export function ListingsBlock({
               Call or text {site.publicPhone}
             </a>
           </div>
+          <p className="mt-4 text-sm leading-[22px] text-muted-foreground">
+            <Link href="/how-we-list/" className="underline underline-offset-2">
+              How RoofingLists works
+            </Link>
+          </p>
         </div>
       </section>
     );
@@ -64,7 +69,10 @@ export function ListingsBlock({
         Listings on this URL
       </h2>
       <p className="mt-2 text-sm leading-[26px] text-muted-foreground">
-        {listingsHoldNote(city)}
+        {listingsHoldNote(city)}{" "}
+        <Link href="/how-we-list/" className="underline underline-offset-2">
+          How RoofingLists works
+        </Link>
       </p>
 
       {listings.length === 0 ? (
