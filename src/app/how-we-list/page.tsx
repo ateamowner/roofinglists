@@ -8,7 +8,7 @@ import { shareMeta } from "@/lib/share-meta";
 const PATH = "/how-we-list/";
 const title = `How ${site.name} Works`;
 const description =
-  `${site.name} publishes roofing guides and quote pages for Dayton / Miami Valley, Columbus / Franklin County and Cincinnati / Hamilton County, Ohio. Requests in those areas go directly to A Team Contracting and are never sold to other contractors.`;
+  `How ${site.name} publishes roofing guides and city quote pages, and how quote requests are handled in Dayton, Columbus, and Cincinnati. We don't invent names, ratings, or prices. RoofingLists.com is not RoofLists.com.`;
 
 export const metadata: Metadata = {
   title,
@@ -63,18 +63,19 @@ export default function HowWeListPage() {
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">
-        Who handles your request
+        How quote requests are handled
       </h2>
       <p className="mt-3 leading-7">
-        Roof repair, replacement, storm damage and inspection requests in those
-        areas go directly to A Team Contracting, a local Ohio contractor (call
-        or text{" "}
+        In Dayton / Miami Valley, Columbus / Franklin County and Cincinnati /
+        Hamilton County, quote requests are reviewed by A Team Contracting, a
+        local Ohio roofing contractor (call or text{" "}
         <a href={site.publicPhoneHref} className="underline">
           {site.publicPhone}
         </a>
-        ). We say so on every page. Requests are never sold to other
-        contractors.
+        ). Requests in those areas are not sold to other contractors. We say
+        this on every page.
       </p>
+      <p className="mt-3 leading-7">{site.disclosure}</p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">
         What we won&apos;t do

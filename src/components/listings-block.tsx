@@ -27,12 +27,12 @@ export function ListingsBlock({
     return (
       <section id="listings" className="mt-10">
         <h2 className="font-heading text-xl font-semibold sm:text-2xl">
-          Who handles your {city.name} roof request
+          How {city.name} quote requests are handled
         </h2>
         <div className="mt-4 rounded-[14px] border border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
           <p className="font-heading text-lg font-semibold leading-[26px]">
-            {site.exclusiveContractor} handles {inHouseCoverageLabel(city)} roof
-            requests directly.
+            Quote requests in {inHouseCoverageLabel(city)} are reviewed by{" "}
+            {site.exclusiveContractor}, a local Ohio roofing contractor.
           </p>
           <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
             Send the short form or call. You get a callback, usually within one
@@ -53,6 +53,11 @@ export function ListingsBlock({
               Call or text {site.publicPhone}
             </a>
           </div>
+          <p className="mt-4 text-sm leading-[22px] text-muted-foreground">
+            Disclosure: {site.exclusiveContractor}, a local Ohio roofing
+            contractor, handles quote requests in this area. Those requests are
+            not sold to other contractors.
+          </p>
           <p className="mt-4 text-sm leading-[22px] text-muted-foreground">
             <Link href="/how-we-list/" className="underline underline-offset-2">
               How RoofingLists works
@@ -99,8 +104,8 @@ export function ListingsBlock({
           </div>
           {isInHouseLead(city) ? (
             <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
-              {city.name} roofing is in-house with {site.exclusiveContractor} at{" "}
-              {site.leadsEmail}. 
+              Disclosure: {city.name} quote requests are handled by{" "}
+              {site.exclusiveContractor} and are not sold to other contractors.
             </p>
           ) : (
             <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">

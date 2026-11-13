@@ -18,9 +18,9 @@ export const site = {
   /** Reserved contractor for Dayton, Columbus, and Cincinnati in-house coverage. */
   exclusiveContractor: "A Team Contracting",
   description:
-    "Roofing lead directory for Dayton, Columbus & Cincinnati. Quote requests stay with A Team where noted. Paid spots labeled. Not a contractor.",
+    "RoofingLists publishes roofing guides and city quote pages for Dayton, Columbus, and Cincinnati. We don't invent company names, star ratings, or prices. Paid spots, when they exist, are labeled. Not a contractor.",
   disclosure:
-    "RoofingLists is a directory. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with A Team Contracting. Paid spots, when they exist, are labeled.",
+    "Disclosure: A Team Contracting, a local Ohio roofing contractor, handles quote requests in Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County. Those requests are not sold to other contractors. Paid spots, when they exist, are labeled.",
   /** Locked homepage + city-page trust chips. Do not invent variants. */
   trustStrip: [
     "No credit card",
@@ -1110,7 +1110,7 @@ export function citiesInRegion(region: CityRegion): City[] {
 
 export function listingsHoldNote(city: City): string {
   if (isInHouseLead(city)) {
-    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${inHouseCoverageLabel(city)} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`;
+    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. Paid spots, when they exist, are labeled. Disclosure: ${inHouseCoverageLabel(city)} quote requests are handled by ${site.exclusiveContractor} and are not sold to other contractors.`;
   }
   return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
 }
@@ -1126,9 +1126,9 @@ export function listingsEmptyFollowUp(): string {
 /** City-page disclosure. In-house cities keep exclusive language; national markets do not. */
 export function pageDisclosure(city: City): string {
   if (isInHouseLead(city)) {
-    return `${site.name} is a directory. ${inHouseCoverageLabel(city)} quote requests stay with ${site.exclusiveContractor}. We do not sell those leads to other contractors. Paid spots, when they exist, are labeled.`;
+    return `Disclosure: ${site.exclusiveContractor}, a local Ohio roofing contractor, handles ${inHouseCoverageLabel(city)} quote requests. Those requests are not sold to other contractors. Paid spots, when they exist, are labeled.`;
   }
-  return `${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
+  return `Disclosure: ${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
 }
 
 /** Sidebar copy on the quote form. Homepage (no city) names the OH in-house rings. */

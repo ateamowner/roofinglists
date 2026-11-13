@@ -9,14 +9,14 @@ import type { Faq } from "@/lib/content";
 
 export function publisherLocalBusiness(city: City) {
   const leadLine = isInHouseLead(city)
-    ? `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor}.`
+    ? `Disclosure: ${site.exclusiveContractor}, a local Ohio roofing contractor, handles quote requests in Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County. Those requests are not sold to other contractors.`
     : `${city.name} quote requests go to ${site.leadsEmail}.`;
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: site.legalName,
     alternateName: site.name,
-    description: `${site.name} is a directory that publishes city pages for roofing. ${leadLine} ${site.name} is not a roofing contractor and does not perform field work.`,
+    description: `${site.name} is a directory that publishes city pages for roofing. It does not invent company names, star ratings, or city-specific prices, and it does not perform field work. ${leadLine}`,
     url: site.url,
     email: site.email,
     areaServed: {
