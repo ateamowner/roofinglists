@@ -11,10 +11,8 @@ export function SiteFooter() {
         <div>
           <p className="font-heading text-lg font-semibold">{site.name}</p>
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-            {site.tagline} Dayton / Miami Valley, Columbus / Franklin County,
-            and Cincinnati / Hamilton County requests stay with{" "}
-            {site.exclusiveContractor}. We do not invent companies or
-            city-specific prices.
+            {site.tagline} We publish roofing guides and city quote pages, and
+            we do not invent companies, star ratings, or city-specific prices.
           </p>
           <Disclosure className="mt-3" />
         </div>
@@ -42,6 +40,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/how-we-list/" className="hover:underline">
+                How RoofingLists works
+              </Link>
+            </li>
+            <li>
               <Link href="/privacy/" className="hover:underline">
                 Privacy
               </Link>
@@ -55,7 +58,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border px-4 py-4 text-center text-xs text-muted-foreground">
-        © {site.year} {site.legalName}. {site.disclosure}
+        © {site.year} {site.legalName}.
       </div>
     </footer>
   );

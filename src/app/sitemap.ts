@@ -11,7 +11,7 @@ import {
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["/", "/privacy/", "/for-pros/"].map((path) => ({
+  const staticRoutes = ["/", "/privacy/", "/for-pros/", "/how-we-list/"].map((path) => ({
     url: `${site.url}${path}`,
     lastModified:
       path === "/"
