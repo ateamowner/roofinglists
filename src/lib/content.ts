@@ -81,7 +81,7 @@ export function serviceCardBlurb(city: City, service: Service): string {
 }
 
 export function hubIntro(city: City): string[] {
-  const lead = `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}, a directory, not a contractor website. Each service page lists verified ${city.name}-area roofing companies with a Request an estimate button on every card. Paid spots, when they exist, are labeled.`;
+  const lead = `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}, a directory, not a contractor website. The roofing companies already listed on this city's service pages are named below, each with its BBB profile and a Request an estimate button. Service pages show the same companies by job type. Paid spots, when they exist, are labeled.`;
 
   return [
     lead,

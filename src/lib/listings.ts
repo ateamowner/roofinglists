@@ -45,9 +45,9 @@ export function isThinServicePage(citySlug: string, serviceSlug: string): boolea
   return getListings(citySlug, serviceSlug).length < MIN_INDEXABLE_LISTINGS;
 }
 
-/** A city hub is held back only when none of its service pages is indexable. */
+/** A city hub is held back when it names fewer than 3 unique companies (same cap as service pages). */
 export function isThinHub(citySlug: string, serviceSlugs: string[]): boolean {
-  return serviceSlugs.every((slug) => isThinServicePage(citySlug, slug));
+  return getCityCompanies(citySlug, serviceSlugs).length < MIN_INDEXABLE_LISTINGS;
 }
 
 /** Unique companies listed on any of a city's service pages, ranked by first appearance. */

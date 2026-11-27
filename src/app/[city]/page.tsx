@@ -6,6 +6,7 @@ import { Disclosure } from "@/components/disclosure";
 import { FaqList } from "@/components/faq-list";
 import { NearbyCityLinks } from "@/components/internal-links";
 import { JsonLd } from "@/components/json-ld";
+import { ListingsBlock } from "@/components/listings-block";
 import { QuoteFormLoader } from "@/components/quote-form-loader";
 import { TrustStrip } from "@/components/trust-strip";
 import {
@@ -19,10 +20,11 @@ import {
   hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro, serviceCardBlurb } from "@/lib/content";
-import { isThinHub } from "@/lib/listings";
+import { getCityCompanies, isThinHub } from "@/lib/listings";
 import {
   faqPageSchema,
   hubBreadcrumbs,
+  hubListingsItemListSchema,
   publisherLocalBusiness,
 } from "@/lib/schema";
 import { shareMeta } from "@/lib/share-meta";
@@ -71,6 +73,11 @@ export default async function CityHubPage({
   const parent = getParentCity(city);
   const questions = hubFaqs(city);
   const intro = hubIntro(city);
+  const listings = getCityCompanies(
+    city.slug,
+    services.map((service) => service.slug)
+  );
+  const itemList = hubListingsItemListSchema(city, listings);
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
@@ -79,6 +86,7 @@ export default async function CityHubPage({
           publisherLocalBusiness(city),
           faqPageSchema(questions),
           hubBreadcrumbs(city),
+          ...(itemList ? [itemList] : []),
         ]}
       />
       <Breadcrumbs
@@ -120,6 +128,17 @@ export default async function CityHubPage({
             ))
           )}
           <Disclosure city={city} className="mt-4" />
+
+          {roofRepair ? (
+            <ListingsBlock
+              listings={listings}
+              city={city}
+              service={roofRepair}
+              heading={`Roofing companies in ${city.name}`}
+              estimatePagePath={`/${city.slug}/`}
+              estimateServiceLabel="roofing"
+            />
+          ) : null}
 
           <h2 className="mt-8 font-heading text-xl font-semibold">
             {`Services in ${city.name}`}
