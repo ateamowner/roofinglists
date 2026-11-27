@@ -165,3 +165,49 @@ export function listingsItemListSchema(
     })),
   };
 }
+
+/** ItemList of unique roofing companies on a city hub. Never AggregateRating or Review. Empty → null. */
+export function hubListingsItemListSchema(city: City, listings: Listing[]) {
+  if (!listings.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Roofing companies in ${city.name}, ${city.stateAbbr}`,
+    numberOfItems: listings.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: listings.map((listing, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "RoofingContractor",
+        name: listing.name,
+        ...(listing.legal_name && listing.legal_name !== listing.name
+          ? { legalName: listing.legal_name }
+          : {}),
+        telephone: listing.phone,
+        description: listing.blurb,
+        ...(listing.website ? { url: listing.website } : {}),
+        sameAs: [listing.profile_url],
+        ...(listing.address
+          ? {
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: listing.address.street,
+                addressLocality: listing.address.locality,
+                addressRegion: listing.address.region,
+                postalCode: listing.address.postal_code,
+                addressCountry: "US",
+              },
+            }
+          : {}),
+        ...(listing.year_started
+          ? { foundingDate: String(listing.year_started) }
+          : {}),
+        areaServed: listing.areas_served.map((area) => ({
+          "@type": area.endsWith("County") ? "AdministrativeArea" : "City",
+          name: area,
+        })),
+      },
+    })),
+  };
+}

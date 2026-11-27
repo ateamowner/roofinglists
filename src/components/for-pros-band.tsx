@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { site } from "@/config/site";
 
 export function ForProsBand() {
   return (
@@ -15,7 +14,7 @@ export function ForProsBand() {
         editorial: we add a company after checking its own website and BBB
         profile. Featured (paid placement) is $99/month for markets outside
         Dayton, Columbus, and Cincinnati. We do not invent companies to fill a
-        page. Corrections go to {site.leadsEmail}.
+        page. Send corrections through the quote form on this site.
       </p>
       <p className="mt-4">
         <Link

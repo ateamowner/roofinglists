@@ -18,13 +18,22 @@ export function EstimateRequest({
   listing,
   city,
   service,
+  pagePath,
+  serviceLabel,
 }: {
   listing: Listing;
   city: City;
   service: Service;
+  /** When set (city hubs), the hidden page_url is this path instead of the service page. */
+  pagePath?: string;
+  /** When set (city hubs), used in the visible copy and email subject instead of the service name. */
+  serviceLabel?: string;
 }) {
   const id = `estimate-${slugify(listing.name)}`;
-  const pageUrl = `${site.url.replace(/\/+$/, "")}/${city.slug}/${service.slug}/`;
+  const label = serviceLabel ?? service.name;
+  const pageUrl = `${site.url.replace(/\/+$/, "")}${
+    pagePath ?? `/${city.slug}/${service.slug}/`
+  }`;
 
   return (
     <details className="group mt-4" id={id}>
@@ -38,7 +47,7 @@ export function EstimateRequest({
         className="mt-3 grid gap-3 rounded-[14px] border border-border bg-muted/40 p-4"
       >
         <p className="text-[13px] leading-[20px] text-muted-foreground">
-          Ask for a {service.name.toLowerCase()} estimate from {listing.name}.
+          Ask for a {label.toLowerCase()} estimate from {listing.name}.
           This request goes to the {site.name} inbox, not straight to{" "}
           {listing.name}. We follow up, usually within one business day. To
           reach the company yourself, call the number above.
@@ -81,7 +90,7 @@ export function EstimateRequest({
         </div>
         <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <input type="hidden" name="_next" value={site.formRedirect} />
-        <input type="hidden" name="_subject" value={`${site.name} estimate request: ${listing.name} (${city.name}, ${service.name})`} />
+        <input type="hidden" name="_subject" value={`${site.name} estimate request: ${listing.name} (${city.name}, ${label})`} />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="company_name" value={listing.name} />

@@ -25,16 +25,26 @@ export function ListingsBlock({
   listings,
   city,
   service,
+  heading,
+  estimatePagePath,
+  estimateServiceLabel,
 }: {
   listings: Listing[];
   city: City;
   service: Service;
+  /** Override the section H2 (city hubs use "Roofing companies in {city}"). */
+  heading?: string;
+  /** When set, each estimate form records this path (city hub URL) instead of the service page. */
+  estimatePagePath?: string;
+  /** When set, estimate-form copy uses this label instead of the service name. */
+  estimateServiceLabel?: string;
 }) {
+  const sectionHeading = heading ?? `${service.name} companies in ${city.name}`;
   if (listings.length === 0) {
     return (
       <section id="listings" className="mt-10">
         <h2 className="font-heading text-xl font-semibold sm:text-2xl">
-          {`${service.name} companies in ${city.name}`}
+          {sectionHeading}
         </h2>
         <div className="mt-4 rounded-[14px] border border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
           <p className="font-heading text-lg font-semibold leading-[26px]">
@@ -57,7 +67,7 @@ export function ListingsBlock({
   return (
     <section id="listings" className="mt-10">
       <h2 className="font-heading text-xl font-semibold sm:text-2xl">
-        {`${service.name} companies in ${city.name}`}
+        {sectionHeading}
       </h2>
       <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
         {listingsHoldNote(city)}{" "}
@@ -155,7 +165,13 @@ export function ListingsBlock({
                 View {listing.name} on BBB
               </a>
             </p>
-            <EstimateRequest listing={listing} city={city} service={service} />
+            <EstimateRequest
+              listing={listing}
+              city={city}
+              service={service}
+              pagePath={estimatePagePath}
+              serviceLabel={estimateServiceLabel}
+            />
             {listing.sources && listing.sources.length > 0 ? (
               <details className="mt-3 text-xs leading-5 text-muted-foreground">
                 <summary className="cursor-pointer">Sources and notes</summary>

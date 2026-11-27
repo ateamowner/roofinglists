@@ -73,8 +73,9 @@ export default function ForProsPage() {
       </h2>
       <p className="mt-3 leading-7">
         If a phone number, address, or service area on your card is out of
-        date, email {site.leadsEmail} with a link to the page that shows the
-        current detail (your own site or BBB profile). We do not accept payment
+        date, send a correction through the quote form on a city page and
+        include a link to the page that shows the current detail (your own
+        site or BBB profile). We do not accept payment
         to be listed or to change the order on Dayton, Columbus, or Cincinnati
         pages.
       </p>
