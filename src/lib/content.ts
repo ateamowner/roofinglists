@@ -3,31 +3,25 @@ import {
   costGuide,
   getNearbyCities,
   getParentCity,
-  inHouseCoverageLabel,
   isDaytonExclusive,
-  isInHouseLead,
-  lockedH1,
-  pageDisclosure,
   regionLabel,
   site,
   type City,
   type Service,
 } from "@/config/site";
 import { uniqueLocalCopy } from "@/lib/local-copy";
+import type { Listing } from "@/types/listing";
 
 export type Faq = { question: string; answer: string };
 
 function directoryLine(city: City): string {
-  if (isInHouseLead(city)) {
-    return `Need a roof leak fixed, storm damage checked, or a replacement quote in ${city.name}? Send the short form below or call or text ${site.publicPhone}. ${site.exclusiveContractor} handles ${inHouseCoverageLabel(city)} roof requests directly and never sells your information.`;
-  }
-  return `${pageDisclosure(city)} Send the short form and we will follow up, usually within one business day.`;
+  return `Need a roof leak fixed, storm damage checked, or a replacement quote in ${city.name}? Compare the companies listed on this page, call one directly, or use the Request an estimate button on a card. ${site.name} is an independent directory, not a contractor, and never sells your information.`;
 }
 
 export function introParagraphs(city: City, service: Service): string[] {
   const comingSoon =
     city.status === "coming_soon"
-      ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form; Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}.`
+      ? `${city.name} is coming soon as a full ${site.name} market. This URL is live so nearby-city links do not 404. You can still send the quote form and we follow up.`
       : null;
 
   const directory = directoryLine(city);
@@ -87,16 +81,13 @@ export function serviceCardBlurb(city: City, service: Service): string {
 }
 
 export function hubIntro(city: City): string[] {
-  const lead = isInHouseLead(city)
-    ? `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}, a directory, not a contractor website. Open a service page for the quote form. ${city.name} requests stay with ${site.exclusiveContractor}. Paid spots, when they exist, are labeled.`
-    : `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}, a directory, not a contractor website. Open a service page for the quote form. ${city.name} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
+  const lead = `This is the ${city.name}, ${city.stateAbbr} hub on ${site.name}, a directory, not a contractor website. Each service page lists verified ${city.name}-area roofing companies with a Request an estimate button on every card. Paid spots, when they exist, are labeled.`;
 
   return [
     lead,
     city.setting,
     `${city.housing} ${city.roofs} ${city.storms}`,
     city.localNote,
-    pageDisclosure(city),
   ];
 }
 
@@ -170,39 +161,37 @@ export function costGuideCopy(city: City): {
   };
 }
 
-export function faqs(city: City, service: Service): Faq[] {
+export function faqs(city: City, service: Service, listings: Listing[] = []): Faq[] {
   const parent = getParentCity(city);
   const nearby = getNearbyCities(city);
   const nearbyNames = nearby.map((item) => item.name);
+  const listedNames = listings.map((listing) => listing.name);
 
   return [
     {
       question: `Is ${site.name} a ${service.name.toLowerCase()} company in ${city.name}?`,
-      answer: isInHouseLead(city)
-        ? `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. ${city.name} sits in the ${inHouseCoverageLabel(city)} coverage. Quote requests on this URL stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not invent contractors to fill the page.`
-        : `No. ${site.name} is a directory. We do not tear off roofs, patch ice dams, or send a truck. Quote requests on this URL go to ${site.leadsEmail}. We do not invent contractors to fill the page.`,
+      answer: `No. ${site.name} is an independent directory. We do not tear off roofs, patch ice dams, or send a truck, and we are not affiliated with the companies listed. We do not invent contractors to fill the page.`,
     },
     {
-      question: `Why are some listings marked Featured or Exclusive?`,
-      answer: isInHouseLead(city)
-        ? `Those labels exist for paid placements if a future market outside Dayton, Columbus, and Cincinnati gets a listing. They are not for sale on ${city.name} pages. We do not sell exclusive or sold Dayton, Columbus, or Cincinnati leads, and we do not invent companies to fill empty slots.`
-        : `Those labels are for paid placements. This ${city.name} page has none today. We do not invent companies to fill empty slots.`,
+      question: `Which ${service.name.toLowerCase()} companies are listed for ${city.name}, and how were they checked?`,
+      answer:
+        listedNames.length > 0
+          ? `This page lists ${joinAnd(listedNames)}. Each one was checked against its own website and its BBB profile (${site.listingsCheckedOn}) for name, address, phone, years in business, and whether it serves ${city.name}. Ohio has no state roofing license, so order is based on where the company is based, years in business, and BBB accreditation. We do not copy star ratings or review counts.`
+          : `We are still verifying ${city.name} companies for this service. We only list a company after checking its own website and its BBB profile, and we do not invent companies to fill the page.`,
     },
     {
       question: `What does ${service.name.toLowerCase()} cost in ${city.name}?`,
-      answer: `${site.name} does not publish a ${city.name}-specific price. The only dollar ranges we cite are national: roof replacement about $9,607 on average, and roof repair typically $395–$1,966 (${costGuide.sourceName}). Your job may be outside that range. Use the form and ask the company for a written number.`,
+      answer: `${site.name} does not publish a ${city.name}-specific price. The only dollar ranges we cite are national: roof replacement about $9,607 on average, and roof repair typically $395–$1,966 (${costGuide.sourceName}). Your job may be outside that range. Ask the company for a written number.`,
     },
     {
       question:
         city.status === "coming_soon"
           ? `This ${city.name} page says coming soon. Can I still request a quote?`
-          : `What happens after I submit the form on this ${city.name} page?`,
+          : `What happens after I send a Request an estimate form on this ${city.name} page?`,
       answer:
         city.status === "coming_soon"
-          ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form. Dayton / Miami Valley requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. You should get a phone call, not a ${site.name} crew.`
-          : isInHouseLead(city)
-            ? `Your request goes to ${site.leadsEmail}. ${city.name} is in the ${inHouseCoverageLabel(city)} coverage, so it stays with ${site.exclusiveContractor}. We do not sell that lead to another contractor. The inbox is ${site.leadsEmail} only. Expect a call from ${site.exclusiveContractor}, not from a ${site.name} roofer.`
-            : `Your request goes to ${site.leadsEmail} and we follow up, usually within one business day.`,
+          ? `Yes. ${city.name} is a stub so links from ${parent ? parent.name : "nearby cities"} keep working. Submit the form and we follow up. You should get a phone call, not a ${site.name} crew.`
+          : `Your request, with the company name you picked, goes to the ${site.name} inbox, not straight to the company. We follow up, usually within one business day. To reach a company yourself, call the phone number on its card. We do not sell your request.`,
     },
     {
       question:
@@ -211,7 +200,7 @@ export function faqs(city: City, service: Service): Faq[] {
           : `Which towns near ${city.name} have their own ${site.name} pages?`,
       answer:
         nearbyNames.length > 0
-          ? `Yes, we keep a separate URL for nearby cities so you can open a real page instead of a comma list. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each of those pages has its own quote form.`
+          ? `Yes, we keep a separate URL for nearby cities so you can open a real page instead of a comma list. From ${city.name} that includes ${joinAnd(nearbyNames)}. Each of those pages has its own listings and estimate forms.`
           : `We publish one URL per city. If you do not see your town, send the form with your ZIP and we will hold the request.`,
     },
   ];
@@ -222,23 +211,23 @@ export function homeFaqs(): Faq[] {
   return [
     {
       question: `Is ${site.name} a roofing company?`,
-      answer: `No. ${site.name} is a directory for roofing companies. We are not a contractor. We do not send a crew, and we do not invent company names, star ratings, or city-specific prices. ${site.disclosure}`,
+      answer: `No. ${site.name} is an independent directory of roofing companies. We are not a contractor. We do not send a crew, and we do not invent company names, star ratings, or city-specific prices. ${site.disclosure}`,
     },
     {
-      question: `Who receives Dayton, Columbus, and Cincinnati quote requests?`,
-      answer: `Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those leads to other contractors. Cincinnati requests go to ${site.exclusiveContractor} too.`,
+      question: `How are companies chosen for a city page?`,
+      answer: `We list up to three roofing companies per city and service. Each one is checked against its own website and its BBB profile for name, address, phone, years in business, and the cities it serves. Ohio has no state roofing license, so order is based on where the company is based, years in business, and BBB accreditation. Listings are free.`,
     },
     {
       question: `Do you publish star ratings or city-specific prices?`,
-      answer: `No. ${site.name} does not invent company names, phones, licenses, star ratings, or city-specific prices. The only dollar ranges we cite are national: roof replacement about $9,607 on average, and roof repair typically $395–$1,966 (${costGuide.sourceName}).`,
+      answer: `No. ${site.name} does not copy star ratings or review counts, and does not invent company names, phones, licenses, or city-specific prices. Each listed company links to its own BBB profile. The only dollar ranges we cite are national: roof replacement about $9,607 on average, and roof repair typically $395–$1,966 (${costGuide.sourceName}).`,
     },
     {
-      question: `What happens after I submit the form?`,
-      answer: `Your request goes to ${site.leadsEmail}. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}. We do not sell those leads. Expect a call from ${site.exclusiveContractor}, not from a ${site.name} roofer. There is no credit card on the form.`,
+      question: `What happens after I submit a form?`,
+      answer: `Your request goes to the ${site.name} inbox, not straight to a listed company, and we follow up, usually within one business day. To reach a company yourself, call the number on its card. There is no credit card on the form, and we do not sell your request.`,
     },
     {
       question: `How do contractors get listed on ${site.name}?`,
-      answer: `They do not buy Dayton, Columbus, or Cincinnati leads. See For Pros. Those requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. Featured (paid placement) is $99/month for an approved contractor outside Dayton, Columbus, and Cincinnati. The inbox is ${site.leadsEmail} only.`,
+      answer: `Listings are editorial and free. We add a company after checking its own website and BBB profile. Featured (paid placement) is $99/month for an approved contractor outside Dayton, Columbus, and Cincinnati. Corrections go to ${site.leadsEmail}.`,
     },
   ];
 }
@@ -247,38 +236,44 @@ export function hubFaqs(city: City): Faq[] {
   return [
     {
       question: `What is the ${city.name} ${site.name} hub?`,
-      answer: `This is the city index, not a contractor homepage. From here you can open ${city.name} pages for roof repair, roof replacement, storm damage, and roof inspection.`,
+      answer: `This is the city index, not a contractor homepage. From here you can open ${city.name} pages for roof repair, roof replacement, storm damage, and roof inspection, each with verified local roofing companies.`,
     },
     {
       question: `Does ${site.name} work on roofs in ${city.name}?`,
-      answer: isInHouseLead(city)
-        ? `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests stay with ${site.exclusiveContractor} at ${site.leadsEmail}. We do not sell those ${inHouseCoverageLabel(city)} leads to other contractors.`
-        : `No. ${site.name} publishes directory pages. We do not send a crew. ${city.name} quote requests go to ${site.leadsEmail}.`,
+      answer: `No. ${site.name} publishes directory pages. We do not send a crew, and we are not affiliated with the ${city.name} companies we list.`,
     },
     {
       question: `Are featured listings ads?`,
-      answer: isInHouseLead(city)
-        ? `Featured and exclusive labels are for paid placements if a market outside Dayton, Columbus, and Cincinnati is added later. They are not offered as sold ${city.name} leads. We do not invent company names to fill a page.`
-        : `Featured and exclusive labels are for paid placements. This ${city.name} page has none today. We do not invent company names to fill a page.`,
+      answer: `Featured and exclusive labels are for paid placements. This ${city.name} hub has none today. Every listing here is free and editorial, and we do not invent company names to fill a page.`,
     },
     {
       question: `Where is the quote form?`,
-      answer: `On this hub and on every ${city.name} service page. Same fields. We need a name, phone, email, ZIP, service type, timing, and your agreement to the privacy policy. Roof type and age are optional.`,
+      answer: `On this hub, on every ${city.name} service page, and behind the Request an estimate button on each company card. The card form asks for your name, phone, email, address or ZIP, and a short job note.`,
     },
     {
       question: `How do contractors get on this ${city.name} page?`,
-      answer: isInHouseLead(city)
-        ? `They do not buy ${city.name} leads. See For Pros. Dayton / Miami Valley, Columbus, and Cincinnati requests stay with ${site.exclusiveContractor}. Paid listings may exist later outside those cities. There is no credit-card form on this site. The inbox is ${site.leadsEmail} only.`
-        : `${city.name} is outside the Dayton, Columbus, and Cincinnati areas. Send the form and we follow up, usually within one business day.`,
+      answer: `We add a company after checking its own website and BBB profile, including whether it serves ${city.name}. Listings are free. Corrections go to ${site.leadsEmail}.`,
     },
   ];
 }
 
-export function metaDescription(city: City, service: Service): string {
+export function metaDescription(city: City, service: Service, listingCount = 0): string {
+  const noun = service.name.toLowerCase();
   if (city.status === "coming_soon") {
-    return `${lockedH1(service, city)}. ${site.name} directory page (coming soon). Request a quote and we follow up. Not a contractor.`;
+    return `${service.name} in ${city.name}, ${city.stateAbbr}: ${site.name} directory page (coming soon). Request a quote and we follow up. Not a contractor.`;
   }
-  return `${lockedH1(service, city)}. Compare listed companies, read a national cost range, and request a callback. ${site.name} is a directory, not a roofing contractor.`;
+  const options =
+    listingCount > 0
+      ? [
+          `Compare ${listingCount} verified ${noun} companies in ${city.name}, ${city.stateAbbr}, checked against their own sites and BBB profiles. Request an estimate. No copied ratings.`,
+          `Compare ${listingCount} verified ${noun} companies in ${city.name}, ${city.stateAbbr}, checked against their sites and BBB profiles. Request an estimate.`,
+          `${listingCount} verified ${noun} companies in ${city.name}, ${city.stateAbbr}, checked against BBB profiles. Request an estimate.`,
+        ]
+      : [
+          `${service.name} in ${city.name}, ${city.stateAbbr}: we are still verifying local companies. Read a national cost range and request a callback. Not a contractor.`,
+          `${service.name} in ${city.name}, ${city.stateAbbr}: companies still being verified. Request a callback.`,
+        ];
+  return options.find((text) => text.length <= 160) ?? options[options.length - 1].slice(0, 160);
 }
 
 function joinAnd(names: string[]): string {

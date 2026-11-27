@@ -19,6 +19,7 @@ import {
   hubTitle,
 } from "@/config/site";
 import { hubFaqs, hubIntro, serviceCardBlurb } from "@/lib/content";
+import { isThinHub } from "@/lib/listings";
 import {
   faqPageSchema,
   hubBreadcrumbs,
@@ -42,11 +43,17 @@ export async function generateMetadata({
   if (!city) return {};
 
   const title = hubTitle(city);
-  const description = `${site.name} directory hub for ${city.name}. Open roof repair, replacement, storm damage, and inspection pages. Not a contractor.`;
+  const description = `${site.name} hub for ${city.name}, ${city.stateAbbr}: verified roofing companies for repair, replacement, storm damage, and inspection. Not a contractor.`;
   return {
     title,
     description,
     alternates: { canonical: `/${city.slug}/` },
+    ...(isThinHub(
+      city.slug,
+      services.map((service) => service.slug)
+    )
+      ? { robots: { index: false, follow: true } }
+      : {}),
     ...shareMeta(title, description, `/${city.slug}/`),
   };
 }
@@ -125,7 +132,7 @@ export default async function CityHubPage({
                   className="block rounded-lg border border-border bg-card px-4 py-3 hover:border-primary"
                 >
                   <span className="font-medium">
-                    Best {service.name} in {city.name}, {site.year}
+                    {service.name} companies in {city.name}
                   </span>
                   <span className="mt-1 block text-sm text-muted-foreground">
                     {serviceCardBlurb(city, service)}

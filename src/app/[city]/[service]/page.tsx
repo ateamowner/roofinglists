@@ -16,7 +16,6 @@ import {
   lockedH1,
   pageTitle,
   services,
-  site,
 } from "@/config/site";
 import {
   costGuideCopy,
@@ -25,9 +24,10 @@ import {
   introParagraphs,
   metaDescription,
 } from "@/lib/content";
-import { getListings } from "@/lib/listings";
+import { getListings, isThinServicePage } from "@/lib/listings";
 import {
   faqPageSchema,
+  listingsItemListSchema,
   publisherLocalBusiness,
   servicePageBreadcrumbs,
 } from "@/lib/schema";
@@ -55,11 +55,15 @@ export async function generateMetadata({
   if (!city || !service) return {};
 
   const title = pageTitle(service, city);
-  const description = metaDescription(city, service);
+  const listingCount = getListings(city.slug, service.slug).length;
+  const description = metaDescription(city, service, listingCount);
   return {
     title,
     description,
     alternates: { canonical: `/${city.slug}/${service.slug}/` },
+    ...(isThinServicePage(city.slug, service.slug)
+      ? { robots: { index: false, follow: true } }
+      : {}),
     ...shareMeta(title, description, `/${city.slug}/${service.slug}/`),
   };
 }
@@ -78,8 +82,9 @@ export default async function ServicePage({
   const intro = introParagraphs(city, service);
   const choose = howToChoose(city, service);
   const cost = costGuideCopy(city);
-  const questions = faqs(city, service);
   const listings = getListings(city.slug, service.slug);
+  const questions = faqs(city, service, listings);
+  const itemList = listingsItemListSchema(city, service, listings);
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
@@ -88,6 +93,7 @@ export default async function ServicePage({
           publisherLocalBusiness(city),
           faqPageSchema(questions),
           servicePageBreadcrumbs(city, service),
+          ...(itemList ? [itemList] : []),
         ]}
       />
 
@@ -121,15 +127,10 @@ export default async function ServicePage({
         </aside>
 
         <div className="md:col-start-1">
-          {listings.length === 0 ? (
-            <ListingsBlock listings={listings} city={city} />
-          ) : null}
+          <ListingsBlock listings={listings} city={city} service={service} />
           <HowToChoose content={choose} />
           <CostGuide content={cost} />
           <FaqList faqs={questions} />
-          {listings.length > 0 ? (
-            <ListingsBlock listings={listings} city={city} />
-          ) : null}
           <RelatedServiceLinks city={city} current={service} />
           <NearbyCityLinks city={city} service={service} />
         </div>

@@ -12,16 +12,13 @@ export default function RequestSentPage() {
   return (
     <article className="mx-auto w-full max-w-xl px-4 py-16 sm:px-6">
       <h1 className="font-heading text-3xl font-semibold tracking-tight">
-        Request sent. Dayton, Columbus, and Cincinnati requests stay with{" "}
-        {site.exclusiveContractor}.
+        Request sent.
       </h1>
       <p className="mt-4 leading-7 text-muted-foreground">
-        {site.name} is a directory. Your request went to {site.leadsEmail}.
-        Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
-        Hamilton County coverage stays with {site.exclusiveContractor}. We do
-        not sell those Ohio leads to other contractors. Requests from other cities go
-        to the same inbox. The call does not come
-        from a {site.name} crew.
+        {site.name} is an independent directory. Your request went to the{" "}
+        {site.name} inbox, not straight to a listed company. We follow up,
+        usually within one business day. We do not sell your request. If you
+        want to reach a listed company yourself, call the number on its card.
       </p>
       <Disclosure className="mt-4" />
       <p className="mt-6">

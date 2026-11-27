@@ -1,6 +1,6 @@
 # RoofingLists
 
-> RoofingLists (roofinglists.com) publishes roofing guides and quote pages for Dayton / Miami Valley, Columbus / Franklin County and Cincinnati / Hamilton County, Ohio. We do not publish star ratings or invented prices. RoofingLists.com (with "ing") is a separate site and isn't affiliated with RoofLists.com or The Roofing List. Disclosure: A Team Contracting, a local Ohio roofing contractor, handles quote requests in those Ohio areas. Those requests are not sold to other contractors. Call or text (937) 777-9093.
+> RoofingLists (roofinglists.com) is an independent directory of roofing companies in Dayton / Miami Valley, Columbus / Franklin County and Cincinnati / Hamilton County, Ohio. Each city and service page lists up to three companies checked against their own websites and BBB profiles. We do not copy star ratings or review counts, and we do not invent companies or prices. RoofingLists.com (with "ing") is a separate site and isn't affiliated with RoofLists.com, The Roofing List, or the companies it lists.
 
 ## Key pages
 - [Roofing in Dayton, OH](https://roofinglists.com/dayton-oh/)
@@ -13,5 +13,6 @@
 
 ## How requests work
 - Full method: https://roofinglists.com/how-we-list/
-- Quote forms are reviewed by A Team Contracting, usually within one business day. Contact: owner@ateamcontractings.com.
+- Each company card has a Request an estimate form. Requests go to the RoofingLists inbox (not straight to the company) and get a reply, usually within one business day.
+- Ohio has no state roofing contractor license; listings are ordered by where the company is based, years in business, and BBB accreditation.
 - No credit card and no obligation.

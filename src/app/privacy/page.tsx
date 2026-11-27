@@ -5,7 +5,7 @@ import { shareMeta } from "@/lib/share-meta";
 
 const title = `Privacy Policy, ${site.name}`;
 const description =
-  `How ${site.name} collects quote-form data. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County requests stay with ${site.exclusiveContractor}.`;
+  `How ${site.name} collects quote and estimate request data, where it goes, and what we never do with it.`;
 
 export const metadata: Metadata = {
   title,
@@ -24,10 +24,8 @@ export default function PrivacyPage() {
       <Disclosure className="mt-4" />
       <p className="mt-4 leading-7">
         {site.name} ({site.domain}) is a directory. We collect information so
-        we can hold a quote request. Dayton / Miami Valley, Columbus /
-        Franklin County, and Cincinnati / Hamilton County requests stay with{" "}
-        {site.exclusiveContractor}. We do not sell those leads to other
-        contractors.
+        we can follow up on a quote or estimate request. We are not affiliated
+        with the roofing companies we list, and we do not sell your request.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">What we collect</h2>
@@ -36,7 +34,10 @@ export default function PrivacyPage() {
         and privacy consent; optional SMS consent; optional name, last name,
         roof type, roof age, and message behind More details. Hidden fields may
         include page URL, city, city slug, state, service, listing id, source,
-        gclid, utm_source, utm_medium, and utm_campaign.
+        gclid, utm_source, utm_medium, and utm_campaign. From a Request an
+        estimate form on a company card: name, phone, optional email, address
+        or ZIP, an optional job note, plus hidden fields for the company name,
+        its BBB profile URL, the page URL, city, and service.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">How we use it</h2>
@@ -45,16 +46,15 @@ export default function PrivacyPage() {
         <a href={`mailto:${site.leadsEmail}`} className="underline">
           {site.leadsEmail}
         </a>
-        . Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati /
-        Hamilton County requests stay with {site.exclusiveContractor} at that
-        inbox. We do not sell those Ohio leads. For now the
-        inbox is {site.leadsEmail} only.
+        . We use it to follow up on your request. If you asked for an estimate
+        from a listed company, we may pass your contact details and job note to
+        that company so it can reach you. We do not sell your request.
       </p>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">SMS</h2>
       <p className="mt-3 leading-7">
-        SMS consent is optional. If you check it, {site.exclusiveContractor} may
-        text you about that job. Consent is not a condition of submitting the
+        SMS consent is optional. If you check it, we may text you about that
+        request. Consent is not a condition of submitting the
         form.
       </p>
 
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
         <li>We do not take card numbers on this site.</li>
         <li>We do not sell a public people-search list of form submitters.</li>
         <li>We do not publish your request on the city page.</li>
-        <li>We do not sell Dayton, Columbus, or Cincinnati quote requests to other contractors.</li>
+        <li>We do not sell quote or estimate requests.</li>
       </ul>
 
       <h2 className="mt-8 font-heading text-2xl font-semibold">Contact</h2>
