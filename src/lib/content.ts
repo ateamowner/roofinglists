@@ -227,7 +227,7 @@ export function homeFaqs(): Faq[] {
     },
     {
       question: `How do contractors get listed on ${site.name}?`,
-      answer: `Listings are editorial and free. We add a company after checking its own website and BBB profile. Featured (paid placement) is $99/month for an approved contractor outside Dayton, Columbus, and Cincinnati. Corrections go to ${site.leadsEmail}.`,
+      answer: `Listings are editorial and free. We add a company after checking its own website and BBB profile. Featured (paid placement) is $99/month for an approved contractor outside Dayton, Columbus, and Cincinnati. Send corrections through the quote form on this page.`,
     },
   ];
 }
@@ -252,7 +252,7 @@ export function hubFaqs(city: City): Faq[] {
     },
     {
       question: `How do contractors get on this ${city.name} page?`,
-      answer: `We add a company after checking its own website and BBB profile, including whether it serves ${city.name}. Listings are free. Corrections go to ${site.leadsEmail}.`,
+      answer: `We add a company after checking its own website and BBB profile, including whether it serves ${city.name}. Listings are free. Send corrections through the quote form on this page.`,
     },
   ];
 }
