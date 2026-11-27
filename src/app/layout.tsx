@@ -22,11 +22,14 @@ const serif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `Roofing Quotes in Dayton, Columbus & Cincinnati | ${site.name}`,
+    default: `Roofing Companies in Dayton, Columbus & Cincinnati`,
     template: `%s`,
   },
   description: site.description,
   applicationName: site.name,
+  icons: {
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+  },
   openGraph: {
     siteName: site.name,
     type: "website",
