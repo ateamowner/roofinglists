@@ -1,12 +1,12 @@
 import Link from "next/link";
+import { EstimateRequest } from "@/components/estimate-request";
 import {
-  inHouseCoverageLabel,
-  isInHouseLead,
   listingsEmptyFollowUp,
   listingsEmptyNote,
   listingsHoldNote,
   site,
   type City,
+  type Service,
 } from "@/config/site";
 import type { Listing } from "@/types/listing";
 
@@ -16,53 +16,39 @@ const TIER_LABEL: Record<Listing["tier"], string> = {
   standard: "Listing",
 };
 
+function formatDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${m}/${d}/${y}`;
+}
+
 export function ListingsBlock({
   listings,
   city,
+  service,
 }: {
   listings: Listing[];
   city: City;
+  service: Service;
 }) {
-  if (listings.length === 0 && isInHouseLead(city)) {
+  if (listings.length === 0) {
     return (
       <section id="listings" className="mt-10">
         <h2 className="font-heading text-xl font-semibold sm:text-2xl">
-          How {city.name} quote requests are handled
+          {`${service.name} companies in ${city.name}`}
         </h2>
         <div className="mt-4 rounded-[14px] border border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
           <p className="font-heading text-lg font-semibold leading-[26px]">
-            Quote requests in {inHouseCoverageLabel(city)} are reviewed by{" "}
-            {site.exclusiveContractor}, a local Ohio roofing contractor.
+            {listingsEmptyNote(city)}
           </p>
           <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
-            Send the short form or call. You get a callback, usually within one
-            business day. No credit card, no obligation, and your request is
-            never sold.
+            {listingsEmptyFollowUp()}. No credit card, no obligation.
           </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <a
-              href="#quote"
-              className="inline-flex h-11 items-center justify-center rounded-[14px] bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
-            >
-              Get a roof quote
-            </a>
-            <a
-              href={site.publicPhoneHref}
-              className="inline-flex h-11 items-center justify-center rounded-[14px] border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              Call or text {site.publicPhone}
-            </a>
-          </div>
-          <p className="mt-4 text-sm leading-[22px] text-muted-foreground">
-            Disclosure: {site.exclusiveContractor}, a local Ohio roofing
-            contractor, handles quote requests in this area. Those requests are
-            not sold to other contractors.
-          </p>
-          <p className="mt-4 text-sm leading-[22px] text-muted-foreground">
-            <Link href="/how-we-list/" className="underline underline-offset-2">
-              How RoofingLists works
-            </Link>
-          </p>
+          <a
+            href="#quote"
+            className="mt-4 inline-flex h-11 items-center justify-center rounded-[14px] bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
+          >
+            Get a roof quote
+          </a>
         </div>
       </section>
     );
@@ -71,126 +57,132 @@ export function ListingsBlock({
   return (
     <section id="listings" className="mt-10">
       <h2 className="font-heading text-xl font-semibold sm:text-2xl">
-        Listings on this URL
+        {`${service.name} companies in ${city.name}`}
       </h2>
-      <p className="mt-2 text-sm leading-[26px] text-muted-foreground">
+      <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
         {listingsHoldNote(city)}{" "}
         <Link href="/how-we-list/" className="underline underline-offset-2">
-          How RoofingLists works
+          How we list companies
         </Link>
       </p>
-
-      {listings.length === 0 ? (
-        <div className="mt-4 rounded-[14px] border border-dashed border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]">
-          <p className="font-heading text-lg font-semibold leading-[26px]">
-            {listingsEmptyNote(city)}
-          </p>
-          <p className="mt-2 text-sm leading-[22px] text-muted-foreground">
-            {listingsEmptyFollowUp()}
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <a
-              href="#quote"
-              className="inline-flex h-11 items-center justify-center rounded-[14px] bg-primary px-4 text-[15px] font-medium leading-5 text-primary-foreground hover:bg-primary/90"
-            >
-              Request a callback
-            </a>
-            <Link
-              href="/for-pros/"
-              className="inline-flex h-11 items-center justify-center rounded-[14px] border border-primary px-4 text-[15px] font-medium leading-5 text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              Get Featured ($99/month)
-            </Link>
-          </div>
-          {isInHouseLead(city) ? (
-            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
-              Disclosure: {city.name} quote requests are handled by{" "}
-              {site.exclusiveContractor} and are not sold to other contractors.
-            </p>
-          ) : (
-            <p className="mt-3 text-[13px] leading-[18px] text-muted-foreground">
-              Featured spots, when they exist, are labeled{" "}
-              <span className="font-semibold">Featured (paid placement)</span>.
-            </p>
-          )}
-        </div>
-      ) : (
-        <ul className="mt-4 space-y-3">
-          {listings.map((listing) => (
-            <li
-              key={`${listing.tier}-${listing.name}`}
-              className="rounded-lg border border-border bg-card p-4"
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                {listing.tier !== "standard" ? (
-                  <span
-                    className={
-                      listing.tier === "featured"
-                        ? "rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground"
-                        : "rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground"
-                    }
-                  >
-                    {TIER_LABEL[listing.tier]}
-                  </span>
-                ) : (
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {TIER_LABEL.standard}
-                  </span>
-                )}
+      <ol className="mt-4 space-y-4">
+        {listings.map((listing) => (
+          <li
+            key={`${listing.tier}-${listing.name}`}
+            className="rounded-[14px] border border-border bg-card p-5 shadow-[0_12px_32px_rgba(19,32,43,0.10)]"
+          >
+            <span className="text-xs font-medium text-muted-foreground">
+              {TIER_LABEL[listing.tier]}
+              {listing.rank ? ` #${listing.rank}` : ""}
+            </span>
+            <h3 className="mt-1 font-heading text-lg font-semibold">
+              <a
+                href={listing.profile_url}
+                className="hover:underline"
+                rel="nofollow noopener"
+                target="_blank"
+              >
+                {listing.name}
+              </a>
+            </h3>
+            {listing.blurb ? (
+              <p className="mt-1 text-sm leading-[22px] text-muted-foreground">
+                {listing.blurb}
+              </p>
+            ) : null}
+            <dl className="mt-3 grid gap-1 text-sm">
+              {listing.address ? (
+                <div>
+                  <dt className="inline font-medium">Address: </dt>
+                  <dd className="inline">
+                    {listing.address.street}, {listing.address.locality},{" "}
+                    {listing.address.region} {listing.address.postal_code}
+                  </dd>
+                </div>
+              ) : null}
+              {listing.phone ? (
+                <div>
+                  <dt className="inline font-medium">Phone: </dt>
+                  <dd className="inline">
+                    <a
+                      href={`tel:+1${listing.phone.replace(/\D/g, "")}`}
+                      className="underline"
+                    >
+                      {listing.phone}
+                    </a>
+                  </dd>
+                </div>
+              ) : null}
+              {listing.year_started ? (
+                <div>
+                  <dt className="inline font-medium">In business since: </dt>
+                  <dd className="inline">{listing.year_started}</dd>
+                </div>
+              ) : null}
+              {listing.bbb_accredited ? (
+                <div>
+                  <dt className="inline font-medium">BBB: </dt>
+                  <dd className="inline">
+                    Accredited Business
+                    {listing.bbb_accredited_since
+                      ? ` since ${formatDate(listing.bbb_accredited_since)}`
+                      : ""}
+                  </dd>
+                </div>
+              ) : null}
+              {listing.areas_served.length > 0 ? (
+                <div>
+                  <dt className="inline font-medium">Areas served: </dt>
+                  <dd className="inline">{listing.areas_served.join(", ")}</dd>
+                </div>
+              ) : null}
+              <div>
+                <dt className="inline font-medium">License: </dt>
+                <dd className="inline">
+                  {listing.license_id ||
+                    listing.license_note ||
+                    "Not shown. Ask the company."}
+                </dd>
               </div>
-              <h3 className="mt-2 font-heading text-lg font-semibold">
-                {listing.profile_url ? (
-                  <a href={listing.profile_url} className="hover:underline">
-                    {listing.name}
-                  </a>
-                ) : (
-                  listing.name
-                )}
-              </h3>
-              {listing.blurb ? (
-                <p className="mt-1 text-sm text-muted-foreground">{listing.blurb}</p>
-              ) : null}
-              <dl className="mt-3 grid gap-1 text-sm">
-                {listing.areas_served.length > 0 ? (
-                  <div>
-                    <dt className="inline font-medium">Areas served: </dt>
-                    <dd className="inline">{listing.areas_served.join(", ")}</dd>
-                  </div>
+            </dl>
+            <p className="mt-3">
+              <a
+                href={listing.profile_url}
+                className="text-sm font-medium underline underline-offset-2"
+                rel="nofollow noopener"
+                target="_blank"
+              >
+                View {listing.name} on BBB
+              </a>
+            </p>
+            <EstimateRequest listing={listing} city={city} service={service} />
+            {listing.sources && listing.sources.length > 0 ? (
+              <details className="mt-3 text-xs leading-5 text-muted-foreground">
+                <summary className="cursor-pointer">Sources and notes</summary>
+                {listing.ranking_basis ? <p className="mt-2">{listing.ranking_basis}</p> : null}
+                <ul className="mt-2 space-y-1 break-all">
+                  {listing.sources.map((source) => (
+                    <li key={source.url}>
+                      {source.label}, checked {formatDate(source.checked)}: {source.url}
+                    </li>
+                  ))}
+                </ul>
+                {listing.notes && listing.notes.length > 0 ? (
+                  <ul className="mt-2 list-disc space-y-1 pl-4">
+                    {listing.notes.map((note) => (
+                      <li key={note}>{note}</li>
+                    ))}
+                  </ul>
                 ) : null}
-                {listing.phone ? (
-                  <div>
-                    <dt className="inline font-medium">Phone: </dt>
-                    <dd className="inline">
-                      <a
-                        href={`tel:${listing.phone.replace(/\D/g, "")}`}
-                        className="underline"
-                      >
-                        {listing.phone}
-                      </a>
-                    </dd>
-                  </div>
-                ) : null}
-                {listing.license_id ? (
-                  <div>
-                    <dt className="inline font-medium">License: </dt>
-                    <dd className="inline">{listing.license_id}</dd>
-                  </div>
-                ) : null}
-              </dl>
-              {listing.name ? (
-                <p className="mt-3">
-                  <a
-                    href="#quote"
-                    className="text-sm font-medium underline-offset-2 hover:underline"
-                  >
-                    Request a quote and mention this listing
-                  </a>
-                </p>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      )}
+              </details>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+      <p className="mt-4 text-xs leading-5 text-muted-foreground">
+        {site.name} does not copy star ratings or review counts. Each company
+        name links to its own BBB profile, where you can read its record.
+      </p>
     </section>
   );
 }

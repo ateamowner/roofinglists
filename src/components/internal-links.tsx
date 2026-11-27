@@ -1,10 +1,8 @@
 import Link from "next/link";
 import {
   getNearbyCities,
-  lockedH1,
   servicePath,
   services,
-  site,
   type City,
   type Service,
 } from "@/config/site";
@@ -34,7 +32,7 @@ export function NearbyCityLinks({
               href={servicePath(item, defaultService)}
               className="inline-flex min-h-10 items-center underline-offset-2 hover:underline"
             >
-              {lockedH1(defaultService, item)}
+              {`${defaultService.name} in ${item.name}, ${item.stateAbbr}`}
             </Link>
           </li>
         ))}
@@ -64,7 +62,7 @@ export function RelatedServiceLinks({
               href={servicePath(city, item)}
               className="inline-flex min-h-10 items-center underline-offset-2 hover:underline"
             >
-              Best {item.name} in {city.name}, {site.year}
+              {`${item.name} in ${city.name}, ${city.stateAbbr}`}
             </Link>
           </li>
         ))}

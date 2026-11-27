@@ -15,21 +15,18 @@ export const site = {
   formRedirect: "https://roofinglists.com/request-sent/",
   tagline: "A directory of roofing companies. Not the contractor on the listing.",
   year: 2026,
-  /** Reserved contractor for Dayton, Columbus, and Cincinnati in-house coverage. */
-  exclusiveContractor: "A Team Contracting",
   description:
-    "RoofingLists publishes roofing guides and city quote pages for Dayton, Columbus, and Cincinnati. We don't invent company names, star ratings, or prices. Paid spots, when they exist, are labeled. Not a contractor.",
+    "Verified roofing companies in Dayton, Columbus, and Cincinnati, checked against each company's own site and BBB profile. No copied ratings. Not a contractor.",
   disclosure:
-    "Disclosure: A Team Contracting, a local Ohio roofing contractor, handles quote requests in Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County. Those requests are not sold to other contractors. Paid spots, when they exist, are labeled.",
+    "Disclosure: RoofingLists is an independent directory, not a roofing contractor, and is not affiliated with the companies listed. Listings are free and editorial. Estimate requests sent through this site go to the RoofingLists inbox, not straight to the company. Paid spots, when they exist, are labeled.",
   /** Locked homepage + city-page trust chips. Do not invent variants. */
   trustStrip: [
     "No credit card",
     "No obligation",
     "Reply within 1 business day",
   ] as const,
-  /** Public A Team phone for in-house roof requests (same destination as the form). */
-  publicPhone: "(937) 777-9093",
-  publicPhoneHref: "tel:+19377779093",
+  /** Date the listed companies were last checked against their own site and BBB profile. */
+  listingsCheckedOn: "Nov 27, 2026",
   theme: {
     background: "#f4efe8",
     foreground: "#1c1916",
@@ -51,7 +48,7 @@ export type ListingTier = "standard" | "featured" | "exclusive";
 
 export type CityStatus = "live" | "coming_soon";
 
-/** Dayton ring, Columbus, and Cincinnati are in-house A Team leads. `national` is outside those rings. */
+/** Dayton ring, Columbus, and Cincinnati. `national` is outside those rings. */
 export type CityRegion = "dayton" | "columbus" | "cincinnati" | "national";
 
 export type City = {
@@ -62,7 +59,7 @@ export type City = {
   status: CityStatus;
   nearbySlugs: string[];
   parentSlug?: string;
-  /** Defaults to dayton (in-house). Set columbus or cincinnati for those hubs, also in-house. Set national for markets outside those rings. */
+  /** Defaults to dayton. Set columbus or cincinnati for those hubs. Set national for markets outside those rings. */
   region?: CityRegion;
   /** Public geographic context used in hub copy. Not pricing. */
   setting: string;
@@ -977,7 +974,7 @@ export const cities: City[] = [
       "grove-city-oh",
     ],
     setting:
-      "Need a roofer in Pickerington? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. Pickerington is a southeast Columbus suburb, mostly in Fairfield County with a Franklin County edge. Roofs here run from older homes around Olde Pickerington Village and Refugee Road to 1990s and later subdivisions off Diley Road, in Violet Township, and along US-33. Many bills show AEP Ohio and some Violet Township edges show South Central Power, so check your bill.",
+      "Need a roofer in Pickerington? Pick the service below, compare the listed companies, and request an estimate. Pickerington is a southeast Columbus suburb, mostly in Fairfield County with a Franklin County edge. Roofs here run from older homes around Olde Pickerington Village and Refugee Road to 1990s and later subdivisions off Diley Road, in Violet Township, and along US-33. Many bills show AEP Ohio and some Violet Township edges show South Central Power, so check your bill.",
     roofs:
       "Nearly all are asphalt or architectural shingle roofs, and many are now due for their first replacement.",
     housing:
@@ -1002,7 +999,7 @@ export const cities: City[] = [
       "reynoldsburg-oh",
     ],
     setting:
-      "Need a roofer in New Albany? Pick the service below, send the quote form with a photo, and A Team Contracting follows up on the request. New Albany is a northeast Columbus suburb on the Franklin–Licking County edge, built around the Village Center / Market Street core and later planned neighborhoods off Route 161, Morse Road, Beech Road, and Central College Road. Those streets replace German Village alleys and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Reynoldsburg Main Street / Brice Road pitch. AEP Ohio is the usual electric utility on the bill; some Licking County edges print a co-op, confirm on the bill.",
+      "Need a roofer in New Albany? Pick the service below, compare the listed companies, and request an estimate. New Albany is a northeast Columbus suburb on the Franklin–Licking County edge, built around the Village Center / Market Street core and later planned neighborhoods off Route 161, Morse Road, Beech Road, and Central College Road. Those streets replace German Village alleys and are not a Gahanna Olde Gahanna / Hamilton Road plane, a Westerville Uptown / State Street walk, or a Reynoldsburg Main Street / Brice Road pitch. AEP Ohio is the usual electric utility on the bill; some Licking County edges print a co-op, confirm on the bill.",
     roofs:
       "Mostly architectural and asphalt shingles on larger planned-community two-stories and colonials; Village Center–adjacent stock can carry older asphalt. Slate leftovers are far less common than Clintonville or German Village.",
     housing:
@@ -1047,22 +1044,22 @@ export const cityRegionHeadings: Record<
   dayton: {
     heading: "Dayton-area cities",
     intro:
-      "Live Miami Valley markets. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests in this ring stay with A Team Contracting.",
+      "Live Miami Valley markets. Each hub links roof repair, replacement, storm damage, and inspection pages with verified local roofing companies.",
   },
   columbus: {
     heading: "Columbus / Franklin County",
     intro:
-      "Live Central Ohio markets. Each hub links roof repair, replacement, storm damage, and inspection. Nearby links only point at cities that already exist on this site. Quote requests stay with A Team Contracting. We do not sell those leads.",
+      "Live Central Ohio markets. Each hub links roof repair, replacement, storm damage, and inspection pages with verified Columbus-area roofing companies. Nearby links only point at cities that already exist on this site.",
   },
   cincinnati: {
     heading: "Cincinnati / Hamilton County",
     intro:
-      "Live Southwest Ohio hub. Nearby links only point at cities that already exist on this site, Cincinnati has no nearby city page yet. Quote requests stay with A Team Contracting. We do not sell those leads.",
+      "Live Southwest Ohio hub with verified Cincinnati roofing companies. Cincinnati has no nearby city page yet.",
   },
   national: {
     heading: "Other markets",
     intro:
-      "Live markets outside the Dayton, Columbus, and Cincinnati in-house rings. Each hub links roof repair, replacement, storm damage, and inspection. Quote requests go to the directory inbox.",
+      "Live markets outside Dayton, Columbus, and Cincinnati. Each hub links roof repair, replacement, storm damage, and inspection.",
   },
 };
 
@@ -1072,23 +1069,6 @@ export function cityRegion(city: City): CityRegion {
 
 export function isDaytonExclusive(city: City): boolean {
   return cityRegion(city) === "dayton";
-}
-
-/** Only Dayton ring, Columbus, and Cincinnati stay with A Team. National markets are not exclusive. */
-export function isInHouseLead(city: City): boolean {
-  const region = cityRegion(city);
-  return (
-    region === "dayton" || region === "columbus" || region === "cincinnati"
-  );
-}
-
-export function inHouseCoverageLabel(city: City): string {
-  const region = cityRegion(city);
-  if (region === "dayton") return "Dayton / Miami Valley";
-  if (region === "columbus") return `${city.name} / Franklin County`;
-  if (region === "cincinnati") return `${city.name} / Hamilton County`;
-  if (city.slug === "syracuse-ny") return `${city.name} / Onondaga County`;
-  return `${city.name} / Dane County`;
 }
 
 export function regionLabel(city: City): string {
@@ -1108,38 +1088,29 @@ export function citiesInRegion(region: CityRegion): City[] {
   );
 }
 
-export function listingsHoldNote(city: City): string {
-  if (isInHouseLead(city)) {
-    return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. Paid spots, when they exist, are labeled. Disclosure: ${inHouseCoverageLabel(city)} quote requests are handled by ${site.exclusiveContractor} and are not sold to other contractors.`;
-  }
-  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. ${city.name} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
+export function listingsHoldNote(_city: City): string {
+  return `${site.name} does not invent company names, phone numbers, licenses, star ratings, or city prices. Every company below was checked against its own website and its BBB profile (${site.listingsCheckedOn}). Ohio has no state roofing license, so there is no state license number to show. Paid spots, when they exist, are labeled.`;
 }
 
 export function listingsEmptyNote(_city: City): string {
-  return "We are still verifying roofing companies for this city. Send a request and we will follow up.";
+  return "We are still verifying roofing companies for this page. Send a request and we will follow up.";
 }
 
 export function listingsEmptyFollowUp(): string {
   return "Usually follow up within one business day";
 }
 
-/** City-page disclosure. In-house cities keep exclusive language; national markets do not. */
+/** City-page disclosure. Same for every market: independent directory, not affiliated with listed companies. */
 export function pageDisclosure(city: City): string {
-  if (isInHouseLead(city)) {
-    return `Disclosure: ${site.exclusiveContractor}, a local Ohio roofing contractor, handles ${inHouseCoverageLabel(city)} quote requests. Those requests are not sold to other contractors. Paid spots, when they exist, are labeled.`;
-  }
-  return `Disclosure: ${site.name} is a directory. ${city.name}, ${city.stateAbbr} quote requests go to ${site.leadsEmail}. Paid spots, when they exist, are labeled.`;
+  return `Disclosure: ${site.name} is an independent directory, not a roofing contractor, and is not affiliated with the ${city.name} companies listed. Listings are free and editorial. Estimate requests sent through this page go to the ${site.name} inbox, not straight to the company. Paid spots, when they exist, are labeled.`;
 }
 
-/** Sidebar copy on the quote form. Homepage (no city) names the OH in-house rings. */
+/** Sidebar copy on the quote form. */
 export function formLeadNote(city?: City): string {
   if (city) {
-    if (isInHouseLead(city)) {
-      return `No credit card, no obligation. ${site.exclusiveContractor} reviews every ${inHouseCoverageLabel(city)} roof request and calls you back, usually within one business day. Prefer to talk? Call or text ${site.publicPhone}. We never sell your request.`;
-    }
-    return `No credit card. ${city.name} requests go to ${site.leadsEmail}.`;
+    return `No credit card, no obligation. Your ${city.name} request goes to the ${site.name} inbox, and we follow up, usually within one business day. To reach a listed company directly, use the phone number on its card. We never sell your request.`;
   }
-  return `No credit card, no obligation. Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County roof requests go to ${site.exclusiveContractor}, who calls you back, usually within one business day. Prefer to talk? Call or text ${site.publicPhone}. We never sell your request.`;
+  return `No credit card, no obligation. Your request goes to the ${site.name} inbox, and we follow up, usually within one business day. To reach a listed company directly, use the phone number on its card. We never sell your request.`;
 }
 
 export const liveCitySlugs = cities
@@ -1199,7 +1170,7 @@ export function hubTitle(city: City): string {
     `Best Roofing Companies in ${city.name}, ${city.stateAbbr}: Repair & Replacement`,
     `Best Roofing Companies in ${city.name}, ${city.stateAbbr}: Roofing Guide`,
   ];
-  return options.find((title) => title.length <= 65) ?? `Best Roofing Companies in ${city.name}, ${city.stateAbbr}`;
+  return options.find((title) => title.length <= 60) ?? `Best Roofing Companies in ${city.name}, ${city.stateAbbr}`;
 }
 
 /** Search-style noun per service for title tags ("Best Plumbers", not "Best Plumbing"). */
@@ -1218,7 +1189,7 @@ export function pageTitle(service: Service, city: City): string {
     `Best ${noun} in ${city.name}, ${city.stateAbbr}`,
     `Best ${service.name} in ${city.name}, ${city.stateAbbr}`,
   ];
-  return options.find((title) => title.length <= 65) ?? lockedH1(service, city);
+  return options.find((title) => title.length <= 60) ?? `Best ${service.name} in ${city.name}, ${city.stateAbbr}`;
 }
 
 export const costGuide = {

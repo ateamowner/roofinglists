@@ -11,12 +11,11 @@ export function ForProsBand() {
         For roofing companies
       </h2>
       <p className="mt-3 max-w-3xl text-base leading-[26px] text-muted-foreground">
-        Featured (paid placement) is $99/month for markets outside Dayton,
-        Columbus, and Cincinnati. {site.exclusiveContractor} covers Dayton /
-        Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton
-        County at {site.leadsEmail}. Those inbound quotes stay in-house. They
-        are never sold to other contractors. We do not invent companies to
-        fill a page.
+        Listings on Dayton, Columbus, and Cincinnati pages are free and
+        editorial: we add a company after checking its own website and BBB
+        profile. Featured (paid placement) is $99/month for markets outside
+        Dayton, Columbus, and Cincinnati. We do not invent companies to fill a
+        page. Corrections go to {site.leadsEmail}.
       </p>
       <p className="mt-4">
         <Link

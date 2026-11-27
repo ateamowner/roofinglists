@@ -1,16 +1,14 @@
 import {
-  isInHouseLead,
   lockedH1,
   site,
   type City,
   type Service,
 } from "@/config/site";
 import type { Faq } from "@/lib/content";
+import type { Listing } from "@/types/listing";
 
 export function publisherLocalBusiness(city: City) {
-  const leadLine = isInHouseLead(city)
-    ? `Disclosure: ${site.exclusiveContractor}, a local Ohio roofing contractor, handles quote requests in Dayton / Miami Valley, Columbus / Franklin County, and Cincinnati / Hamilton County. Those requests are not sold to other contractors.`
-    : `${city.name} quote requests go to ${site.leadsEmail}.`;
+  const leadLine = `It is not affiliated with the ${city.name} companies it lists.`;
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -116,4 +114,54 @@ export function hubBreadcrumbs(city: City) {
 
 export function servicePageHeadline(city: City, service: Service) {
   return lockedH1(service, city);
+}
+
+/** ItemList of the verified roofing companies on a city × service page. Never AggregateRating or Review. Empty → null. */
+export function listingsItemListSchema(
+  city: City,
+  service: Service,
+  listings: Listing[]
+) {
+  if (!listings.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${service.name} companies in ${city.name}, ${city.stateAbbr}`,
+    numberOfItems: listings.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: listings.map((listing, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "RoofingContractor",
+        name: listing.name,
+        ...(listing.legal_name && listing.legal_name !== listing.name
+          ? { legalName: listing.legal_name }
+          : {}),
+        telephone: listing.phone,
+        description: listing.blurb,
+        ...(listing.website ? { url: listing.website } : {}),
+        sameAs: [listing.profile_url],
+        ...(listing.address
+          ? {
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: listing.address.street,
+                addressLocality: listing.address.locality,
+                addressRegion: listing.address.region,
+                postalCode: listing.address.postal_code,
+                addressCountry: "US",
+              },
+            }
+          : {}),
+        ...(listing.year_started
+          ? { foundingDate: String(listing.year_started) }
+          : {}),
+        areaServed: listing.areas_served.map((area) => ({
+          "@type": area.endsWith("County") ? "AdministrativeArea" : "City",
+          name: area,
+        })),
+      },
+    })),
+  };
 }
